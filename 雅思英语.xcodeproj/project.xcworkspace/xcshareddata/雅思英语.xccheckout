@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>DCB8ED83-20AA-4C0A-BACB-F668B23C3B79</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D1A1FF3EBD55F85CE23EEB765E8069A8418ACA8E</key>
+		<string>https://github.com/bingying1987/-.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>雅思英语.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D1A1FF3EBD55F85CE23EEB765E8069A8418ACA8E</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/bingying1987/-.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D1A1FF3EBD55F85CE23EEB765E8069A8418ACA8E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D1A1FF3EBD55F85CE23EEB765E8069A8418ACA8E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>%E9%9B%85%E6%80%9D%E8%8B%B1%E8%AF%AD</string>
+		</dict>
+	</array>
+</dict>
+</plist>

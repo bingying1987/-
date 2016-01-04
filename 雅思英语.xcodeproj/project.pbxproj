@@ -14,6 +14,7 @@
 		04C723A31C3A484900A3D085 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C723A21C3A484900A3D085 /* Images.xcassets */; };
 		04C723A61C3A484900A3D085 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C723A41C3A484900A3D085 /* LaunchScreen.xib */; };
 		04C723B21C3A484900A3D085 /* ____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C723B11C3A484900A3D085 /* ____Tests.m */; };
+		04C723BE1C3A4FCB00A3D085 /* begin_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04C723BD1C3A4FCB00A3D085 /* begin_bg@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		04C723AB1C3A484900A3D085 /* 雅思英语Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "雅思英语Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C723B01C3A484900A3D085 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04C723B11C3A484900A3D085 /* ____Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "____Tests.m"; sourceTree = "<group>"; };
+		04C723BD1C3A4FCB00A3D085 /* begin_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "begin_bg@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		04C723941C3A484900A3D085 /* 雅思英语 */ = {
 			isa = PBXGroup;
 			children = (
+				04C723BB1C3A4FA600A3D085 /* img */,
 				04C723991C3A484900A3D085 /* AppDelegate.h */,
 				04C7239A1C3A484900A3D085 /* AppDelegate.m */,
 				04C7239C1C3A484900A3D085 /* ViewController.h */,
@@ -117,6 +120,30 @@
 				04C723B01C3A484900A3D085 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		04C723BB1C3A4FA600A3D085 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				04C723BF1C3A634E00A3D085 /* LoginPage */,
+				04C723BC1C3A4FB000A3D085 /* MainPage */,
+			);
+			name = img;
+			sourceTree = "<group>";
+		};
+		04C723BC1C3A4FB000A3D085 /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				04C723BD1C3A4FCB00A3D085 /* begin_bg@2x.png */,
+			);
+			name = MainPage;
+			sourceTree = "<group>";
+		};
+		04C723BF1C3A634E00A3D085 /* LoginPage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = LoginPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04C723A11C3A484900A3D085 /* Main.storyboard in Resources */,
+				04C723BE1C3A4FCB00A3D085 /* begin_bg@2x.png in Resources */,
 				04C723A61C3A484900A3D085 /* LaunchScreen.xib in Resources */,
 				04C723A31C3A484900A3D085 /* Images.xcassets in Resources */,
 			);
@@ -350,6 +378,7 @@
 				INFOPLIST_FILE = "雅思英语/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -360,6 +389,7 @@
 				INFOPLIST_FILE = "雅思英语/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
