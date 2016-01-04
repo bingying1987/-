@@ -1,13 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7Pc-iV-8nM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="RZm-kC-CXp">
+            <objects>
+                <navigationController id="7Pc-iV-8nM" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yvf-qo-oRs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="r68-tc-oEa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ful-X8-Iev" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1249" y="167"/>
+        </scene>
+        <!--Login-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginView" title="用户登录" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vXZ-lx-hvc" userLabel="Login" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -16,26 +35,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z0v-qX-USC">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="Z0v-qX-USC">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHC-Cc-7Ig">
-                                <rect key="frame" x="236" y="508" width="37" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="用户手机号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mrh-Sf-X0I">
+                                <rect key="frame" x="90" y="134" width="140" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZEH-E3-3xX">
+                                <rect key="frame" x="90" y="172" width="140" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VuG-Sq-WN3">
+                                <rect key="frame" x="100" y="269" width="120" height="30"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZEH-E3-3xX" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="20V-O8-WB7"/>
+                            <constraint firstItem="VuG-Sq-WN3" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="48D-uV-RRA"/>
+                            <constraint firstItem="Z0v-qX-USC" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="4ue-XF-rAa"/>
+                            <constraint firstItem="mrh-Sf-X0I" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="90" id="5Yz-hq-9sH"/>
+                            <constraint firstItem="mrh-Sf-X0I" firstAttribute="bottom" secondItem="VuG-Sq-WN3" secondAttribute="bottom" constant="-135" id="JYp-go-Ju6"/>
+                            <constraint firstItem="VuG-Sq-WN3" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="WMc-O4-yUC"/>
+                            <constraint firstItem="mrh-Sf-X0I" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="dXe-xQ-rlD"/>
+                            <constraint firstAttribute="trailing" secondItem="mrh-Sf-X0I" secondAttribute="trailing" constant="90" id="duS-b9-zct"/>
+                            <constraint firstItem="ZEH-E3-3xX" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="90" id="jkf-Dk-Oug"/>
+                            <constraint firstItem="Z0v-qX-USC" firstAttribute="bottom" secondItem="kh9-bI-dsS" secondAttribute="bottom" id="o6u-sk-H2G"/>
+                            <constraint firstItem="Z0v-qX-USC" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailing" id="oM9-BT-G1p"/>
+                            <constraint firstItem="VuG-Sq-WN3" firstAttribute="bottom" secondItem="ZEH-E3-3xX" secondAttribute="bottom" constant="97" id="pgr-bj-MRB"/>
+                            <constraint firstAttribute="trailing" secondItem="ZEH-E3-3xX" secondAttribute="trailing" constant="90" id="sXm-96-gqS"/>
+                            <constraint firstItem="Z0v-qX-USC" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="uZj-Qf-6Jt"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="cK5-3t-ce1"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
+                    <connections>
+                        <outlet property="txt_Password" destination="ZEH-E3-3xX" id="cpT-ub-Vhn"/>
+                        <outlet property="txt_PhoneNum" destination="mrh-Sf-X0I" id="XXB-Oh-LfM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-124" y="167"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="login_bg.png" width="320" height="568"/>
+    </resources>
 </document>
