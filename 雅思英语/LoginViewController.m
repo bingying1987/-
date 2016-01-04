@@ -20,7 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     self.navigationItem.title = self.title;
+    
     
     UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"phone_num.png"]];
     CGRect rc = imgView.bounds;
@@ -43,6 +45,21 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)btn_UserReg:(id)sender {
+    UIViewController *ptmp = [self.storyboard instantiateViewControllerWithIdentifier:@"userregView"];
+    [self.navigationController pushViewController:ptmp animated:YES];
+}
+
+- (IBAction)ResetPassWord:(id)sender {
+    UIViewController *ptmp = [self.storyboard instantiateViewControllerWithIdentifier:@"resetPWView"];
+    [self.navigationController pushViewController:ptmp animated:YES];
+}
+
+
+- (IBAction)dismissKeyBoard:(UITextField *)sender {
+    [self resignFirstResponder];
 }
 
 /*

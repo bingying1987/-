@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		043D4F971C3A9E790045EA89 /* UserRegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043D4F961C3A9E790045EA89 /* UserRegViewController.m */; };
+		043D4F9A1C3AA4330045EA89 /* username@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 043D4F991C3AA4330045EA89 /* username@2x.png */; };
+		043D4F9C1C3AA43D0045EA89 /* code@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 043D4F9B1C3AA43D0045EA89 /* code@2x.png */; };
+		043D4F9F1C3AAAD50045EA89 /* ResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043D4F9E1C3AAAD50045EA89 /* ResetPasswordViewController.m */; };
+		043D4FA11C3AB85B0045EA89 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 043D4FA01C3AB85B0045EA89 /* Default-568h@2x.png */; };
 		04C723981C3A484900A3D085 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C723971C3A484900A3D085 /* main.m */; };
 		04C7239B1C3A484900A3D085 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C7239A1C3A484900A3D085 /* AppDelegate.m */; };
 		04C7239E1C3A484900A3D085 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C7239D1C3A484900A3D085 /* ViewController.m */; };
@@ -33,6 +38,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		043D4F951C3A9E790045EA89 /* UserRegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRegViewController.h; sourceTree = "<group>"; };
+		043D4F961C3A9E790045EA89 /* UserRegViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserRegViewController.m; sourceTree = "<group>"; };
+		043D4F991C3AA4330045EA89 /* username@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "username@2x.png"; sourceTree = "<group>"; };
+		043D4F9B1C3AA43D0045EA89 /* code@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "code@2x.png"; sourceTree = "<group>"; };
+		043D4F9D1C3AAAD50045EA89 /* ResetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPasswordViewController.h; sourceTree = "<group>"; };
+		043D4F9E1C3AAAD50045EA89 /* ResetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPasswordViewController.m; sourceTree = "<group>"; };
+		043D4FA01C3AB85B0045EA89 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		04C723921C3A484900A3D085 /* 雅思英语.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "雅思英语.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C723961C3A484900A3D085 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04C723971C3A484900A3D085 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -73,6 +85,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		043D4F981C3AA2FC0045EA89 /* UserRegPage */ = {
+			isa = PBXGroup;
+			children = (
+				043D4F991C3AA4330045EA89 /* username@2x.png */,
+				043D4F9B1C3AA43D0045EA89 /* code@2x.png */,
+			);
+			name = UserRegPage;
+			sourceTree = "<group>";
+		};
 		04C723891C3A484900A3D085 = {
 			isa = PBXGroup;
 			children = (
@@ -95,11 +116,16 @@
 			isa = PBXGroup;
 			children = (
 				04C723BB1C3A4FA600A3D085 /* img */,
+				043D4FA01C3AB85B0045EA89 /* Default-568h@2x.png */,
 				04C723991C3A484900A3D085 /* AppDelegate.h */,
 				04C7239A1C3A484900A3D085 /* AppDelegate.m */,
 				04C7239C1C3A484900A3D085 /* ViewController.h */,
 				04C7239D1C3A484900A3D085 /* ViewController.m */,
 				04C7239F1C3A484900A3D085 /* Main.storyboard */,
+				043D4F9D1C3AAAD50045EA89 /* ResetPasswordViewController.h */,
+				043D4F9E1C3AAAD50045EA89 /* ResetPasswordViewController.m */,
+				043D4F951C3A9E790045EA89 /* UserRegViewController.h */,
+				043D4F961C3A9E790045EA89 /* UserRegViewController.m */,
 				04C723C91C3A6EF600A3D085 /* LoginViewController.h */,
 				04C723CA1C3A6EF600A3D085 /* LoginViewController.m */,
 				04C723A21C3A484900A3D085 /* Images.xcassets */,
@@ -138,6 +164,7 @@
 		04C723BB1C3A4FA600A3D085 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				043D4F981C3AA2FC0045EA89 /* UserRegPage */,
 				04C723C21C3A6B8700A3D085 /* Common */,
 				04C723BF1C3A634E00A3D085 /* LoginPage */,
 				04C723BC1C3A4FB000A3D085 /* MainPage */,
@@ -252,8 +279,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				04C723A11C3A484900A3D085 /* Main.storyboard in Resources */,
+				043D4FA11C3AB85B0045EA89 /* Default-568h@2x.png in Resources */,
 				04C723C71C3A6BC000A3D085 /* password@2x.png in Resources */,
+				043D4F9C1C3AA43D0045EA89 /* code@2x.png in Resources */,
 				04C723BE1C3A4FCB00A3D085 /* begin_bg@2x.png in Resources */,
+				043D4F9A1C3AA4330045EA89 /* username@2x.png in Resources */,
 				04C723C11C3A6B6B00A3D085 /* login_bg@2x.png in Resources */,
 				04C723C81C3A6BC000A3D085 /* phone_num@2x.png in Resources */,
 				04C723A61C3A484900A3D085 /* LaunchScreen.xib in Resources */,
@@ -277,6 +307,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				04C723CB1C3A6EF600A3D085 /* LoginViewController.m in Sources */,
+				043D4F9F1C3AAAD50045EA89 /* ResetPasswordViewController.m in Sources */,
+				043D4F971C3A9E790045EA89 /* UserRegViewController.m in Sources */,
 				04C7239E1C3A484900A3D085 /* ViewController.m in Sources */,
 				04C7239B1C3A484900A3D085 /* AppDelegate.m in Sources */,
 				04C723981C3A484900A3D085 /* main.m in Sources */,
@@ -405,7 +437,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: WeiRan Wu (E9D8A8MD59)";
 				INFOPLIST_FILE = "雅思英语/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -416,7 +452,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WeiRan Wu (Z78ADQB4F7)";
 				INFOPLIST_FILE = "雅思英语/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -476,6 +516,7 @@
 				04C723B71C3A484900A3D085 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		04C723B81C3A484900A3D085 /* Build configuration list for PBXNativeTarget "雅思英语Tests" */ = {
 			isa = XCConfigurationList;
@@ -484,6 +525,7 @@
 				04C723BA1C3A484900A3D085 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
