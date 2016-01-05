@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7Pc-iV-8nM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="93J-7P-hBB">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -181,6 +181,18 @@
                                 <state key="normal" title="注册" backgroundImage="btn_tijiao.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="UserRegBtn:" destination="cdH-yJ-I24" eventType="touchUpInside" id="2Zu-Kz-kOD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJ2-cv-LVt">
+                                <rect key="frame" x="258" y="210" width="46" height="30"/>
+                                <state key="normal" title="验证码">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getCode:" destination="cdH-yJ-I24" eventType="touchUpInside" id="xz0-fv-7u6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -397,15 +409,105 @@
                     <view key="view" contentMode="scaleToFill" id="Qm2-hV-NkX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bXV-Q6-bFd">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bXV-Q6-bFd" firstAttribute="top" secondItem="bP3-pQ-vLj" secondAttribute="bottom" id="6mT-7R-agF"/>
+                            <constraint firstItem="bXV-Q6-bFd" firstAttribute="leading" secondItem="Qm2-hV-NkX" secondAttribute="leading" id="DQQ-ei-gOP"/>
+                            <constraint firstAttribute="right" secondItem="bXV-Q6-bFd" secondAttribute="right" id="h0K-6c-XFL"/>
+                            <constraint firstAttribute="centerX" secondItem="bXV-Q6-bFd" secondAttribute="centerX" id="iek-QY-W1s"/>
+                            <constraint firstAttribute="bottom" secondItem="bXV-Q6-bFd" secondAttribute="bottom" id="vPZ-Jo-Lsa"/>
+                        </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
+                    <connections>
+                        <outlet property="scView" destination="bXV-Q6-bFd" id="VDm-i8-df6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SP6-Xl-NrT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="858" y="1442"/>
+        </scene>
+        <!--VIP课程报名-->
+        <scene sceneID="fwf-Z2-oeN">
+            <objects>
+                <viewController storyboardIdentifier="publicregView" title="VIP课程报名" useStoryboardIdentifierAsRestorationIdentifier="YES" id="93J-7P-hBB" customClass="PublicRegViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5tO-xA-L7i"/>
+                        <viewControllerLayoutGuide type="bottom" id="BJ4-hb-RuJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lkk-oU-815">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oQL-qf-5l9" userLabel="textName">
+                                <rect key="frame" x="16" y="90" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0LF-aK-Jqq" userLabel="textNicName">
+                                <rect key="frame" x="16" y="120" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N9q-Aq-dRv" userLabel="textPhoneNum">
+                                <rect key="frame" x="16" y="150" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="在线授课" borderStyle="line" placeholder="  " textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xc7-J5-Mqm" userLabel="textOnlineTeach">
+                                <rect key="frame" x="16" y="180" width="288" height="30"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uL4-kU-EaS">
+                                <rect key="frame" x="75" y="269" width="170" height="30"/>
+                                <state key="normal" title="确认报名" backgroundImage="btn_tijiao.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="uL4-kU-EaS" secondAttribute="centerY" id="264-0J-By6"/>
+                            <constraint firstItem="oQL-qf-5l9" firstAttribute="top" secondItem="5tO-xA-L7i" secondAttribute="bottom" constant="26" id="3SR-WH-iQg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uL4-kU-EaS" secondAttribute="trailing" constant="59" id="4KY-Wy-M7s"/>
+                            <constraint firstItem="N9q-Aq-dRv" firstAttribute="trailing" secondItem="lkk-oU-815" secondAttribute="trailingMargin" id="AeE-7K-Fap"/>
+                            <constraint firstAttribute="centerX" secondItem="oQL-qf-5l9" secondAttribute="centerX" id="BMN-Fi-Wn0"/>
+                            <constraint firstItem="Xc7-J5-Mqm" firstAttribute="leading" secondItem="lkk-oU-815" secondAttribute="leadingMargin" id="GoE-bq-8Ry"/>
+                            <constraint firstItem="N9q-Aq-dRv" firstAttribute="leading" secondItem="lkk-oU-815" secondAttribute="leadingMargin" id="I76-0V-qfV"/>
+                            <constraint firstItem="0LF-aK-Jqq" firstAttribute="leading" secondItem="lkk-oU-815" secondAttribute="leadingMargin" id="KkA-I1-Icr"/>
+                            <constraint firstItem="N9q-Aq-dRv" firstAttribute="top" secondItem="0LF-aK-Jqq" secondAttribute="bottom" id="M4C-U2-8u2"/>
+                            <constraint firstAttribute="centerX" secondItem="uL4-kU-EaS" secondAttribute="centerX" id="Qqb-cy-jsT"/>
+                            <constraint firstItem="Xc7-J5-Mqm" firstAttribute="trailing" secondItem="lkk-oU-815" secondAttribute="trailingMargin" id="Tfy-L8-Cf4"/>
+                            <constraint firstItem="oQL-qf-5l9" firstAttribute="leading" secondItem="lkk-oU-815" secondAttribute="leadingMargin" id="c0w-Th-8gE"/>
+                            <constraint firstItem="uL4-kU-EaS" firstAttribute="leading" secondItem="lkk-oU-815" secondAttribute="leadingMargin" constant="59" id="cXw-MR-IRu"/>
+                            <constraint firstItem="Xc7-J5-Mqm" firstAttribute="top" secondItem="N9q-Aq-dRv" secondAttribute="bottom" id="eGP-gq-5EO"/>
+                            <constraint firstItem="oQL-qf-5l9" firstAttribute="trailing" secondItem="lkk-oU-815" secondAttribute="trailingMargin" id="lXd-mh-p8a"/>
+                            <constraint firstItem="0LF-aK-Jqq" firstAttribute="trailing" secondItem="lkk-oU-815" secondAttribute="trailingMargin" id="wsl-vP-KrO"/>
+                            <constraint firstItem="0LF-aK-Jqq" firstAttribute="top" secondItem="oQL-qf-5l9" secondAttribute="bottom" id="x3C-Ix-OS2"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
+                    <connections>
+                        <outlet property="NicName" destination="0LF-aK-Jqq" id="qf8-Gc-Rkk"/>
+                        <outlet property="textName" destination="oQL-qf-5l9" id="TD2-4b-dRf"/>
+                        <outlet property="textOnlineTeach" destination="Xc7-J5-Mqm" id="kWB-gG-gFd"/>
+                        <outlet property="textPhoneNum" destination="N9q-Aq-dRv" id="cRq-7t-cxI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nuo-f1-SAV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="366" y="810"/>
         </scene>
     </scenes>
     <resources>

@@ -7,6 +7,8 @@
 //
 
 #import "UserRegViewController.h"
+#import "SMS_SDK/SMSSDK.h"
+#import "UIViewController+Json.h"
 
 @interface UserRegViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *txt_userName;
@@ -65,6 +67,88 @@
 - (IBAction)dismissKeyBoard:(UITextField *)sender {
     [sender resignFirstResponder];
 }
+
+- (IBAction)getCode:(id)sender {
+    if ([_txt_phoneNum.text  isEqual: @""]) {
+        return;
+    }
+    
+    if ([_txt_phoneNum.text length] != 11) {
+        return;
+    }
+    
+    [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:_txt_phoneNum.text zone:@"86" customIdentifier:nil result:^(NSError *error){
+            if (!error)
+            {
+                NSLog(@"获取验证码成功");
+            } else {
+                NSLog(@"错误信息：%@",error);
+            }
+    }];
+}
+
+- (IBAction)UserRegBtn:(id)sender {
+    if ([_txt_phoneNum.text  isEqual: @""]) {
+        return;
+    }
+    
+    if ([_txt_phoneNum.text length] != 11) {
+        return;
+    }
+    
+    if ([_txt_code.text isEqualToString:@""]) {
+        return;
+    }
+    
+    
+    
+    
+    /*
+    
+    [SMSSDK commitVerificationCode:_txt_code.text phoneNumber:_txt_phoneNum.text zone:@"86" result:^(NSError *error) {
+        
+        if (!error) {
+            NSLog(@"验证成功");
+            //跳转到主页
+        }
+        else
+        {
+            NSLog(@"错误信息:%@",error);
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"提示"
+            message:@"验证码验证失败"
+            delegate:self
+            cancelButtonTitle:@"确定"
+            otherButtonTitles:nil, nil];
+            [alert show];
+        }
+    }];
+    */
+    
+    NSString *path = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/registerOneUserInfoByPhone_Number?userInfo.account_number=%@&userInfo.phone_Number=%@&passWord=%@",_txt_userName.text,_txt_phoneNum.text,_txt_password.text];
+    NSDictionary *dic = [self GetJson:path];
+    if (dic == nil) {
+        return;
+    }
+    NSNumber* lat = [dic objectForKey:@"Result"];
+    if (lat.intValue == 1) {
+        return; //注册成功,跳转到主页
+    }
+    else
+    {
+        NSString *str1 = [dic objectForKey:@"Message"];
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                        message:str1
+                                                       delegate:self
+                                              cancelButtonTitle:@"确定"
+                                              otherButtonTitles:nil, nil];
+        [alert show];
+    }
+
+    
+}
+
+
+
 
 /*
 #pragma mark - Navigation

@@ -23,4 +23,34 @@
     
     return dic;
 }
+
+- (NSDictionary*)GetJsonConnect:(NSString *)Path
+{
+    /*
+    //初始化网络路径。
+    //初始化 url
+    NSURL* url = [NSURL URLWithString:Path];
+    if (url == nil) {
+        return nil;
+    }
+    NSURLRequest* request = [NSURLRequest requestWithURL:url];
+    //将请求到的字符串写到缓冲区。
+    
+    NSData* jsonData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    //解析json数据，使用系统方法 JSONObjectWithData:  options: error:
+    NSDictionary* dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableLeaves error:nil];
+    
+    //一下为自定义解析， 自己想怎么干就怎么干
+    
+    NSArray* arrayResult =[dic objectForKey:@"results"];
+    NSDictionary* resultDic = [arrayResult objectAtIndex:0];
+    NSDictionary* geometryDic = [resultDic objectForKey:@"geometry"];
+    NSLog(@"geometryDic: %@,  resultDic:%@",geometryDic,resultDic);
+    NSDictionary* locationDic = [geometryDic objectForKey:@"location"];
+    NSNumber* lat = [locationDic objectForKey:@"lat"];
+    NSNumber* lng = [locationDic objectForKey:@"lng"];
+    NSLog(@"lat = %@, lng = %@",lat,lng);
+     */
+    return nil;
+}
 @end

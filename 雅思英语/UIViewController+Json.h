@@ -10,4 +10,5 @@
 
 @interface UIViewController (MyJson)
 - (NSDictionary*)GetJson:(NSString *)Path;
+- (NSDictionary*)GetJsonConnect:(NSString *)Path;
 @end

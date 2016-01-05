@@ -36,10 +36,11 @@
 		0452CBE71C3B755000F6C456 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0452CBE61C3B755000F6C456 /* libicucore.dylib */; };
 		0452CBE91C3B755A00F6C456 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0452CBE81C3B755A00F6C456 /* JavaScriptCore.framework */; };
 		0452CBEB1C3B756600F6C456 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0452CBEA1C3B756600F6C456 /* libstdc++.dylib */; };
-		0452CBF11C3B773E00F6C456 /* bg_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0452CBED1C3B773E00F6C456 /* bg_1@2x.png */; };
 		0452CBF21C3B773E00F6C456 /* bg_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0452CBEE1C3B773E00F6C456 /* bg_2@2x.png */; };
 		0452CBF31C3B773E00F6C456 /* bg_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0452CBEF1C3B773E00F6C456 /* bg_3@2x.png */; };
 		0452CBF41C3B773E00F6C456 /* bg_4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0452CBF01C3B773E00F6C456 /* bg_4@2x.png */; };
+		0452CBF61C3B9BE100F6C456 /* bg_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0452CBF51C3B9BE100F6C456 /* bg_1@2x.png */; };
+		0452CBF91C3BBF8F00F6C456 /* PublicRegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452CBF81C3BBF8F00F6C456 /* PublicRegViewController.m */; };
 		04C723981C3A484900A3D085 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C723971C3A484900A3D085 /* main.m */; };
 		04C7239B1C3A484900A3D085 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C7239A1C3A484900A3D085 /* AppDelegate.m */; };
 		04C7239E1C3A484900A3D085 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C7239D1C3A484900A3D085 /* ViewController.m */; };
@@ -101,10 +102,12 @@
 		0452CBE61C3B755000F6C456 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		0452CBE81C3B755A00F6C456 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		0452CBEA1C3B756600F6C456 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
-		0452CBED1C3B773E00F6C456 /* bg_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_1@2x.png"; sourceTree = "<group>"; };
 		0452CBEE1C3B773E00F6C456 /* bg_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_2@2x.png"; sourceTree = "<group>"; };
 		0452CBEF1C3B773E00F6C456 /* bg_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_3@2x.png"; sourceTree = "<group>"; };
 		0452CBF01C3B773E00F6C456 /* bg_4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_4@2x.png"; sourceTree = "<group>"; };
+		0452CBF51C3B9BE100F6C456 /* bg_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_1@2x.png"; sourceTree = "<group>"; };
+		0452CBF71C3BBF8F00F6C456 /* PublicRegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicRegViewController.h; sourceTree = "<group>"; };
+		0452CBF81C3BBF8F00F6C456 /* PublicRegViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicRegViewController.m; sourceTree = "<group>"; };
 		04C723921C3A484900A3D085 /* 雅思英语.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "雅思英语.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C723961C3A484900A3D085 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04C723971C3A484900A3D085 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -184,6 +187,10 @@
 		0452CBDB1C3B70D600F6C456 /* SMS_SDK */ = {
 			isa = PBXGroup;
 			children = (
+				0452CBEA1C3B756600F6C456 /* libstdc++.dylib */,
+				0452CBE81C3B755A00F6C456 /* JavaScriptCore.framework */,
+				0452CBE61C3B755000F6C456 /* libicucore.dylib */,
+				0452CBE41C3B754400F6C456 /* libz.dylib */,
 				0452CBDC1C3B70D600F6C456 /* SMS_SDKLocalizable.strings */,
 				0452CBDE1C3B70D600F6C456 /* MOBFoundation.framework */,
 				0452CBDF1C3B70D600F6C456 /* SMS_SDK.framework */,
@@ -194,7 +201,7 @@
 		0452CBEC1C3B76D200F6C456 /* VIPPublic */ = {
 			isa = PBXGroup;
 			children = (
-				0452CBED1C3B773E00F6C456 /* bg_1@2x.png */,
+				0452CBF51C3B9BE100F6C456 /* bg_1@2x.png */,
 				0452CBEE1C3B773E00F6C456 /* bg_2@2x.png */,
 				0452CBEF1C3B773E00F6C456 /* bg_3@2x.png */,
 				0452CBF01C3B773E00F6C456 /* bg_4@2x.png */,
@@ -205,10 +212,6 @@
 		04C723891C3A484900A3D085 = {
 			isa = PBXGroup;
 			children = (
-				0452CBEA1C3B756600F6C456 /* libstdc++.dylib */,
-				0452CBE81C3B755A00F6C456 /* JavaScriptCore.framework */,
-				0452CBE61C3B755000F6C456 /* libicucore.dylib */,
-				0452CBE41C3B754400F6C456 /* libz.dylib */,
 				04C723941C3A484900A3D085 /* 雅思英语 */,
 				04C723AE1C3A484900A3D085 /* 雅思英语Tests */,
 				04C723931C3A484900A3D085 /* Products */,
@@ -235,6 +238,8 @@
 				04C7239C1C3A484900A3D085 /* ViewController.h */,
 				04C7239D1C3A484900A3D085 /* ViewController.m */,
 				04C7239F1C3A484900A3D085 /* Main.storyboard */,
+				0452CBF71C3BBF8F00F6C456 /* PublicRegViewController.h */,
+				0452CBF81C3BBF8F00F6C456 /* PublicRegViewController.m */,
 				0452CBC71C3B5DEA00F6C456 /* UIViewController+Json.h */,
 				0452CBC81C3B5EDE00F6C456 /* UIViewController+Json.m */,
 				0452CBB51C3B549900F6C456 /* VipViewController.h */,
@@ -423,11 +428,11 @@
 				04C723C11C3A6B6B00A3D085 /* login_bg@2x.png in Resources */,
 				0452CBF31C3B773E00F6C456 /* bg_3@2x.png in Resources */,
 				0452CBE11C3B70D600F6C456 /* SMS_SDKLocalizable.strings in Resources */,
-				0452CBF11C3B773E00F6C456 /* bg_1@2x.png in Resources */,
 				0452CBC21C3B594300F6C456 /* vip_btn_down@2x.png in Resources */,
 				04C723C81C3A6BC000A3D085 /* phone_num@2x.png in Resources */,
 				0452CBF41C3B773E00F6C456 /* bg_4@2x.png in Resources */,
 				04C723A61C3A484900A3D085 /* LaunchScreen.xib in Resources */,
+				0452CBF61C3B9BE100F6C456 /* bg_1@2x.png in Resources */,
 				04C723A31C3A484900A3D085 /* Images.xcassets in Resources */,
 				04C723C41C3A6B9600A3D085 /* btn_tijiao@2x.png in Resources */,
 			);
@@ -453,6 +458,7 @@
 				043D4F971C3A9E790045EA89 /* UserRegViewController.m in Sources */,
 				0452CBC91C3B5EDE00F6C456 /* UIViewController+Json.m in Sources */,
 				04C7239E1C3A484900A3D085 /* ViewController.m in Sources */,
+				0452CBF91C3BBF8F00F6C456 /* PublicRegViewController.m in Sources */,
 				04C7239B1C3A484900A3D085 /* AppDelegate.m in Sources */,
 				0452CBDA1C3B6B8B00F6C456 /* VipPublicViewController.m in Sources */,
 				04C723981C3A484900A3D085 /* main.m in Sources */,
