@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -86,6 +87,9 @@
                                 <state key="normal" title="登录" backgroundImage="btn_tijiao.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="btn_Login:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="A2U-Xe-p12"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -218,7 +222,7 @@
         <!--ResetPassword-->
         <scene sceneID="td8-ct-OQM">
             <objects>
-                <viewController storyboardIdentifier="resetPWView" modalTransitionStyle="crossDissolve" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fnc-zg-Ndk" userLabel="ResetPassword" customClass="ResetPasswordViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="resetPWView" title="忘记密码" modalTransitionStyle="crossDissolve" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fnc-zg-Ndk" userLabel="ResetPassword" customClass="ResetPasswordViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="j2t-qU-7jd"/>
                         <viewControllerLayoutGuide type="bottom" id="g63-Kr-06O"/>
@@ -302,9 +306,116 @@
             </objects>
             <point key="canvasLocation" x="858" y="167"/>
         </scene>
+        <!--VIP 课程-->
+        <scene sceneID="xfr-YY-2BG">
+            <objects>
+                <viewController storyboardIdentifier="vipView" title="VIP 课程" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sUE-zC-vwq" customClass="VipViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ay0-ao-NXi"/>
+                        <viewControllerLayoutGuide type="bottom" id="gMU-px-qIS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KFv-bQ-FqQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---------------- 科学重要保障 ----------------" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CaP-E8-nFR">
+                                <rect key="frame" x="16" y="72" width="288" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vip_public.png" translatesAutoresizingMaskIntoConstraints="NO" id="xbp-3A-NBd">
+                                <rect key="frame" x="32" y="104" width="40" height="40"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0P-fm-6ua">
+                                <rect key="frame" x="91" y="99" width="196" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="10"/>
+                                <inset key="titleEdgeInsets" minX="-60" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="30" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="雅思公开课" image="vip_star3.png" backgroundImage="vip_btn_down.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btn_click:" destination="sUE-zC-vwq" eventType="touchUpInside" id="JwX-G4-gv0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srX-9J-biu">
+                                <rect key="frame" x="91" y="227" width="196" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="10"/>
+                                <inset key="titleEdgeInsets" minX="-60" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="30" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="一对一VIP课程" image="vip_star5.png" backgroundImage="vip_btn_up.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vip_list2.png" translatesAutoresizingMaskIntoConstraints="NO" id="z0Q-rB-Pap">
+                                <rect key="frame" x="32" y="232" width="40" height="40"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CaP-E8-nFR" firstAttribute="top" secondItem="ay0-ao-NXi" secondAttribute="bottom" constant="8" id="EDA-We-zU0"/>
+                            <constraint firstItem="srX-9J-biu" firstAttribute="top" secondItem="d0P-fm-6ua" secondAttribute="bottom" constant="78" id="NUO-5Y-fBF"/>
+                            <constraint firstAttribute="centerX" secondItem="CaP-E8-nFR" secondAttribute="centerX" id="Nob-uG-fzM"/>
+                            <constraint firstItem="z0Q-rB-Pap" firstAttribute="leading" secondItem="KFv-bQ-FqQ" secondAttribute="leadingMargin" constant="16" id="Voh-P7-LYF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="d0P-fm-6ua" secondAttribute="trailing" constant="17" id="Yt1-5g-bKF"/>
+                            <constraint firstItem="xbp-3A-NBd" firstAttribute="leading" secondItem="KFv-bQ-FqQ" secondAttribute="leadingMargin" constant="16" id="akd-Su-JyJ"/>
+                            <constraint firstItem="CaP-E8-nFR" firstAttribute="leading" secondItem="KFv-bQ-FqQ" secondAttribute="leading" constant="16" id="b9q-Jt-hkg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="srX-9J-biu" secondAttribute="trailing" constant="17" id="cP4-GK-sDq"/>
+                            <constraint firstItem="xbp-3A-NBd" firstAttribute="top" secondItem="CaP-E8-nFR" secondAttribute="bottom" constant="15" id="fIM-Ms-vUi"/>
+                            <constraint firstItem="z0Q-rB-Pap" firstAttribute="top" secondItem="xbp-3A-NBd" secondAttribute="bottom" constant="88" id="iVu-ya-IBm"/>
+                            <constraint firstItem="d0P-fm-6ua" firstAttribute="top" secondItem="CaP-E8-nFR" secondAttribute="bottom" constant="10" id="ibY-dF-Ra4"/>
+                            <constraint firstAttribute="trailing" secondItem="CaP-E8-nFR" secondAttribute="trailing" constant="16" id="l3X-ug-irK"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
+                    <connections>
+                        <outlet property="btn1" destination="d0P-fm-6ua" id="TR8-gg-CNP"/>
+                        <outlet property="btn2" destination="srX-9J-biu" id="lvS-zU-nKv"/>
+                        <outlet property="imgView1" destination="xbp-3A-NBd" id="JHc-Vs-UZW"/>
+                        <outlet property="imgView2" destination="z0Q-rB-Pap" id="mVs-qp-x10"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QCa-Kr-wjb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="858" y="810"/>
+        </scene>
+        <!--公开课列表-->
+        <scene sceneID="wtt-7H-tsC">
+            <objects>
+                <viewController storyboardIdentifier="vippublicView" title="公开课列表" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Rjk-mT-d1T" customClass="VipPublicViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bP3-pQ-vLj"/>
+                        <viewControllerLayoutGuide type="bottom" id="rxV-AD-LiS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qm2-hV-NkX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SP6-Xl-NrT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="858" y="1442"/>
+        </scene>
     </scenes>
     <resources>
         <image name="btn_tijiao.png" width="170" height="30"/>
         <image name="login_bg.png" width="320" height="568"/>
+        <image name="vip_btn_down.png" width="196" height="50"/>
+        <image name="vip_btn_up.png" width="196" height="50"/>
+        <image name="vip_list2.png" width="40" height="40"/>
+        <image name="vip_public.png" width="40" height="40"/>
+        <image name="vip_star3.png" width="59" height="9"/>
+        <image name="vip_star5.png" width="59" height="9"/>
     </resources>
 </document>

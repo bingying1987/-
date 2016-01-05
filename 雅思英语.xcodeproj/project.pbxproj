@@ -12,6 +12,34 @@
 		043D4F9C1C3AA43D0045EA89 /* code@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 043D4F9B1C3AA43D0045EA89 /* code@2x.png */; };
 		043D4F9F1C3AAAD50045EA89 /* ResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043D4F9E1C3AAAD50045EA89 /* ResetPasswordViewController.m */; };
 		043D4FA11C3AB85B0045EA89 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 043D4FA01C3AB85B0045EA89 /* Default-568h@2x.png */; };
+		0452CBB71C3B549900F6C456 /* VipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452CBB61C3B549900F6C456 /* VipViewController.m */; };
+		0452CBBA1C3B57D500F6C456 /* vip_public@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0452CBB91C3B57D500F6C456 /* vip_public@2x.png */; };
+		0452CBC11C3B594300F6C456 /* vip_btn_up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0452CBBB1C3B594300F6C456 /* vip_btn_up@2x.png */; };
+		0452CBC21C3B594300F6C456 /* vip_btn_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0452CBBC1C3B594300F6C456 /* vip_btn_down@2x.png */; };
+		0452CBC31C3B594300F6C456 /* vip_star2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0452CBBD1C3B594300F6C456 /* vip_star2@2x.png */; };
+		0452CBC41C3B594300F6C456 /* vip_star3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0452CBBE1C3B594300F6C456 /* vip_star3@2x.png */; };
+		0452CBC51C3B594300F6C456 /* vip_star4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0452CBBF1C3B594300F6C456 /* vip_star4@2x.png */; };
+		0452CBC61C3B594300F6C456 /* vip_star5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0452CBC01C3B594300F6C456 /* vip_star5@2x.png */; };
+		0452CBC91C3B5EDE00F6C456 /* UIViewController+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452CBC81C3B5EDE00F6C456 /* UIViewController+Json.m */; };
+		0452CBD11C3B633100F6C456 /* vip_list1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0452CBCA1C3B633100F6C456 /* vip_list1@2x.png */; };
+		0452CBD21C3B633100F6C456 /* vip_list2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0452CBCB1C3B633100F6C456 /* vip_list2@2x.png */; };
+		0452CBD31C3B633100F6C456 /* vip_list3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0452CBCC1C3B633100F6C456 /* vip_list3@2x.png */; };
+		0452CBD41C3B633100F6C456 /* vip_list4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0452CBCD1C3B633100F6C456 /* vip_list4@2x.png */; };
+		0452CBD51C3B633100F6C456 /* vip_list5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0452CBCE1C3B633100F6C456 /* vip_list5@2x.png */; };
+		0452CBD61C3B633100F6C456 /* vip_list6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0452CBCF1C3B633100F6C456 /* vip_list6@2x.png */; };
+		0452CBD71C3B633100F6C456 /* vip_list7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0452CBD01C3B633100F6C456 /* vip_list7@2x.png */; };
+		0452CBDA1C3B6B8B00F6C456 /* VipPublicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452CBD91C3B6B8B00F6C456 /* VipPublicViewController.m */; };
+		0452CBE11C3B70D600F6C456 /* SMS_SDKLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0452CBDC1C3B70D600F6C456 /* SMS_SDKLocalizable.strings */; };
+		0452CBE21C3B70D600F6C456 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0452CBDE1C3B70D600F6C456 /* MOBFoundation.framework */; };
+		0452CBE31C3B70D600F6C456 /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0452CBDF1C3B70D600F6C456 /* SMS_SDK.framework */; };
+		0452CBE51C3B754400F6C456 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0452CBE41C3B754400F6C456 /* libz.dylib */; };
+		0452CBE71C3B755000F6C456 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0452CBE61C3B755000F6C456 /* libicucore.dylib */; };
+		0452CBE91C3B755A00F6C456 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0452CBE81C3B755A00F6C456 /* JavaScriptCore.framework */; };
+		0452CBEB1C3B756600F6C456 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0452CBEA1C3B756600F6C456 /* libstdc++.dylib */; };
+		0452CBF11C3B773E00F6C456 /* bg_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0452CBED1C3B773E00F6C456 /* bg_1@2x.png */; };
+		0452CBF21C3B773E00F6C456 /* bg_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0452CBEE1C3B773E00F6C456 /* bg_2@2x.png */; };
+		0452CBF31C3B773E00F6C456 /* bg_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0452CBEF1C3B773E00F6C456 /* bg_3@2x.png */; };
+		0452CBF41C3B773E00F6C456 /* bg_4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0452CBF01C3B773E00F6C456 /* bg_4@2x.png */; };
 		04C723981C3A484900A3D085 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C723971C3A484900A3D085 /* main.m */; };
 		04C7239B1C3A484900A3D085 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C7239A1C3A484900A3D085 /* AppDelegate.m */; };
 		04C7239E1C3A484900A3D085 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C7239D1C3A484900A3D085 /* ViewController.m */; };
@@ -45,6 +73,38 @@
 		043D4F9D1C3AAAD50045EA89 /* ResetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPasswordViewController.h; sourceTree = "<group>"; };
 		043D4F9E1C3AAAD50045EA89 /* ResetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPasswordViewController.m; sourceTree = "<group>"; };
 		043D4FA01C3AB85B0045EA89 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		0452CBB51C3B549900F6C456 /* VipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VipViewController.h; sourceTree = "<group>"; };
+		0452CBB61C3B549900F6C456 /* VipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VipViewController.m; sourceTree = "<group>"; };
+		0452CBB91C3B57D500F6C456 /* vip_public@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vip_public@2x.png"; sourceTree = "<group>"; };
+		0452CBBB1C3B594300F6C456 /* vip_btn_up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vip_btn_up@2x.png"; sourceTree = "<group>"; };
+		0452CBBC1C3B594300F6C456 /* vip_btn_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vip_btn_down@2x.png"; sourceTree = "<group>"; };
+		0452CBBD1C3B594300F6C456 /* vip_star2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vip_star2@2x.png"; sourceTree = "<group>"; };
+		0452CBBE1C3B594300F6C456 /* vip_star3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vip_star3@2x.png"; sourceTree = "<group>"; };
+		0452CBBF1C3B594300F6C456 /* vip_star4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vip_star4@2x.png"; sourceTree = "<group>"; };
+		0452CBC01C3B594300F6C456 /* vip_star5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vip_star5@2x.png"; sourceTree = "<group>"; };
+		0452CBC71C3B5DEA00F6C456 /* UIViewController+Json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Json.h"; sourceTree = "<group>"; };
+		0452CBC81C3B5EDE00F6C456 /* UIViewController+Json.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Json.m"; sourceTree = "<group>"; };
+		0452CBCA1C3B633100F6C456 /* vip_list1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vip_list1@2x.png"; sourceTree = "<group>"; };
+		0452CBCB1C3B633100F6C456 /* vip_list2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vip_list2@2x.png"; sourceTree = "<group>"; };
+		0452CBCC1C3B633100F6C456 /* vip_list3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vip_list3@2x.png"; sourceTree = "<group>"; };
+		0452CBCD1C3B633100F6C456 /* vip_list4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vip_list4@2x.png"; sourceTree = "<group>"; };
+		0452CBCE1C3B633100F6C456 /* vip_list5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vip_list5@2x.png"; sourceTree = "<group>"; };
+		0452CBCF1C3B633100F6C456 /* vip_list6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vip_list6@2x.png"; sourceTree = "<group>"; };
+		0452CBD01C3B633100F6C456 /* vip_list7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vip_list7@2x.png"; sourceTree = "<group>"; };
+		0452CBD81C3B6B8B00F6C456 /* VipPublicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VipPublicViewController.h; sourceTree = "<group>"; };
+		0452CBD91C3B6B8B00F6C456 /* VipPublicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VipPublicViewController.m; sourceTree = "<group>"; };
+		0452CBDD1C3B70D600F6C456 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SMS_SDKLocalizable.strings; sourceTree = "<group>"; };
+		0452CBDE1C3B70D600F6C456 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
+		0452CBDF1C3B70D600F6C456 /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
+		0452CBE01C3B70D600F6C456 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SMS_SDKLocalizable.strings"; sourceTree = "<group>"; };
+		0452CBE41C3B754400F6C456 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		0452CBE61C3B755000F6C456 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		0452CBE81C3B755A00F6C456 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		0452CBEA1C3B756600F6C456 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		0452CBED1C3B773E00F6C456 /* bg_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_1@2x.png"; sourceTree = "<group>"; };
+		0452CBEE1C3B773E00F6C456 /* bg_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_2@2x.png"; sourceTree = "<group>"; };
+		0452CBEF1C3B773E00F6C456 /* bg_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_3@2x.png"; sourceTree = "<group>"; };
+		0452CBF01C3B773E00F6C456 /* bg_4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_4@2x.png"; sourceTree = "<group>"; };
 		04C723921C3A484900A3D085 /* 雅思英语.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "雅思英语.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C723961C3A484900A3D085 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04C723971C3A484900A3D085 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -72,6 +132,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0452CBEB1C3B756600F6C456 /* libstdc++.dylib in Frameworks */,
+				0452CBE91C3B755A00F6C456 /* JavaScriptCore.framework in Frameworks */,
+				0452CBE71C3B755000F6C456 /* libicucore.dylib in Frameworks */,
+				0452CBE51C3B754400F6C456 /* libz.dylib in Frameworks */,
+				0452CBE21C3B70D600F6C456 /* MOBFoundation.framework in Frameworks */,
+				0452CBE31C3B70D600F6C456 /* SMS_SDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,9 +160,55 @@
 			name = UserRegPage;
 			sourceTree = "<group>";
 		};
+		0452CBB81C3B567200F6C456 /* VIPLesson */ = {
+			isa = PBXGroup;
+			children = (
+				0452CBBB1C3B594300F6C456 /* vip_btn_up@2x.png */,
+				0452CBBC1C3B594300F6C456 /* vip_btn_down@2x.png */,
+				0452CBBD1C3B594300F6C456 /* vip_star2@2x.png */,
+				0452CBBE1C3B594300F6C456 /* vip_star3@2x.png */,
+				0452CBBF1C3B594300F6C456 /* vip_star4@2x.png */,
+				0452CBC01C3B594300F6C456 /* vip_star5@2x.png */,
+				0452CBB91C3B57D500F6C456 /* vip_public@2x.png */,
+				0452CBCA1C3B633100F6C456 /* vip_list1@2x.png */,
+				0452CBCB1C3B633100F6C456 /* vip_list2@2x.png */,
+				0452CBCC1C3B633100F6C456 /* vip_list3@2x.png */,
+				0452CBCD1C3B633100F6C456 /* vip_list4@2x.png */,
+				0452CBCE1C3B633100F6C456 /* vip_list5@2x.png */,
+				0452CBCF1C3B633100F6C456 /* vip_list6@2x.png */,
+				0452CBD01C3B633100F6C456 /* vip_list7@2x.png */,
+			);
+			name = VIPLesson;
+			sourceTree = "<group>";
+		};
+		0452CBDB1C3B70D600F6C456 /* SMS_SDK */ = {
+			isa = PBXGroup;
+			children = (
+				0452CBDC1C3B70D600F6C456 /* SMS_SDKLocalizable.strings */,
+				0452CBDE1C3B70D600F6C456 /* MOBFoundation.framework */,
+				0452CBDF1C3B70D600F6C456 /* SMS_SDK.framework */,
+			);
+			path = SMS_SDK;
+			sourceTree = "<group>";
+		};
+		0452CBEC1C3B76D200F6C456 /* VIPPublic */ = {
+			isa = PBXGroup;
+			children = (
+				0452CBED1C3B773E00F6C456 /* bg_1@2x.png */,
+				0452CBEE1C3B773E00F6C456 /* bg_2@2x.png */,
+				0452CBEF1C3B773E00F6C456 /* bg_3@2x.png */,
+				0452CBF01C3B773E00F6C456 /* bg_4@2x.png */,
+			);
+			name = VIPPublic;
+			sourceTree = "<group>";
+		};
 		04C723891C3A484900A3D085 = {
 			isa = PBXGroup;
 			children = (
+				0452CBEA1C3B756600F6C456 /* libstdc++.dylib */,
+				0452CBE81C3B755A00F6C456 /* JavaScriptCore.framework */,
+				0452CBE61C3B755000F6C456 /* libicucore.dylib */,
+				0452CBE41C3B754400F6C456 /* libz.dylib */,
 				04C723941C3A484900A3D085 /* 雅思英语 */,
 				04C723AE1C3A484900A3D085 /* 雅思英语Tests */,
 				04C723931C3A484900A3D085 /* Products */,
@@ -116,12 +228,19 @@
 			isa = PBXGroup;
 			children = (
 				04C723BB1C3A4FA600A3D085 /* img */,
+				0452CBDB1C3B70D600F6C456 /* SMS_SDK */,
 				043D4FA01C3AB85B0045EA89 /* Default-568h@2x.png */,
 				04C723991C3A484900A3D085 /* AppDelegate.h */,
 				04C7239A1C3A484900A3D085 /* AppDelegate.m */,
 				04C7239C1C3A484900A3D085 /* ViewController.h */,
 				04C7239D1C3A484900A3D085 /* ViewController.m */,
 				04C7239F1C3A484900A3D085 /* Main.storyboard */,
+				0452CBC71C3B5DEA00F6C456 /* UIViewController+Json.h */,
+				0452CBC81C3B5EDE00F6C456 /* UIViewController+Json.m */,
+				0452CBB51C3B549900F6C456 /* VipViewController.h */,
+				0452CBB61C3B549900F6C456 /* VipViewController.m */,
+				0452CBD81C3B6B8B00F6C456 /* VipPublicViewController.h */,
+				0452CBD91C3B6B8B00F6C456 /* VipPublicViewController.m */,
 				043D4F9D1C3AAAD50045EA89 /* ResetPasswordViewController.h */,
 				043D4F9E1C3AAAD50045EA89 /* ResetPasswordViewController.m */,
 				043D4F951C3A9E790045EA89 /* UserRegViewController.h */,
@@ -164,6 +283,8 @@
 		04C723BB1C3A4FA600A3D085 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				0452CBEC1C3B76D200F6C456 /* VIPPublic */,
+				0452CBB81C3B567200F6C456 /* VIPLesson */,
 				043D4F981C3AA2FC0045EA89 /* UserRegPage */,
 				04C723C21C3A6B8700A3D085 /* Common */,
 				04C723BF1C3A634E00A3D085 /* LoginPage */,
@@ -261,6 +382,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 04C723891C3A484900A3D085;
 			productRefGroup = 04C723931C3A484900A3D085 /* Products */;
@@ -279,13 +401,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				04C723A11C3A484900A3D085 /* Main.storyboard in Resources */,
+				0452CBD61C3B633100F6C456 /* vip_list6@2x.png in Resources */,
+				0452CBD41C3B633100F6C456 /* vip_list4@2x.png in Resources */,
+				0452CBD11C3B633100F6C456 /* vip_list1@2x.png in Resources */,
+				0452CBC11C3B594300F6C456 /* vip_btn_up@2x.png in Resources */,
+				0452CBC61C3B594300F6C456 /* vip_star5@2x.png in Resources */,
+				0452CBC41C3B594300F6C456 /* vip_star3@2x.png in Resources */,
 				043D4FA11C3AB85B0045EA89 /* Default-568h@2x.png in Resources */,
 				04C723C71C3A6BC000A3D085 /* password@2x.png in Resources */,
 				043D4F9C1C3AA43D0045EA89 /* code@2x.png in Resources */,
 				04C723BE1C3A4FCB00A3D085 /* begin_bg@2x.png in Resources */,
+				0452CBD21C3B633100F6C456 /* vip_list2@2x.png in Resources */,
+				0452CBC31C3B594300F6C456 /* vip_star2@2x.png in Resources */,
+				0452CBD71C3B633100F6C456 /* vip_list7@2x.png in Resources */,
+				0452CBF21C3B773E00F6C456 /* bg_2@2x.png in Resources */,
+				0452CBD31C3B633100F6C456 /* vip_list3@2x.png in Resources */,
+				0452CBBA1C3B57D500F6C456 /* vip_public@2x.png in Resources */,
 				043D4F9A1C3AA4330045EA89 /* username@2x.png in Resources */,
+				0452CBC51C3B594300F6C456 /* vip_star4@2x.png in Resources */,
+				0452CBD51C3B633100F6C456 /* vip_list5@2x.png in Resources */,
 				04C723C11C3A6B6B00A3D085 /* login_bg@2x.png in Resources */,
+				0452CBF31C3B773E00F6C456 /* bg_3@2x.png in Resources */,
+				0452CBE11C3B70D600F6C456 /* SMS_SDKLocalizable.strings in Resources */,
+				0452CBF11C3B773E00F6C456 /* bg_1@2x.png in Resources */,
+				0452CBC21C3B594300F6C456 /* vip_btn_down@2x.png in Resources */,
 				04C723C81C3A6BC000A3D085 /* phone_num@2x.png in Resources */,
+				0452CBF41C3B773E00F6C456 /* bg_4@2x.png in Resources */,
 				04C723A61C3A484900A3D085 /* LaunchScreen.xib in Resources */,
 				04C723A31C3A484900A3D085 /* Images.xcassets in Resources */,
 				04C723C41C3A6B9600A3D085 /* btn_tijiao@2x.png in Resources */,
@@ -308,9 +449,12 @@
 			files = (
 				04C723CB1C3A6EF600A3D085 /* LoginViewController.m in Sources */,
 				043D4F9F1C3AAAD50045EA89 /* ResetPasswordViewController.m in Sources */,
+				0452CBB71C3B549900F6C456 /* VipViewController.m in Sources */,
 				043D4F971C3A9E790045EA89 /* UserRegViewController.m in Sources */,
+				0452CBC91C3B5EDE00F6C456 /* UIViewController+Json.m in Sources */,
 				04C7239E1C3A484900A3D085 /* ViewController.m in Sources */,
 				04C7239B1C3A484900A3D085 /* AppDelegate.m in Sources */,
+				0452CBDA1C3B6B8B00F6C456 /* VipPublicViewController.m in Sources */,
 				04C723981C3A484900A3D085 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,6 +478,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		0452CBDC1C3B70D600F6C456 /* SMS_SDKLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0452CBDD1C3B70D600F6C456 /* en */,
+				0452CBE01C3B70D600F6C456 /* zh-Hans */,
+			);
+			name = SMS_SDKLocalizable.strings;
+			sourceTree = "<group>";
+		};
 		04C7239F1C3A484900A3D085 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -440,6 +593,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: WeiRan Wu (E9D8A8MD59)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/雅思英语/SMS_SDK",
+				);
 				INFOPLIST_FILE = "雅思英语/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -455,6 +612,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WeiRan Wu (Z78ADQB4F7)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/雅思英语/SMS_SDK",
+				);
 				INFOPLIST_FILE = "雅思英语/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

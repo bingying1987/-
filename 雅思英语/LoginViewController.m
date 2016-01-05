@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "UIViewController+Json.h"
 
 @interface LoginViewController ()
 
@@ -61,6 +62,40 @@
 - (IBAction)dismissKeyBoard:(UITextField *)sender {
     [self resignFirstResponder];
 }
+
+
+- (IBAction)btn_Login:(id)sender {
+    NSString *Num = _txt_PhoneNum.text;
+    NSString *Pw = _txt_Password.text;
+    
+    NSString *path = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneUserInfoByLoginJudge?userInfo.account_number=%@&userInfo.passWord=%@",Num,Pw];
+    
+    NSDictionary *dic = [self GetJson:path];
+    
+//    NSDictionary* dic = [self GetJson:@"http://192.168.1.231:8080/YaSi_English/selectOneUserInfoByLoginJudge?userInfo.account_number=fafukeji&userInfo.passWord=123456"];
+    if (dic == nil) {
+        return;
+    }
+    NSNumber* lat = [dic objectForKey:@"Result"];
+    if (lat.intValue == 1) {
+        return; //登录成功,跳转到主页
+    }
+    
+    /*
+    //一下为自定义解析， 自己想怎么干就怎么干
+    
+    NSArray* arrayResult =[dic objectForKey:@"results"];
+    NSDictionary* resultDic = [arrayResult objectAtIndex:0];
+    NSDictionary* geometryDic = [resultDic objectForKey:@"geometry"];
+    NSLog(@"geometryDic: %@,  resultDic:%@",geometryDic,resultDic);
+    NSDictionary* locationDic = [geometryDic objectForKey:@"location"];
+    NSNumber* lat = [locationDic objectForKey:@"lat"];
+    NSNumber* lng = [locationDic objectForKey:@"lng"];
+    NSLog(@"lat = %@, lng = %@",lat,lng);
+    [jsonString release];
+     */
+}
+
 
 /*
 #pragma mark - Navigation
