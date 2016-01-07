@@ -38,10 +38,21 @@
 }
 
 - (IBAction)btn_click:(UIButton *)sender {
-    if (sender.tag == lastBtn.tag) {
-        return;
+    UIViewController* ptmp = nil;
+    switch (sender.tag) {
+        case 0://公开课详细列表
+        {
+            ptmp = [self.storyboard instantiateViewControllerWithIdentifier:@"vippublicView"];
+        }
+            break;
+            
+        default:
+            break;
     }
-    else
+
+    
+    
+    if (sender.tag != lastBtn.tag)
     {
         [lastBtn setBackgroundImage:[UIImage imageNamed:@"vip_btn_up.png"] forState:UIControlStateNormal];
         NSString *file = [NSString stringWithFormat:@"vip_list%ld.png",lastBtn.tag + 1];
@@ -49,7 +60,11 @@
         [sender setBackgroundImage:[UIImage imageNamed:@"vip_btn_down.png"] forState:UIControlStateNormal];
         UIImageView *pview = [imgViewArry objectAtIndex:sender.tag];
         pview.image = [UIImage imageNamed:@"vip_public.png"];
+        lastBtn = sender;
+        lastImgView = pview;
     }
+    [self.navigationController pushViewController:ptmp animated:YES];
+    
 }
 
 

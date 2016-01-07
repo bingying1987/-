@@ -7,6 +7,9 @@
 //
 
 #import "VipPublicViewController.h"
+#import "DBImageView.h"
+#import "UIViewController+Json.h"
+#import "VipPublicDetailViewController.h"
 
 @interface VipPublicViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scView;
@@ -17,7 +20,18 @@
 
 - (void)initScrollView
 {
-    int nCount = 7;//多少个按钮
+    
+    NSDictionary *dic = [self GetJson:@"http://192.168.1.231:8080/YaSi_English/upload/selectSomeCourseForOpenByHql"];
+    if (dic == nil) {
+        return;
+    }
+    
+    [DBImageView clearCache];
+    
+    NSString *preaddr = [dic objectForKey:@"basePath"];
+    
+    NSArray* arrayResult =[dic objectForKey:@"list"];
+    int nCount = (int)arrayResult.count;
     int nWidth = 132;//每个按钮的长
     int nHeight = 120;//按钮的高
     int nCell = nCount / 2;
@@ -32,6 +46,8 @@
     int OffsetVer = (bd.size.height - nHeight * nBottom) / (nBottom + 1); //按钮距离上下两边的边距
     
     
+    NSDictionary* resultDic;
+
     
     
     [_scView setContentSize:CGSizeMake(bd.size.width, (OffsetVer + nHeight) * nCell + OffsetVer)];
@@ -39,36 +55,68 @@
     
     
     for (int i = 0; i < nCount; i++) {
-        UIImage *img = [UIImage imageNamed:@"bg_1.png"];
+        resultDic = [arrayResult objectAtIndex:i];
+        NSString *Url =[preaddr stringByAppendingString:[resultDic objectForKey:@"course_Address"]];
+        
+        DBImageView *imageView = [[DBImageView alloc] initWithFrame:(CGRect){ 0, 0, nWidth, nHeight }];
+        [imageView setImageWithPath:Url];
+        [imageView setUserInteractionEnabled:NO];
+        
+        
+ //       UIImage *img = [UIImage imageNamed:@"bg_1.png"];
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         [btn setFrame:CGRectMake((i % 2) * (nWidth + OffsetHor) + OffsetHor, (i / 2) * (nHeight + OffsetVer) + OffsetVer, nWidth, nHeight)];
-        [btn setBackgroundImage:img forState:UIControlStateNormal];
-        [btn setTitle:@"吕浩民" forState:UIControlStateNormal];
+
+        [btn addSubview:imageView];
+        
+        NSNumber *ntag = [resultDic objectForKey:@"id"];
+        
+        btn.tag = ntag.intValue;
+        
+        
+ //       [btn setBackgroundImage:img forState:UIControlStateNormal];
+        
+        NSString *title = [resultDic objectForKey:@"lecturer"];
+        
+//        [btn setTitle:@"吕浩民" forState:UIControlStateNormal];
+        [btn setTitle:title forState:UIControlStateNormal];
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont systemFontOfSize:13.0];
         [btn setTitleEdgeInsets:UIEdgeInsetsMake(48,-85,0,0)];
         
+        
+        NSString *teach = [resultDic objectForKey:@"class_shape"];
+        
         UILabel *label1 = [[UILabel alloc] init];
         label1.font = [UIFont systemFontOfSize:13.0];
-        label1.text = @"在线授课";
+//        label1.text = @"在线授课";
+        label1.text = teach;
         label1.textColor = [UIColor lightGrayColor];
         [label1 setFrame:CGRectMake(74, 74, 58, 21)];
         [btn addSubview:label1];
         
         
+        NSString *date = [resultDic objectForKey:@"class_time"];
+        
         UILabel *label2 = [[UILabel alloc] init];
         label2.font = [UIFont systemFontOfSize:13.0];
-        label2.text = @"2015.10.20";
+//        label2.text = @"2015.10.20";
+        label2.text = date;
         label2.textColor = [UIColor lightGrayColor];
-        [label2 setFrame:CGRectMake(4, 100, 70, 21)];
+        [label2 setFrame:CGRectMake(4, 100, 112, 21)];
         [btn addSubview:label2];
         
+        /*
         UILabel *label3 = [[UILabel alloc] init];
         label3.font = [UIFont systemFontOfSize:13.0];
         label3.text = @"20:00";
         label3.textColor = [UIColor lightGrayColor];
         [label3 setFrame:CGRectMake(90, 100, 36, 21)];
         [btn addSubview:label3];
+        */
+        
+        
+        [btn addTarget:self action:@selector(btn_click:) forControlEvents:UIControlEventTouchUpInside];
         
         [_scView addSubview:btn];
         
@@ -76,6 +124,18 @@
         
     }
 }
+
+
+-(void)btn_click:(UIButton*)sender
+{
+    NSString *pstr = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/pages/selectOneCourseForOpenByHql?str=%ld",sender.tag];
+    
+    NSDictionary *dic = [self GetJson:pstr];
+    VipPublicDetailViewController *ptmp = [self.storyboard instantiateViewControllerWithIdentifier:@"pubdetailView"];
+    ptmp.dic1 = dic;
+    [self.navigationController pushViewController:ptmp animated:YES];
+}
+
 
 
 - (void)viewDidLoad {

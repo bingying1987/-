@@ -10,6 +10,7 @@
 #import "UIViewController+Json.h"
 
 @implementation UIViewController (MyJson)
+/*
 - (NSDictionary*)GetJson:(NSString *)Path
 {
     //初始化 url
@@ -23,10 +24,11 @@
     
     return dic;
 }
-
-- (NSDictionary*)GetJsonConnect:(NSString *)Path
+*/
+ 
+- (NSDictionary*)GetJson:(NSString *)Path
 {
-    /*
+    
     //初始化网络路径。
     //初始化 url
     NSURL* url = [NSURL URLWithString:Path];
@@ -35,11 +37,17 @@
     }
     NSURLRequest* request = [NSURLRequest requestWithURL:url];
     //将请求到的字符串写到缓冲区。
+    if (request == nil) {
+        return nil;
+    }
     
     NSData* jsonData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    if (jsonData == nil) {
+        return nil;
+    }
     //解析json数据，使用系统方法 JSONObjectWithData:  options: error:
     NSDictionary* dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableLeaves error:nil];
-    
+    /*
     //一下为自定义解析， 自己想怎么干就怎么干
     
     NSArray* arrayResult =[dic objectForKey:@"results"];
@@ -51,6 +59,6 @@
     NSNumber* lng = [locationDic objectForKey:@"lng"];
     NSLog(@"lat = %@, lng = %@",lat,lng);
      */
-    return nil;
+    return dic;
 }
 @end

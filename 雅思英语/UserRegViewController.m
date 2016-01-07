@@ -9,6 +9,7 @@
 #import "UserRegViewController.h"
 #import "SMS_SDK/SMSSDK.h"
 #import "UIViewController+Json.h"
+#import "YSFirstViewController.h"
 
 @interface UserRegViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *txt_userName;
@@ -100,16 +101,41 @@
         return;
     }
     
+    if ([_txt_password.text isEqualToString:@""]) {
+        return;
+    }
     
+    if (_txt_password.text.length < 8 || _txt_password.text.length > 12) {
+        return;
+    }
     
-    
-    /*
     
     [SMSSDK commitVerificationCode:_txt_code.text phoneNumber:_txt_phoneNum.text zone:@"86" result:^(NSError *error) {
         
         if (!error) {
             NSLog(@"验证成功");
             //跳转到主页
+            NSString *path = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/registerOneUserInfoByPhone_Number?userInfo.account_number=%@&userInfo.phone_Number=%@&userInfo.passWord=%@",_txt_userName.text,_txt_phoneNum.text,_txt_password.text];
+            NSDictionary *dic = [self GetJson:path];
+            if (dic == nil) {
+                return;
+            }
+            NSNumber* lat = [dic objectForKey:@"Result"];
+            if (lat.intValue == 1) {
+             //   return; //注册成功,跳转到主页
+                YSFirstViewController *ptmp = [[YSFirstViewController alloc] init];
+                [self.navigationController pushViewController:ptmp animated:YES];
+            }
+            else
+            {
+                NSString *str1 = [dic objectForKey:@"Message"];
+                UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                                message:str1
+                                                               delegate:self
+                                                      cancelButtonTitle:@"确定"
+                                                      otherButtonTitles:nil, nil];
+                [alert show];
+            }
         }
         else
         {
@@ -122,27 +148,9 @@
             [alert show];
         }
     }];
-    */
     
-    NSString *path = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/registerOneUserInfoByPhone_Number?userInfo.account_number=%@&userInfo.phone_Number=%@&passWord=%@",_txt_userName.text,_txt_phoneNum.text,_txt_password.text];
-    NSDictionary *dic = [self GetJson:path];
-    if (dic == nil) {
-        return;
-    }
-    NSNumber* lat = [dic objectForKey:@"Result"];
-    if (lat.intValue == 1) {
-        return; //注册成功,跳转到主页
-    }
-    else
-    {
-        NSString *str1 = [dic objectForKey:@"Message"];
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"提示"
-                                                        message:str1
-                                                       delegate:self
-                                              cancelButtonTitle:@"确定"
-                                              otherButtonTitles:nil, nil];
-        [alert show];
-    }
+    
+    
 
     
 }

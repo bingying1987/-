@@ -8,7 +8,7 @@
 
 #import "LoginViewController.h"
 #import "UIViewController+Json.h"
-
+#import "YSFirstViewController.h"
 @interface LoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *txt_PhoneNum;
@@ -23,6 +23,7 @@
     // Do any additional setup after loading the view.
     
     self.navigationItem.title = self.title;
+    
     
     
     UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"phone_num.png"]];
@@ -65,21 +66,51 @@
 
 
 - (IBAction)btn_Login:(id)sender {
-    NSString *Num = _txt_PhoneNum.text;
-    NSString *Pw = _txt_Password.text;
+    YSFirstViewController *ptmp = [[YSFirstViewController alloc] init];
+    [self.navigationController pushViewController:ptmp animated:YES];
+    return;//调试使用
     
-    NSString *path = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneUserInfoByLoginJudge?userInfo.account_number=%@&userInfo.passWord=%@",Num,Pw];
+    
+    
+    NSString *Num = _txt_PhoneNum.text;
+    if ([Num isEqualToString:@""] || Num.length != 11) {
+        return;
+    }
+    NSString *Pw = _txt_Password.text;
+    if ([Pw isEqualToString:@""]) {
+        return;
+    }
+    
+    if (Pw.length < 8 || Pw.length > 12) {
+        return;
+    }
+    
+    
+    NSString *path = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneUserInfoByLoginJudge?userInfo.phone_Number=%@&userInfo.passWord=%@",Num,Pw];
     
     NSDictionary *dic = [self GetJson:path];
     
-//    NSDictionary* dic = [self GetJson:@"http://192.168.1.231:8080/YaSi_English/selectOneUserInfoByLoginJudge?userInfo.account_number=fafukeji&userInfo.passWord=123456"];
     if (dic == nil) {
         return;
     }
     NSNumber* lat = [dic objectForKey:@"Result"];
     if (lat.intValue == 1) {
-        return; //登录成功,跳转到主页
+         //登录成功,跳转到主页
+        YSFirstViewController *ptmp = [[YSFirstViewController alloc] init];
+        [self.navigationController pushViewController:ptmp animated:YES];
     }
+    {
+        NSString *str1 = [dic objectForKey:@"Message"];
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                        message:str1
+                                                       delegate:self
+                                              cancelButtonTitle:@"确定"
+                                              otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    
+    
+    
     
     /*
     //一下为自定义解析， 自己想怎么干就怎么干
