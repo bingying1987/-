@@ -113,7 +113,6 @@
             break;
         case 10001:
         {
-            NSLog(@"2");
             cell.textLabel.font = [UIFont systemFontOfSize:13.0f];
             NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc]initWithString:@"适合人群:   "];
             [AttributedStr addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(0, 5)];
@@ -132,7 +131,7 @@
             break;
         case 10002:
         {
-            NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc]initWithString:@"学习目的:   \r\n"];
+            NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc]initWithString:@"学习目的:   \r"];
             NSString *pstr1 = nil;
             if (dic) {
                 pstr1 = [dic objectForKey:@"learningGoal"];
@@ -195,13 +194,28 @@
     switch (pdata.ntag) {
         case 10002:
         {
-            NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc]initWithString:@"学习目的:   \r\n"];
+            /*
+            NSString *ptmp = @"学习目的   \r";
+            NSString *pstr1 = nil;
+            if (dic) {
+                pstr1 = [dic objectForKey:@"learningGoal"];
+            }
+            [ptmp stringByAppendingString:pstr1];
+            ptmp = [[ptmp componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"\r"]] componentsJoinedByString:@""];
+            NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc] initWithString:ptmp];
+             */
+            //以上处理boundingRectWithSize把\r当作普通字符计算的bug
+            
+            NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc]initWithString:@"学习目的:   \r"];
             NSString *pstr1 = nil;
             if (dic) {
                 pstr1 = [dic objectForKey:@"learningGoal"];
             }
             NSAttributedString *ptnp = [[NSAttributedString alloc] initWithString:pstr1];
             [AttributedStr appendAttributedString:ptnp];
+            
+            
+            
             [AttributedStr addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(0, 5)];
             [AttributedStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:13.0f] range:NSMakeRange(0 , AttributedStr.length)];
             CGRect rc = [AttributedStr boundingRectWithSize:CGSizeMake(320, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil];
@@ -228,6 +242,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO]; 
     UITableViewCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
     Rowdata *pdata = [_objects objectAtIndex:indexPath.row];
     if ([cell.reuseIdentifier isEqualToString:@"HaveDetail"]) {
@@ -257,7 +272,6 @@
     else
     {
         if (pdata.ntag == 30003) {//点击了授课形式
-            NSLog(@"webView");
             NSURL* url = [[NSURL alloc] initWithString:_url];
             [[ UIApplication sharedApplication] openURL:url];
         //    NSURL* url = [[NSURL alloc] initWithString:@"tel:110"];

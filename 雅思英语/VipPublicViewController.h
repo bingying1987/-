@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface VipPublicViewController : UIViewController
-
+@property (nonatomic) NSInteger itype;
 @end

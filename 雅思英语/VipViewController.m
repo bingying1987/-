@@ -7,6 +7,8 @@
 //
 
 #import "VipViewController.h"
+#import "VipPublicViewController.h"
+
 
 @interface VipViewController ()
 {
@@ -38,19 +40,9 @@
 }
 
 - (IBAction)btn_click:(UIButton *)sender {
-    UIViewController* ptmp = nil;
-    switch (sender.tag) {
-        case 0://公开课详细列表
-        {
-            ptmp = [self.storyboard instantiateViewControllerWithIdentifier:@"vippublicView"];
-        }
-            break;
-            
-        default:
-            break;
-    }
-
-    
+    VipPublicViewController* ptmp = nil;
+    ptmp = [self.storyboard instantiateViewControllerWithIdentifier:@"vippublicView"];
+    ptmp.itype = sender.tag;
     
     if (sender.tag != lastBtn.tag)
     {
