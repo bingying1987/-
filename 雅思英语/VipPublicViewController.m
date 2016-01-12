@@ -253,6 +253,7 @@
             NSDictionary *dic = [self GetJson:pstr];
             VipOneByOneViewController *ptmp = [self.storyboard instantiateViewControllerWithIdentifier:@"onebyoneView"];
             ptmp.dic1 = dic;
+            ptmp.id_ke = sender.tag;
             [self.navigationController pushViewController:ptmp animated:YES];
         }
             break;

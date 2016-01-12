@@ -10,6 +10,7 @@
 #import "CDRTranslucentSideBar.h"
 #import "sideBarTableViewCell.h"
 #import "Masonry.h"
+#import "PredictViewController.h"
 #define CONTROL_TAG 100
 #define BUTTON_TAG 100
 
@@ -237,6 +238,8 @@
         case 0:
         {
             NSLog(@"考前预测");
+            PredictViewController *ptmp = [[PredictViewController alloc] init];
+            [self.navigationController pushViewController:ptmp animated:YES];
             break;
         }
           case 1:

@@ -136,7 +136,8 @@
             if (dic) {
                 pstr1 = [dic objectForKey:@"learningGoal"];
             }
-
+            
+//            pstr1 = [pstr1 stringByReplacingOccurrencesOfString:@"\\r\\n" withString:@"\r"];
             NSAttributedString *ptnp = [[NSAttributedString alloc] initWithString:pstr1];
             [AttributedStr appendAttributedString:ptnp];
             [AttributedStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:13.0f] range:NSMakeRange(0 , AttributedStr.length)];
@@ -207,10 +208,15 @@
             //以上处理boundingRectWithSize把\r当作普通字符计算的bug
             
             NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc]initWithString:@"学习目的:   \r"];
+            
             NSString *pstr1 = nil;
+           
             if (dic) {
                 pstr1 = [dic objectForKey:@"learningGoal"];
             }
+            
+            
+            
             NSAttributedString *ptnp = [[NSAttributedString alloc] initWithString:pstr1];
             [AttributedStr appendAttributedString:ptnp];
             

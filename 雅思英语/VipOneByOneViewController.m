@@ -7,6 +7,7 @@
 //
 
 #import "VipOneByOneViewController.h"
+#import "UIViewController+Json.h"
 #import "DBImageView.h"
 
 @interface Rowdata1 : NSObject
@@ -17,6 +18,7 @@
 @property (nonatomic) NSInteger ntag;
 @property (nonatomic) NSInteger mainRow;
 @property (nonatomic) NSInteger subRow;
+@property (nonatomic) NSInteger nID;//仅评价时使用
 @end
 
 
@@ -28,6 +30,8 @@
 @property (nonatomic)NSString *url;
 @property (nonatomic)NSInteger ncount_pj;
 @property (nonatomic)NSInteger current_pj;
+@property (nonatomic)bool bflag;
+@property (nonatomic,strong) NSMutableDictionary *dic_pj;//更多的评论
 @end
 
 
@@ -40,10 +44,26 @@
 @implementation VipOneByOneViewController
 @synthesize dic1;
 @synthesize dic;
+@synthesize id_ke;
+@synthesize bflag;
 
+- (void)createFooterView
+{
+    _tableView.tableFooterView = nil;
+    UIView *tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f,_tableView.bounds.size.width, 40.0f)];
+    UILabel *loadMoreText = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, _tableView.bounds.size.width, 40.0f)];
+    [loadMoreText setCenter:tableFooterView.center];
+    loadMoreText.textAlignment = NSTextAlignmentCenter;
+    [loadMoreText setFont:[UIFont systemFontOfSize:13.0f]];
+    [loadMoreText setText:@"上拉显示更多数据"];
+    [tableFooterView addSubview:loadMoreText];
+    _tableView.tableFooterView = tableFooterView;
+    [_tableView.tableFooterView setHidden:YES];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    bflag = true;
     if (dic1 == nil) {
         return;
     }
@@ -107,6 +127,15 @@
     DBImageView *imageView = [[DBImageView alloc] initWithFrame:(CGRect){ 0, 0, _titleImg.bounds.size.width, _titleImg.bounds.size.height }];
     [imageView setImageWithPath:pstrTitle];
     [_titleImg addSubview:imageView];
+    
+    
+    NSNumber *pnum = nil;
+    if (dic1) {
+        pnum = [dic1 objectForKey:@"maxTotal"];
+        _ncount_pj = pnum.intValue;
+    }
+    
+    [self createFooterView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -142,8 +171,8 @@
                 NSString *pstr2 = nil;
                 
                 NSNumber *pnum = nil;
-                if (dic) {
-                    pnum = [dic objectForKey:@"maxTotal"];
+                if (dic1) {
+                    pnum = [dic1 objectForKey:@"maxTotal"];
                     _ncount_pj = pnum.intValue;
                 }
                 
@@ -260,9 +289,10 @@
         {
             NSString *pstrTitle = nil;
             NSString *pstrtail = nil;
-            if (dic) {
+            NSDictionary *dic2 = [dic1 objectForKey:@"comment"];
+            if (dic2) {
                 pstrTitle = [dic1 objectForKey:@"basePath"];
-                pstrtail = [dic objectForKey:@"course_Address"];
+                pstrtail = [dic2 objectForKey:@"userInfoPortrait"];
             }
             pstrTitle = [pstrTitle stringByAppendingString:pstrtail];
             DBImageView *imageView = [[DBImageView alloc] initWithFrame:(CGRect){ 10, 10, 30, 30 }];
@@ -272,26 +302,27 @@
             imageView.layer.borderWidth = 3.0f;
             
             
-            NSString *name = [dic objectForKey:@"name"];
+            NSString *name = [dic2 objectForKey:@"userInfoNickname"];
             UILabel *labelName = [[UILabel alloc] init];
             labelName.font = [UIFont systemFontOfSize:13.0];
             labelName.text = name;
-            [labelName setFrame:CGRectMake(50, 10, 150, 20)];
+            [labelName setFrame:CGRectMake(50, 4, 150, 20)];
             
-            NSString *pingjia = [dic objectForKey:@"pingjia"];
+            NSString *pingjia = [dic2 objectForKey:@"evaluate"];
             UILabel *labelPingJia = [[UILabel alloc] init];
             labelPingJia.font = [UIFont systemFontOfSize:13.0];
             labelPingJia.text = pingjia;
-            [labelPingJia setFrame:CGRectMake(50, 40, 150, 20)];
+            [labelPingJia setFrame:CGRectMake(50, 25, 150, 20)];
             
             
             UILabel *labelContent = [[UILabel alloc] init];
             labelContent.font = [UIFont systemFontOfSize:13.0];
-            NSString *pContent = [dic objectForKey:@"11"];
+            NSString *pContent = [dic2 objectForKey:@"remark"];
+            pContent = [pContent stringByReplacingOccurrencesOfString:@"\\r" withString:@"\r"];
             NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc] initWithString:pContent];
             [AttributedStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:13.0f] range:NSMakeRange(0 , AttributedStr.length)];
             CGRect rc = [AttributedStr boundingRectWithSize:CGSizeMake(320, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil];
-            [labelContent setFrame:CGRectMake(10, 70, rc.size.width, rc.size.height)];
+            [labelContent setFrame:CGRectMake(10, 60, rc.size.width, rc.size.height)];
             labelContent.numberOfLines = 0;
             labelContent.attributedText = AttributedStr;
             
@@ -299,6 +330,77 @@
             [cell addSubview:labelName];
             [cell addSubview:labelPingJia];
             [cell addSubview:labelContent];
+        }
+            break;
+        case 40002:
+        {
+            NSArray *arrtmp = nil;
+            if (_dic_pj) {
+                arrtmp = [_dic_pj objectForKey:@"applys"];
+            }
+            
+            if (!arrtmp) {
+                return cell;
+            }
+            
+            NSDictionary *dictmp = nil;
+            BOOL bfound = false;
+            for (int i = 0; i < arrtmp.count; i++) {
+                dictmp = [arrtmp objectAtIndex:i];
+                NSNumber *nid = [dictmp objectForKey:@"id"];
+                if (nid.integerValue == pdata.nID) {
+                    bfound = true;
+                    break;
+                }
+            }
+            
+            if (!bfound) {
+                return  cell;
+            }
+            
+            NSString *pstrTitle = nil;
+            NSString *pstrtail = nil;
+            if (dictmp) {
+                pstrTitle = [_dic_pj objectForKey:@"basePath"];
+                pstrtail = [dictmp objectForKey:@"userInfoPortrait"];
+            }
+            pstrTitle = [pstrTitle stringByAppendingString:pstrtail];
+            DBImageView *imageView = [[DBImageView alloc] initWithFrame:(CGRect){ 10, 10, 30, 30 }];
+            [imageView setImageWithPath:pstrTitle];
+            imageView.layer.cornerRadius = 15.0f;
+            imageView.clipsToBounds = YES;
+            imageView.layer.borderWidth = 3.0f;
+            
+            
+            NSString *name = [dictmp objectForKey:@"userInfoNickname"];
+            UILabel *labelName = [[UILabel alloc] init];
+            labelName.font = [UIFont systemFontOfSize:13.0];
+            labelName.text = name;
+            [labelName setFrame:CGRectMake(50, 4, 150, 20)];
+            
+            NSString *pingjia = [dictmp objectForKey:@"evaluate"];
+            UILabel *labelPingJia = [[UILabel alloc] init];
+            labelPingJia.font = [UIFont systemFontOfSize:13.0];
+            labelPingJia.text = pingjia;
+            [labelPingJia setFrame:CGRectMake(50, 25, 150, 20)];
+            
+            
+            UILabel *labelContent = [[UILabel alloc] init];
+            labelContent.font = [UIFont systemFontOfSize:13.0];
+            NSString *pContent = [dictmp objectForKey:@"remark"];
+            pContent = [pContent stringByReplacingOccurrencesOfString:@"\\r" withString:@"\r"];
+            NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc] initWithString:pContent];
+            [AttributedStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:13.0f] range:NSMakeRange(0 , AttributedStr.length)];
+            CGRect rc = [AttributedStr boundingRectWithSize:CGSizeMake(320, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil];
+            [labelContent setFrame:CGRectMake(10, 60, rc.size.width, rc.size.height)];
+            labelContent.numberOfLines = 0;
+            labelContent.attributedText = AttributedStr;
+            
+            [cell addSubview:imageView];
+            [cell addSubview:labelName];
+            [cell addSubview:labelPingJia];
+            [cell addSubview:labelContent];
+
         }
             break;
         default:
@@ -345,19 +447,60 @@
             break;
         case 40001:
         {
+            NSDictionary *dic2 = [dic1 objectForKey:@"comment"];
             NSString *pstr1 = nil;
-            if (dic) {
-                pstr1 = [dic objectForKey:@"learningGoal"];
+            if (dic2) {
+                pstr1 = [dic2 objectForKey:@"remark"];
             }
             
-            pstr1 = [[pstr1 componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"\r"]] componentsJoinedByString:@""];
+            pstr1 = [pstr1 stringByReplacingOccurrencesOfString:@"\\r" withString:@"\r"];
             
             
             
             NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc] initWithString:pstr1];
             [AttributedStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:13.0f] range:NSMakeRange(0 , AttributedStr.length)];
             CGRect rc = [AttributedStr boundingRectWithSize:CGSizeMake(320, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil];
-            height = rc.size.height + 28 + 80; //头像是30x30
+            height = rc.size.height + 28 + 60; //头像是30x30
+        }
+            break;
+        case 40002:
+        {
+            NSArray *arrtmp = nil;
+            if (_dic_pj) {
+                arrtmp = [_dic_pj objectForKey:@"applys"];
+            }
+            
+            if (!arrtmp) {
+                return 40.0f;
+            }
+            
+            NSDictionary *dictmp = nil;
+            BOOL bfound = false;
+            for (int i = 0; i < arrtmp.count; i++) {
+                dictmp = [arrtmp objectAtIndex:i];
+                NSNumber *nid = [dictmp objectForKey:@"id"];
+                if (nid.integerValue == pdata.nID) {
+                    bfound = true;
+                    break;
+                }
+            }
+            
+            if (!bfound) {
+                return  40.0f;
+            }
+            
+            NSString *pstr1 = nil;
+            if (dictmp) {
+                pstr1 = [dictmp objectForKey:@"remark"];
+            }
+                
+            pstr1 = [pstr1 stringByReplacingOccurrencesOfString:@"\\r" withString:@"\r"];
+            
+            NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc] initWithString:pstr1];
+            [AttributedStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:13.0f] range:NSMakeRange(0 , AttributedStr.length)];
+            CGRect rc = [AttributedStr boundingRectWithSize:CGSizeMake(320, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil];
+            height = rc.size.height + 28 + 60; //头像是30x30
+            
         }
             break;
         default:
@@ -417,31 +560,82 @@
         }
         
         if (pdata.mainRow == 5) {//点击了查看全部评价,进行增加或则删除
-            static bool bflag = true;//可以添加状态
-            NSInteger nRows = _objects.count;
+            if (_ncount_pj <= 1) {
+                return;
+            }
             NSInteger ntmp = 0;
             if (bflag) {
+                
                 if (_current_pj + 10 <= _ncount_pj) {
-                    //添加10条评论
+                    //添加10条评论,这个10是上限增加10,_ncount_pj是最大的上限
                     ntmp = 10;
                 }
                 else
                 {
-                    //添加余下的不足10条评论
+                    //添加余下的不足10条评论的上限
                     ntmp = _ncount_pj - _current_pj;
                 }
+                
+                NSString *ppingjia = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectSomeCourseForVIPByLIMITANdHql?commonStr=VIP&str=%ld&commonInt1=%ld&commonInt2=%ld",id_ke,_current_pj + 1,_current_pj + ntmp];
+                [tableView.tableFooterView setHidden:NO];
+                UIActivityIndicatorView *tableFooterActivityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(_tableView.bounds.size.width / 2 - 10, 5.0f, 20.0f, 20.0f)];
+                [tableFooterActivityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
+                [tableFooterActivityIndicator startAnimating];
+                [tableView.tableFooterView addSubview:tableFooterActivityIndicator];
+                if (_dic_pj) {
+                    _dic_pj = [[NSMutableDictionary alloc] init];
+                }
+                else
+                {
+                    NSDictionary *dicll = [self GetJson:ppingjia];
+                    [_dic_pj addEntriesFromDictionary:dicll];
+                }
+                
+                NSArray *arrtmp = nil;
+                if (_dic_pj) {
+                    arrtmp = [_dic_pj objectForKey:@"applys"];
+                }
+                NSDictionary *dictmp = nil;
+                if (!arrtmp) {
+                    return;
+                }
+
+                
                 NSMutableArray *indexPaths = [NSMutableArray arrayWithCapacity:10];
                 for (NSInteger i = 1; i <= ntmp; i++) {
-                    [indexPaths addObject:[NSIndexPath indexPathForRow:nRows + i inSection:indexPath.section]];
+                    [indexPaths addObject:[NSIndexPath indexPathForRow:indexPath.row + i inSection:indexPath.section]];
                 }
                 
                 for (NSInteger i = 1; i <= ntmp; i++) {
+                    dictmp = [arrtmp objectAtIndex:i - 1];
+                    if (!dictmp) {
+                        break;
+                    }
                     Rowdata1 *pdata1 = [Rowdata1 new];
-                    pdata1.ntag = 40001;
+                    NSNumber *nid = [dictmp objectForKey:@"id"];
+                    pdata1.ntag = 40002;
+                    pdata1.nID = nid.intValue;
                     [_objects insertObject:pdata1 atIndex:indexPath.row + i];
                 }
-                _current_pj = ntmp;
-                bflag = false;
+                
+                [tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+                //请求数据
+                
+                
+                
+                [tableFooterActivityIndicator stopAnimating];
+                [tableFooterActivityIndicator setHidden:YES];
+                if (_ncount_pj >= 11) {
+                    [tableView.tableFooterView setHidden:NO];
+                }
+                else
+                {
+                    [tableView.tableFooterView setHidden:YES];
+                }
+                
+                //_current_pj = ntmp;
+                bflag = false;//关闭，只允许点击1次
+             
             }
             
         }

@@ -13,4 +13,5 @@
 
 @interface VipOneByOneViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) NSDictionary *dic1;
+@property (nonatomic) NSInteger id_ke;
 @end
