@@ -8,6 +8,8 @@
 
 #import "VipPublicDetailViewController.h"
 #import "DBImageView.h"
+#import "UIViewController+Json.h"
+#import "TeacherViewController.h"
 @interface VipPublicDetailViewController ()
 @property NSMutableArray *objects;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -283,6 +285,18 @@
     else
     {
         if (pdata.ntag == 30001) {//点击了教师详情
+            NSString *strTeacher = [dic objectForKey:@"lecturer"];
+            NSString *strUrl = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneTeacherByCourseForOpen?courseForOpen.lecturer=%@",strTeacher];
+            
+            NSDictionary *dicc = [self GetJson:strUrl];
+            if (!dicc) {
+                return;
+            }
+            
+            TeacherViewController *ptmp = [self.storyboard instantiateViewControllerWithIdentifier:@"teacherView"];
+            ptmp.dic = dicc;
+            [self.navigationController pushViewController:ptmp animated:YES];
+
             return;
         }
         

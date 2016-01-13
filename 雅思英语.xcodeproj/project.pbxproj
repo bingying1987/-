@@ -66,6 +66,8 @@
 		0468769B1C44B4E400E8B250 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468768A1C44B4E400E8B250 /* UIImageView+WebCache.m */; };
 		0468769C1C44B4E400E8B250 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468768C1C44B4E400E8B250 /* UIView+WebCacheOperation.m */; };
 		046876A01C44B53A00E8B250 /* PredictModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468769F1C44B53A00E8B250 /* PredictModel.m */; };
+		046D646E1C46393800F1BB31 /* SpeekMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046D646D1C46393800F1BB31 /* SpeekMainViewController.m */; };
+		046D64711C463AFB00F1BB31 /* sideline.png in Resources */ = {isa = PBXBuildFile; fileRef = 046D64701C463AFB00F1BB31 /* sideline.png */; };
 		04B6D77C1C3CA89D0087232E /* contents_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B6D7461C3CA89D0087232E /* contents_bg@2x.png */; };
 		04B6D77D1C3CA89D0087232E /* contents_listening@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B6D7471C3CA89D0087232E /* contents_listening@2x.png */; };
 		04B6D77E1C3CA89D0087232E /* contents_read@2x (2).png in Resources */ = {isa = PBXBuildFile; fileRef = 04B6D7481C3CA89D0087232E /* contents_read@2x (2).png */; };
@@ -217,6 +219,9 @@
 		0468768C1C44B4E400E8B250 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		0468769E1C44B53A00E8B250 /* PredictModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PredictModel.h; sourceTree = "<group>"; };
 		0468769F1C44B53A00E8B250 /* PredictModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PredictModel.m; sourceTree = "<group>"; };
+		046D646C1C46393800F1BB31 /* SpeekMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeekMainViewController.h; sourceTree = "<group>"; };
+		046D646D1C46393800F1BB31 /* SpeekMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeekMainViewController.m; sourceTree = "<group>"; };
+		046D64701C463AFB00F1BB31 /* sideline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sideline.png; sourceTree = "<group>"; };
 		04B6D7461C3CA89D0087232E /* contents_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contents_bg@2x.png"; sourceTree = "<group>"; };
 		04B6D7471C3CA89D0087232E /* contents_listening@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contents_listening@2x.png"; sourceTree = "<group>"; };
 		04B6D7481C3CA89D0087232E /* contents_read@2x (2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contents_read@2x (2).png"; sourceTree = "<group>"; };
@@ -462,6 +467,14 @@
 			path = PredictModel;
 			sourceTree = "<group>";
 		};
+		046D646F1C463AE300F1BB31 /* Speak */ = {
+			isa = PBXGroup;
+			children = (
+				046D64701C463AFB00F1BB31 /* sideline.png */,
+			);
+			name = Speak;
+			sourceTree = "<group>";
+		};
 		04B6D7441C3CA89D0087232E /* 1 */ = {
 			isa = PBXGroup;
 			children = (
@@ -624,6 +637,8 @@
 				04C7239C1C3A484900A3D085 /* ViewController.h */,
 				04C7239D1C3A484900A3D085 /* ViewController.m */,
 				04C7239F1C3A484900A3D085 /* Main.storyboard */,
+				046D646C1C46393800F1BB31 /* SpeekMainViewController.h */,
+				046D646D1C46393800F1BB31 /* SpeekMainViewController.m */,
 				045D8B7D1C453B1900360D31 /* TeacherViewController.h */,
 				045D8B7E1C453B1900360D31 /* TeacherViewController.m */,
 				042F224F1C3E508300B254C6 /* WebViewController.h */,
@@ -682,6 +697,7 @@
 		04C723BB1C3A4FA600A3D085 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				046D646F1C463AE300F1BB31 /* Speak */,
 				0452CBEC1C3B76D200F6C456 /* VIPPublic */,
 				0452CBB81C3B567200F6C456 /* VIPLesson */,
 				043D4F981C3AA2FC0045EA89 /* UserRegPage */,
@@ -822,6 +838,7 @@
 				0452CBF21C3B773E00F6C456 /* bg_2@2x.png in Resources */,
 				04B6D77C1C3CA89D0087232E /* contents_bg@2x.png in Resources */,
 				04B6D77D1C3CA89D0087232E /* contents_listening@2x.png in Resources */,
+				046D64711C463AFB00F1BB31 /* sideline.png in Resources */,
 				04B6D7841C3CA89D0087232E /* tab_people@2x.png in Resources */,
 				04B6D7801C3CA89D0087232E /* contents_speaking@2x (2).png in Resources */,
 				04B6D77F1C3CA89D0087232E /* contents_shanxing@2x.png in Resources */,
@@ -913,6 +930,7 @@
 				04C723981C3A484900A3D085 /* main.m in Sources */,
 				04B6D7A51C3CB8140087232E /* DBImageView.m in Sources */,
 				0468769C1C44B4E400E8B250 /* UIView+WebCacheOperation.m in Sources */,
+				046D646E1C46393800F1BB31 /* SpeekMainViewController.m in Sources */,
 				0468768D1C44B4E400E8B250 /* MKAnnotationView+WebCache.m in Sources */,
 				0468766A1C44B4C000E8B250 /* TableViewCell.m in Sources */,
 				04B6D7881C3CA89D0087232E /* MASConstraint.m in Sources */,

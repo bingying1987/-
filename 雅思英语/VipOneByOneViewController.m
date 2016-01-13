@@ -10,6 +10,7 @@
 #import "UIViewController+Json.h"
 #import "DBImageView.h"
 #import "AppDelegate.h"
+#import "TeacherViewController.h"
 
 @interface Rowdata1 : NSObject
 @property (nonatomic) NSString *Title;
@@ -609,6 +610,17 @@
     else
     {
         if (pdata.ntag == 30001) {//点击了教师详情
+            NSString *strTeacher = [dic objectForKey:@"lecturer"];
+            NSString *strUrl = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneTeacherByCourseForVIP?courseForVIP.lecturer=%@",strTeacher];
+            
+            NSDictionary *dicc = [self GetJson:strUrl];
+            if (!dicc) {
+                return;
+            }
+    
+            TeacherViewController *ptmp = [self.storyboard instantiateViewControllerWithIdentifier:@"teacherView"];
+            ptmp.dic = dicc;
+            [self.navigationController pushViewController:ptmp animated:YES];
             return;
         }
         
@@ -617,6 +629,7 @@
             [[ UIApplication sharedApplication] openURL:url];
             //    NSURL* url = [[NSURL alloc] initWithString:@"tel:110"];
             //    [[ UIApplication sharedApplication]openURL:url];
+            return;
         }
         
         if (pdata.mainRow == 5) {//点击了查看全部评价,进行增加或则删除

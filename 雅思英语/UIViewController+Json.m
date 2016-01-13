@@ -28,10 +28,11 @@
  
 - (NSDictionary*)GetJson:(NSString *)Path
 {
-    
+    NSString *ptmp = [Path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    //解决中文问题
     //初始化网络路径。
     //初始化 url
-    NSURL* url = [NSURL URLWithString:Path];
+    NSURL* url = [NSURL URLWithString:ptmp];
     if (url == nil) {
         return nil;
     }

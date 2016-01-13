@@ -37,13 +37,19 @@
     // Do any additional setup after loading the view.
     NSString *strName,*strSex,*strSchoolAge,*strEducation,*strProfessionalTitle,*strMember;
     
-    if (dic) {
-        strName = [dic objectForKey:@"str1"];
-        strSex = [dic objectForKey:@"str2"];
-        strSchoolAge = [dic objectForKey:@"str3"];
-        strEducation = [dic objectForKey:@"str4"];
-        strProfessionalTitle = [dic objectForKey:@"str5"];
-        strMember = [dic objectForKey:@"str6"];
+    if (!dic) {
+        return;
+    }
+    NSDictionary *dictmp = [dic objectForKey:@"teacher"];
+    
+    if (dictmp) {
+        strName = [dictmp objectForKey:@"name"];
+        strSex = [dictmp objectForKey:@"sex"];
+        strSchoolAge = [dictmp objectForKey:@"school_age"];
+        strEducation = [dictmp objectForKey:@"education"];
+        strProfessionalTitle = [dictmp objectForKey:@"lecturer"];
+        NSNumber *num = [dictmp objectForKey:@"trainP_Number"];
+        strMember = [NSString stringWithFormat:@"%ld人",num.integerValue];
     }
     
     
@@ -71,7 +77,8 @@
     
     _objects = [[NSMutableArray alloc] init];
     [_objects addObjectsFromArray:@[pRow1,pRow2,pRow3,pRow4,pRow5,pRow6]];
-
+    
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"NoDetail"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,7 +93,8 @@
     NSString *pstrtail = nil;
     if (dic) {
         pstrTitle = [dic objectForKey:@"basePath"];
-        pstrtail = [dic objectForKey:@"course_Address"];
+        NSDictionary *dictmp = [dic objectForKey:@"teacher"];
+        pstrtail = [dictmp objectForKey:@"detail_image_text"];
     }
     pstrTitle = [pstrTitle stringByAppendingString:pstrtail];
     DBImageView *imageView = [[DBImageView alloc] initWithFrame:(CGRect){ 0, 0, _titleImg.bounds.size.width, _titleImg.bounds.size.height }];
