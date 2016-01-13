@@ -43,6 +43,7 @@
 		0452CBF41C3B773E00F6C456 /* bg_4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0452CBF01C3B773E00F6C456 /* bg_4@2x.png */; };
 		0452CBF61C3B9BE100F6C456 /* bg_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0452CBF51C3B9BE100F6C456 /* bg_1@2x.png */; };
 		0452CBF91C3BBF8F00F6C456 /* PublicRegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452CBF81C3BBF8F00F6C456 /* PublicRegViewController.m */; };
+		045D8B7F1C453B1900360D31 /* TeacherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045D8B7E1C453B1900360D31 /* TeacherViewController.m */; };
 		0468765D1C44B3F700E8B250 /* bg_6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0468765B1C44B3F700E8B250 /* bg_6@2x.png */; };
 		0468765E1C44B3F700E8B250 /* header_btn_xiaoxi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0468765C1C44B3F700E8B250 /* header_btn_xiaoxi@2x.png */; };
 		046876651C44B40E00E8B250 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046876621C44B40E00E8B250 /* DetailsViewController.m */; };
@@ -171,6 +172,8 @@
 		0452CBF51C3B9BE100F6C456 /* bg_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_1@2x.png"; sourceTree = "<group>"; };
 		0452CBF71C3BBF8F00F6C456 /* PublicRegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicRegViewController.h; sourceTree = "<group>"; };
 		0452CBF81C3BBF8F00F6C456 /* PublicRegViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicRegViewController.m; sourceTree = "<group>"; };
+		045D8B7D1C453B1900360D31 /* TeacherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherViewController.h; sourceTree = "<group>"; };
+		045D8B7E1C453B1900360D31 /* TeacherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherViewController.m; sourceTree = "<group>"; };
 		0468765B1C44B3F700E8B250 /* bg_6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_6@2x.png"; sourceTree = "<group>"; };
 		0468765C1C44B3F700E8B250 /* header_btn_xiaoxi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "header_btn_xiaoxi@2x.png"; sourceTree = "<group>"; };
 		046876611C44B40E00E8B250 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
@@ -621,6 +624,8 @@
 				04C7239C1C3A484900A3D085 /* ViewController.h */,
 				04C7239D1C3A484900A3D085 /* ViewController.m */,
 				04C7239F1C3A484900A3D085 /* Main.storyboard */,
+				045D8B7D1C453B1900360D31 /* TeacherViewController.h */,
+				045D8B7E1C453B1900360D31 /* TeacherViewController.m */,
 				042F224F1C3E508300B254C6 /* WebViewController.h */,
 				042F22501C3E508300B254C6 /* WebViewController.m */,
 				042F224A1C3E173F00B254C6 /* VipOneByOneViewController.m */,
@@ -874,6 +879,7 @@
 				04B6D78C1C3CA89D0087232E /* MASViewConstraint.m in Sources */,
 				046876991C44B4E400E8B250 /* UIImage+WebP.m in Sources */,
 				0452CBC91C3B5EDE00F6C456 /* UIViewController+Json.m in Sources */,
+				045D8B7F1C453B1900360D31 /* TeacherViewController.m in Sources */,
 				04B6D78F1C3CA89D0087232E /* View+MASAdditions.m in Sources */,
 				04B6D78E1C3CA89D0087232E /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				04B6D7911C3CA89D0087232E /* CDRTranslucentSideBar.m in Sources */,

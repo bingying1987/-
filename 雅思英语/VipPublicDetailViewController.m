@@ -153,7 +153,12 @@
             if (dic) {
                 pstr1 = [dic objectForKey:@"lecturer"];
             }
-            cell.textLabel.text = pstr1;
+            
+            pstr1 = [pstr1 stringByAppendingString:@"   (点击查看详情)"];
+            NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc]initWithString:pstr1];
+            [AttributedStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:13.0f] range:NSMakeRange(0 , AttributedStr.length)];
+            [AttributedStr addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(AttributedStr.length - 8, 8)];//最大人数300人+三个空格
+            cell.textLabel.attributedText = AttributedStr;
         }
             break;
         case 30002:
@@ -277,6 +282,10 @@
     }
     else
     {
+        if (pdata.ntag == 30001) {//点击了教师详情
+            return;
+        }
+        
         if (pdata.ntag == 30003) {//点击了授课形式
             NSURL* url = [[NSURL alloc] initWithString:_url];
             [[ UIApplication sharedApplication] openURL:url];

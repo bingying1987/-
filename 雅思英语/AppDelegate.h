@@ -11,7 +11,8 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (nonatomic,strong) NSString *ph_num;
+@property (nonatomic,strong) NSString *ph_pw;
 
 @end
 

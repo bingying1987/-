@@ -9,6 +9,7 @@
 #import "VipOneByOneViewController.h"
 #import "UIViewController+Json.h"
 #import "DBImageView.h"
+#import "AppDelegate.h"
 
 @interface Rowdata1 : NSObject
 @property (nonatomic) NSString *Title;
@@ -31,7 +32,9 @@
 @property (nonatomic)NSInteger ncount_pj;
 @property (nonatomic)NSInteger current_pj;
 @property (nonatomic)bool bflag;
-@property (nonatomic,strong) NSMutableDictionary *dic_pj;//更多的评论
+@property (nonatomic,strong) NSMutableArray *arr_pj;//更多的评论
+@property (nonatomic) NSString *basePath;
+@property (weak, nonatomic) IBOutlet UIButton *btn_addmore;
 @end
 
 
@@ -46,6 +49,7 @@
 @synthesize dic;
 @synthesize id_ke;
 @synthesize bflag;
+@synthesize basePath;
 
 - (void)createFooterView
 {
@@ -55,7 +59,7 @@
     [loadMoreText setCenter:tableFooterView.center];
     loadMoreText.textAlignment = NSTextAlignmentCenter;
     [loadMoreText setFont:[UIFont systemFontOfSize:13.0f]];
-    [loadMoreText setText:@"上拉显示更多数据"];
+    [loadMoreText setText:@"正在加载数据..."];
     [tableFooterView addSubview:loadMoreText];
     _tableView.tableFooterView = tableFooterView;
     [_tableView.tableFooterView setHidden:YES];
@@ -72,6 +76,7 @@
     // Do any additional setup after loading the view.
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"NoDetail"];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"HaveDetail"];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Pingjia"];
     
     
     NSString *pstrtail = nil;
@@ -121,6 +126,7 @@
     NSString *pstrtail = nil;
     if (dic) {
         pstrTitle = [dic1 objectForKey:@"basePath"];
+        basePath = pstrTitle;
         pstrtail = [dic objectForKey:@"course_Address"];
     }
     pstrTitle = [pstrTitle stringByAppendingString:pstrtail];
@@ -145,7 +151,25 @@
 
 - (void)btn_click:(id)sender
 {
+    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+    
     //申请报名
+ //   NSString *ptmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/insertOneApplyForCourseForVIP?apply.courseId=%ld&userInfo.phone_Number=%@&userInfo.passWord=%@",id_ke,app.ph_num,app.ph_pw];
+    
+    NSString *ptmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/insertOneApplyForCourseForVIP?apply.courseId=41&userInfo.phone_Number=13886445784&userInfo.passWord=123456789"];
+    
+    
+    NSDictionary *dictmp1 = [self GetJson:ptmp];
+    if (!dictmp1) {
+        return;
+    }
+    NSString *a1 = [dictmp1 objectForKey:@"Message"];
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                    message:a1
+                                                   delegate:self
+                                          cancelButtonTitle:@"确定"
+                                          otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -158,7 +182,13 @@
     }
     else
     {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"NoDetail" forIndexPath:indexPath];
+        if (pdata.ntag != 40002) {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"NoDetail" forIndexPath:indexPath];//使用默认的单行cell
+        }
+        else
+        {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"Pingjia" forIndexPath:indexPath];
+        }
     }
     
     
@@ -233,7 +263,13 @@
             if (dic) {
                 pstr1 = [dic objectForKey:@"lecturer"];
             }
-            cell.textLabel.text = pstr1;
+            
+            pstr1 = [pstr1 stringByAppendingString:@"   (点击查看详情)"];
+            NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc]initWithString:pstr1];
+            [AttributedStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:13.0f] range:NSMakeRange(0 , AttributedStr.length)];
+            [AttributedStr addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(AttributedStr.length - 8, 8)];//最大人数300人+三个空格
+            cell.textLabel.attributedText = AttributedStr;
+
         }
             break;
         case 30002:
@@ -334,19 +370,14 @@
             break;
         case 40002:
         {
-            NSArray *arrtmp = nil;
-            if (_dic_pj) {
-                arrtmp = [_dic_pj objectForKey:@"applys"];
-            }
-            
-            if (!arrtmp) {
+            if (!_arr_pj) {
                 return cell;
             }
             
             NSDictionary *dictmp = nil;
             BOOL bfound = false;
-            for (int i = 0; i < arrtmp.count; i++) {
-                dictmp = [arrtmp objectAtIndex:i];
+            for (int i = 0; i < _arr_pj.count; i++) {
+                dictmp = [_arr_pj objectAtIndex:i];
                 NSNumber *nid = [dictmp objectForKey:@"id"];
                 if (nid.integerValue == pdata.nID) {
                     bfound = true;
@@ -361,10 +392,36 @@
             NSString *pstrTitle = nil;
             NSString *pstrtail = nil;
             if (dictmp) {
-                pstrTitle = [_dic_pj objectForKey:@"basePath"];
+            //    pstrTitle = [_dic_pj objectForKey:@"basePath"];
+                pstrTitle = basePath;
                 pstrtail = [dictmp objectForKey:@"userInfoPortrait"];
             }
             pstrTitle = [pstrTitle stringByAppendingString:pstrtail];
+            NSString *name = [dictmp objectForKey:@"userInfoNickname"];
+            NSString *pingjia = [dictmp objectForKey:@"evaluate"];
+            NSString *pContent = [dictmp objectForKey:@"remark"];
+            if ([cell viewWithTag:-4]) {//该cell已经添加过子视图了
+                DBImageView *dbtmp = (DBImageView*)[cell viewWithTag:-1];
+                [dbtmp setImageWithPath:pstrTitle];
+                UILabel *lablename1 = (UILabel*)[cell viewWithTag:-2];
+                lablename1.text = name;
+                UILabel *labelpingjia1 = (UILabel*)[cell viewWithTag:-3];
+                labelpingjia1.text = pingjia;
+                UILabel *labelContent = (UILabel*)[cell viewWithTag:-4];
+                
+                pContent = [pContent stringByReplacingOccurrencesOfString:@"\\r" withString:@"\r"];
+                NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc] initWithString:pContent];
+                [AttributedStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:13.0f] range:NSMakeRange(0 , AttributedStr.length)];
+                CGRect rc = [AttributedStr boundingRectWithSize:CGSizeMake(320, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil];
+                [labelContent setFrame:CGRectMake(10, 60, rc.size.width, rc.size.height)];
+                labelContent.numberOfLines = 0;
+                labelContent.attributedText = AttributedStr;
+                
+                return cell;
+            }
+            
+            
+            
             DBImageView *imageView = [[DBImageView alloc] initWithFrame:(CGRect){ 10, 10, 30, 30 }];
             [imageView setImageWithPath:pstrTitle];
             imageView.layer.cornerRadius = 15.0f;
@@ -372,13 +429,12 @@
             imageView.layer.borderWidth = 3.0f;
             
             
-            NSString *name = [dictmp objectForKey:@"userInfoNickname"];
             UILabel *labelName = [[UILabel alloc] init];
             labelName.font = [UIFont systemFontOfSize:13.0];
             labelName.text = name;
             [labelName setFrame:CGRectMake(50, 4, 150, 20)];
             
-            NSString *pingjia = [dictmp objectForKey:@"evaluate"];
+            
             UILabel *labelPingJia = [[UILabel alloc] init];
             labelPingJia.font = [UIFont systemFontOfSize:13.0];
             labelPingJia.text = pingjia;
@@ -387,7 +443,6 @@
             
             UILabel *labelContent = [[UILabel alloc] init];
             labelContent.font = [UIFont systemFontOfSize:13.0];
-            NSString *pContent = [dictmp objectForKey:@"remark"];
             pContent = [pContent stringByReplacingOccurrencesOfString:@"\\r" withString:@"\r"];
             NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc] initWithString:pContent];
             [AttributedStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:13.0f] range:NSMakeRange(0 , AttributedStr.length)];
@@ -396,11 +451,16 @@
             labelContent.numberOfLines = 0;
             labelContent.attributedText = AttributedStr;
             
+            
+            imageView.tag = -1;
+            labelName.tag = -2;
+            labelPingJia.tag = -3;
+            labelContent.tag = -4;
+            
             [cell addSubview:imageView];
             [cell addSubview:labelName];
             [cell addSubview:labelPingJia];
             [cell addSubview:labelContent];
-
         }
             break;
         default:
@@ -465,19 +525,15 @@
             break;
         case 40002:
         {
-            NSArray *arrtmp = nil;
-            if (_dic_pj) {
-                arrtmp = [_dic_pj objectForKey:@"applys"];
-            }
-            
-            if (!arrtmp) {
+            if(!_arr_pj)
+            {
                 return 40.0f;
             }
             
             NSDictionary *dictmp = nil;
             BOOL bfound = false;
-            for (int i = 0; i < arrtmp.count; i++) {
-                dictmp = [arrtmp objectAtIndex:i];
+            for (int i = 0; i < _arr_pj.count; i++) {
+                dictmp = [_arr_pj objectAtIndex:i];
                 NSNumber *nid = [dictmp objectForKey:@"id"];
                 if (nid.integerValue == pdata.nID) {
                     bfound = true;
@@ -552,6 +608,10 @@
     }
     else
     {
+        if (pdata.ntag == 30001) {//点击了教师详情
+            return;
+        }
+        
         if (pdata.ntag == 30003) {//点击了授课形式
             NSURL* url = [[NSURL alloc] initWithString:_url];
             [[ UIApplication sharedApplication] openURL:url];
@@ -566,35 +626,40 @@
             NSInteger ntmp = 0;
             if (bflag) {
                 
-                if (_current_pj + 10 <= _ncount_pj) {
+                if (_ncount_pj <= 1) {
+                    return;
+                }
+                
+                if (_ncount_pj > 10) {
                     //添加10条评论,这个10是上限增加10,_ncount_pj是最大的上限
                     ntmp = 10;
                 }
                 else
                 {
                     //添加余下的不足10条评论的上限
-                    ntmp = _ncount_pj - _current_pj;
+                    ntmp = _ncount_pj - 1;
                 }
                 
-                NSString *ppingjia = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectSomeCourseForVIPByLIMITANdHql?commonStr=VIP&str=%ld&commonInt1=%ld&commonInt2=%ld",id_ke,_current_pj + 1,_current_pj + ntmp];
+                
+                NSString *ppingjia = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectSomeCourseForVIPByLIMITANdHql?commonStr=VIP&str=%ld&commonInt1=1&commonInt2=%ld",id_ke,ntmp];
                 [tableView.tableFooterView setHidden:NO];
                 UIActivityIndicatorView *tableFooterActivityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(_tableView.bounds.size.width / 2 - 10, 5.0f, 20.0f, 20.0f)];
                 [tableFooterActivityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
                 [tableFooterActivityIndicator startAnimating];
                 [tableView.tableFooterView addSubview:tableFooterActivityIndicator];
-                if (_dic_pj) {
-                    _dic_pj = [[NSMutableDictionary alloc] init];
-                }
-                else
-                {
-                    NSDictionary *dicll = [self GetJson:ppingjia];
-                    [_dic_pj addEntriesFromDictionary:dicll];
+                [tableView.tableFooterView setHidden:NO];
+                if (!_arr_pj) {
+                    _arr_pj = [[NSMutableArray alloc] init];
                 }
                 
+                NSDictionary *dicll = [self GetJson:ppingjia];
                 NSArray *arrtmp = nil;
-                if (_dic_pj) {
-                    arrtmp = [_dic_pj objectForKey:@"applys"];
+                if (dicll) {
+                    arrtmp = [dicll objectForKey:@"applys"];
                 }
+                [_arr_pj addObjectsFromArray:arrtmp];
+                
+                
                 NSDictionary *dictmp = nil;
                 if (!arrtmp) {
                     return;
@@ -619,19 +684,13 @@
                 }
                 
                 [tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
-                //请求数据
+                
                 
                 
                 
                 [tableFooterActivityIndicator stopAnimating];
-                [tableFooterActivityIndicator setHidden:YES];
-                if (_ncount_pj >= 11) {
-                    [tableView.tableFooterView setHidden:NO];
-                }
-                else
-                {
-                    [tableView.tableFooterView setHidden:YES];
-                }
+                [tableView.tableFooterView setHidden:YES];
+                
                 
                 //_current_pj = ntmp;
                 bflag = false;//关闭，只允许点击1次
@@ -643,6 +702,96 @@
     
     
 }
+
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (bflag) {
+        return;
+    }
+    
+    CGPoint offset = scrollView.contentOffset;  // 当前滚动位移
+    CGRect bounds = scrollView.bounds;          // UIScrollView 可视高度
+    CGSize size = scrollView.contentSize;         // 滚动区域
+    UIEdgeInsets inset = scrollView.contentInset;
+    float y = offset.y + bounds.size.height - inset.bottom;
+    float h = size.height;
+    
+    float reload_distance = 10;
+    if (y > (h + reload_distance)) {
+        // 滚动到底部
+        // ...
+        NSInteger ntmp = _arr_pj.count;//当前的评论条数(除去第1条)
+        NSInteger ncount = _ncount_pj - 1 - ntmp;//得到剩下的评论条数
+        if (ncount > 0) {
+            [_btn_addmore setHidden:NO];
+            [_tableView.tableFooterView setHidden:YES];
+        }
+        else
+        {
+            [_btn_addmore setHidden:YES];
+            [_tableView.tableFooterView setHidden:YES];
+        }
+    }
+    
+    
+    
+    
+}
+
+
+- (IBAction)addmore:(id)sender {
+    NSInteger ntmp = _arr_pj.count;//当前的评论条数(除去第1条)
+    NSInteger ncount = _ncount_pj - 1 - ntmp;//得到剩下的评论条数
+    if (ncount > 10) {
+        [_btn_addmore setHidden:YES];
+        //插入并滑动到最后
+        [_tableView.tableFooterView setHidden:NO];
+        ncount =  10;
+    }
+    else
+    {
+        [_btn_addmore setHidden:YES];
+        //插入并滑动到最后
+    }
+    
+    NSMutableArray *indexPaths = [NSMutableArray arrayWithCapacity:10];
+    NSInteger nrows = _objects.count;
+    for (NSInteger i = 0; i < ncount; i++) {
+        [indexPaths addObject:[NSIndexPath indexPathForRow:nrows + i inSection:0]];
+    }
+    
+    //请求
+    NSString *ppingjia = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectSomeCourseForVIPByLIMITANdHql?commonStr=VIP&str=%ld&commonInt1=%ld&commonInt2=%ld",id_ke,ntmp + 1,ntmp + ncount];
+    NSDictionary *dictmp1 = [self GetJson:ppingjia];
+    NSArray *arrtmp = nil;
+    if (dictmp1) {
+        arrtmp = [dictmp1 objectForKey:@"applys"];
+    }
+    
+    if (arrtmp) {
+        [_arr_pj addObjectsFromArray:arrtmp];
+    }
+    
+    NSDictionary *dictmp = nil;
+    for (NSInteger i = 0; i < ncount; i++) {
+        dictmp = [arrtmp objectAtIndex:i];
+        if (!dictmp) {
+            break;
+        }
+        Rowdata1 *pdata1 = [Rowdata1 new];
+        NSNumber *nid = [dictmp objectForKey:@"id"];
+        pdata1.ntag = 40002;
+        pdata1.nID = nid.intValue;
+        //[_objects insertObject:pdata1 atIndex:nrows + i];
+        [_objects addObject:pdata1];
+    }
+    
+    [_tableView.tableFooterView setHidden:YES];
+    [_tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+    [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:nrows inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+}
+
 
 /*
  #pragma mark - Navigation

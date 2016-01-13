@@ -14,7 +14,8 @@
 @end
 
 @implementation AppDelegate
-
+@synthesize ph_num;
+@synthesize ph_pw;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.

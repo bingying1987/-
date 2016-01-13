@@ -487,6 +487,15 @@
                                     <outlet property="delegate" destination="Ddk-pG-Z3w" id="VZN-VY-kdo"/>
                                 </connections>
                             </tableView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wUY-o9-BbL">
+                                <rect key="frame" x="0.0" y="538" width="320" height="30"/>
+                                <state key="normal" title="加载更多">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addmore:" destination="Ddk-pG-Z3w" eventType="touchUpInside" id="xiZ-49-bxs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -511,6 +520,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
+                        <outlet property="btn_addmore" destination="wUY-o9-BbL" id="J9c-Na-2rV"/>
                         <outlet property="tableView" destination="feW-fz-dHS" id="iNv-tL-Gyh"/>
                         <outlet property="titleImg" destination="k2q-T8-rV1" id="uZB-0n-yDT"/>
                     </connections>
@@ -577,6 +587,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TWi-Ec-2jh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1483" y="1228"/>
+        </scene>
+        <!--教师详情-->
+        <scene sceneID="atR-BD-wj8">
+            <objects>
+                <viewController storyboardIdentifier="teacherView" title="教师详情" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dlQ-NO-rt8" customClass="TeacherViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bAD-X2-owC"/>
+                        <viewControllerLayoutGuide type="bottom" id="qhW-gA-z4c"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PKv-4h-aMB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gpQ-Ws-N54" userLabel="imgtouxiang">
+                                <rect key="frame" x="130" y="0.0" width="60" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="5Kd-jQ-Iaq"/>
+                                    <constraint firstAttribute="height" constant="60" id="Sp0-eb-BMM"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="iDS-EV-JBo">
+                                <rect key="frame" x="0.0" y="93" width="320" height="475"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="iDS-EV-JBo" secondAttribute="bottom" id="2Sh-PG-RDN"/>
+                            <constraint firstItem="iDS-EV-JBo" firstAttribute="leading" secondItem="PKv-4h-aMB" secondAttribute="leading" id="B86-Cs-0zp"/>
+                            <constraint firstAttribute="centerX" secondItem="gpQ-Ws-N54" secondAttribute="centerX" id="lHG-xr-l6y"/>
+                            <constraint firstItem="iDS-EV-JBo" firstAttribute="top" secondItem="gpQ-Ws-N54" secondAttribute="bottom" constant="33" id="p0I-Ln-3Zk"/>
+                            <constraint firstItem="gpQ-Ws-N54" firstAttribute="top" secondItem="bAD-X2-owC" secondAttribute="bottom" constant="-20" id="rQq-78-CnA"/>
+                            <constraint firstAttribute="trailing" secondItem="iDS-EV-JBo" secondAttribute="trailing" id="rZU-PK-vdc"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
+                    <connections>
+                        <outlet property="tableView" destination="iDS-EV-JBo" id="wKw-l2-Esf"/>
+                        <outlet property="titleImg" destination="gpQ-Ws-N54" id="67I-o8-Db8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZO8-Ka-oM7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-109" y="1571"/>
         </scene>
         <!--VIP课程报名-->
         <scene sceneID="fwf-Z2-oeN">

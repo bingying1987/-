@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "UIViewController+Json.h"
 #import "YSFirstViewController.h"
+#import "AppDelegate.h"
 @interface LoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *txt_PhoneNum;
@@ -88,6 +89,7 @@
     
     NSString *path = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneUserInfoByLoginJudge?userInfo.phone_Number=%@&userInfo.passWord=%@",Num,Pw];
     
+    
     NSDictionary *dic = [self GetJson:path];
     
     if (dic == nil) {
@@ -96,6 +98,9 @@
     NSNumber* lat = [dic objectForKey:@"Result"];
     if (lat.intValue == 1) {
          //登录成功,跳转到主页
+        AppDelegate *pdelegate = [[UIApplication sharedApplication] delegate];
+        pdelegate.ph_num = Num;
+        pdelegate.ph_pw = Pw;
         YSFirstViewController *ptmp = [[YSFirstViewController alloc] init];
         [self.navigationController pushViewController:ptmp animated:YES];
     }

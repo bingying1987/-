@@ -161,7 +161,8 @@
         
         for (int i = 0; i < nCount; i++) {
             resultDic = [arrayResult objectAtIndex:i];
-            NSString *Url =[preaddr stringByAppendingString:[resultDic objectForKey:@"course_Address"]];
+            NSString *strtmp = [resultDic objectForKey:@"course_Address"];
+            NSString *Url =[preaddr stringByAppendingString:strtmp];
             
             DBImageView *imageView = [[DBImageView alloc] initWithFrame:(CGRect){ 0, 0, nWidth, nHeight }];
             [imageView setImageWithPath:Url];
