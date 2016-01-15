@@ -746,6 +746,11 @@
             [_tableView.tableFooterView setHidden:YES];
         }
     }
+    else
+    {
+        [_tableView.tableFooterView setHidden:YES];
+        [_btn_addmore setHidden:YES];
+    }
     
     
     
@@ -775,7 +780,10 @@
     }
     
     //请求
-    NSString *ppingjia = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectSomeCourseForVIPByLIMITANdHql?commonStr=VIP&str=%ld&commonInt1=%ld&commonInt2=%ld",id_ke,ntmp + 1,ntmp + ncount];
+//    NSString *ppingjia = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectSomeCourseForVIPByLIMITANdHql?commonStr=VIP&str=%ld&commonInt1=%ld&commonInt2=%ld",id_ke,ntmp + 1,ntmp + ncount];
+    
+    NSString *ppingjia = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectSomeCourseForVIPByLIMITANdHql?commonStr=VIP&str=%ld&commonInt1=%ld&commonInt2=%ld",id_ke,ntmp + 1,ncount];
+    
     NSDictionary *dictmp1 = [self GetJson:ppingjia];
     NSArray *arrtmp = nil;
     if (dictmp1) {

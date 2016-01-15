@@ -212,6 +212,8 @@
         case 1:
         {
             NSLog(@"说");
+            UIViewController *ptmp = [self.navigationController.storyboard instantiateViewControllerWithIdentifier:@"speekmainView"];
+            [self.navigationController pushViewController:ptmp animated:YES];
             break;
         }
         case 2:
