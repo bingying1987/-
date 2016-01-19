@@ -203,6 +203,7 @@
 //听说读写监听事件
 -(void)buttonClick:(UIButton *)sender
 {
+    [self.navigationController setNavigationBarHidden:NO];
     switch (sender.tag - BUTTON_TAG) {
         case 0:
         {

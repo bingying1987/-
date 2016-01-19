@@ -36,6 +36,7 @@
     lastBtn = _btn1;
     lastImgView = _img1;
     imgViewArry = @[_img1,_img2,_img3,_img4];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,8 +66,6 @@
     {
         ptmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectAllTalkTopicClassification_ForApp?commonStr=part%ld&commonInt1=0&commonInt2=20",id1];
     }
-    
-    
     
     
     

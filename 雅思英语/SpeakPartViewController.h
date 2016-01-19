@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SpeakPartViewController : UIViewController
+@property (nonatomic) NSDictionary *dic6_1;
+@property (nonatomic) NSInteger subID;
 
 @end

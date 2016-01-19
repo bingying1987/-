@@ -8,6 +8,7 @@
 
 #import "SubjectViewController.h"
 #import "UIViewController+Json.h"
+#import "SpeakPartViewController.h"
 
 @interface RowSub : NSObject
 @property (nonatomic) NSString *Title;
@@ -138,6 +139,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSDictionary* dic1 = [_subarr objectAtIndex:indexPath.row];
+    NSNumber *pid = [dic1 objectForKey:@"id"];
+    NSString *pstr = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneTalkSubjectByRandom?str=%ld",pid.integerValue];
+    dic1 = [self GetJson:pstr];
+    if (dic1) {
+        dic1 = [dic1 objectForKey:@"talkSubject"];
+        SpeakPartViewController *pspeak = [self.storyboard instantiateViewControllerWithIdentifier:@"speakpartView"];
+        pspeak.dic6_1 = dic1;
+        pspeak.subID = pid.integerValue;
+        [self.navigationController pushViewController:pspeak animated:YES];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

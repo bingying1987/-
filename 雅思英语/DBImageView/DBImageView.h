@@ -12,6 +12,8 @@
 @property (nonatomic, copy) NSString *imageWithPath;
 @property (nonatomic, strong) UIImage *placeHolder, *image;
 
+- (CGSize)GetImageSize;
+
 + (void) triggerImageRequests:(BOOL)start;
 + (void) clearCache;
 @end

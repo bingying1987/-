@@ -69,6 +69,8 @@
 - (IBAction)btn_Login:(id)sender {
     YSFirstViewController *ptmp = [[YSFirstViewController alloc] init];
     [self.navigationController pushViewController:ptmp animated:YES];
+//    UIViewController *ptmp = [self.storyboard instantiateViewControllerWithIdentifier:@"speakpartView"];
+//    [self.navigationController pushViewController:ptmp animated:YES];
     return;//调试使用
     
     

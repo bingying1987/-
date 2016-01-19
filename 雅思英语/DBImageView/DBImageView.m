@@ -60,6 +60,11 @@ static NSString *const kDBImageViewShouldStartDownload = @"kDBImageViewShouldSta
     return self;
 }
 
+- (CGSize)GetImageSize
+{
+    return _imageView.image.size;
+}
+
 - (void) dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];

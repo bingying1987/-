@@ -123,6 +123,11 @@
 		04B6D7A51C3CB8140087232E /* DBImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B6D7A01C3CB8140087232E /* DBImageView.m */; };
 		04B6D7A61C3CB8140087232E /* DBImageViewCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B6D7A21C3CB8140087232E /* DBImageViewCache.m */; };
 		04B6D7AF1C3CDFF30087232E /* VipPublicDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B6D7AE1C3CDFF30087232E /* VipPublicDetailViewController.m */; };
+		04BFF9871C4DE3F600353650 /* NetMediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BFF9861C4DE3F600353650 /* NetMediaViewController.m */; };
+		04BFF9891C4E04C300353650 /* bofang@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BFF9881C4E04C300353650 /* bofang@2x.png */; };
+		04BFF98C1C4E29C100353650 /* MyRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BFF98B1C4E29C100353650 /* MyRecorder.m */; };
+		04BFF98F1C4E2DCB00353650 /* tmpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BFF98E1C4E2DCB00353650 /* tmpViewController.m */; };
+		04BFF9921C4E3D5000353650 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BFF9911C4E3D5000353650 /* libmp3lame.a */; };
 		04C723981C3A484900A3D085 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C723971C3A484900A3D085 /* main.m */; };
 		04C7239B1C3A484900A3D085 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C7239A1C3A484900A3D085 /* AppDelegate.m */; };
 		04C7239E1C3A484900A3D085 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C7239D1C3A484900A3D085 /* ViewController.m */; };
@@ -322,6 +327,15 @@
 		04B6D7A21C3CB8140087232E /* DBImageViewCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBImageViewCache.m; sourceTree = "<group>"; };
 		04B6D7AD1C3CDFF30087232E /* VipPublicDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VipPublicDetailViewController.h; sourceTree = "<group>"; };
 		04B6D7AE1C3CDFF30087232E /* VipPublicDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VipPublicDetailViewController.m; sourceTree = "<group>"; };
+		04BFF9851C4DE3F600353650 /* NetMediaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetMediaViewController.h; sourceTree = "<group>"; };
+		04BFF9861C4DE3F600353650 /* NetMediaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetMediaViewController.m; sourceTree = "<group>"; };
+		04BFF9881C4E04C300353650 /* bofang@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bofang@2x.png"; sourceTree = "<group>"; };
+		04BFF98A1C4E29C100353650 /* MyRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRecorder.h; sourceTree = "<group>"; };
+		04BFF98B1C4E29C100353650 /* MyRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRecorder.m; sourceTree = "<group>"; };
+		04BFF98D1C4E2DCB00353650 /* tmpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tmpViewController.h; sourceTree = "<group>"; };
+		04BFF98E1C4E2DCB00353650 /* tmpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tmpViewController.m; sourceTree = "<group>"; };
+		04BFF9901C4E3D2F00353650 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
+		04BFF9911C4E3D5000353650 /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmp3lame.a; path = ../../../Downloads/lame/libmp3lame.a; sourceTree = "<group>"; };
 		04C723921C3A484900A3D085 /* 雅思英语.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "雅思英语.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C723961C3A484900A3D085 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04C723971C3A484900A3D085 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -349,6 +363,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04BFF9921C4E3D5000353650 /* libmp3lame.a in Frameworks */,
 				0452CBEB1C3B756600F6C456 /* libstdc++.dylib in Frameworks */,
 				0452CBE91C3B755A00F6C456 /* JavaScriptCore.framework in Frameworks */,
 				0452CBE71C3B755000F6C456 /* libicucore.dylib in Frameworks */,
@@ -512,6 +527,7 @@
 		046D646F1C463AE300F1BB31 /* Speak */ = {
 			isa = PBXGroup;
 			children = (
+				04BFF9881C4E04C300353650 /* bofang@2x.png */,
 				046D64701C463AFB00F1BB31 /* sideline@2x.png */,
 				046974711C488F2D00346B6B /* speak_bian@2x.png */,
 				046974751C48908600346B6B /* shuo00@2x.png */,
@@ -669,6 +685,7 @@
 		04C723891C3A484900A3D085 = {
 			isa = PBXGroup;
 			children = (
+				04BFF9911C4E3D5000353650 /* libmp3lame.a */,
 				04C723941C3A484900A3D085 /* 雅思英语 */,
 				04C723AE1C3A484900A3D085 /* 雅思英语Tests */,
 				04C723931C3A484900A3D085 /* Products */,
@@ -697,6 +714,13 @@
 				04C7239C1C3A484900A3D085 /* ViewController.h */,
 				04C7239D1C3A484900A3D085 /* ViewController.m */,
 				04C7239F1C3A484900A3D085 /* Main.storyboard */,
+				04BFF98D1C4E2DCB00353650 /* tmpViewController.h */,
+				04BFF98E1C4E2DCB00353650 /* tmpViewController.m */,
+				04BFF9901C4E3D2F00353650 /* lame.h */,
+				04BFF98A1C4E29C100353650 /* MyRecorder.h */,
+				04BFF98B1C4E29C100353650 /* MyRecorder.m */,
+				04BFF9851C4DE3F600353650 /* NetMediaViewController.h */,
+				04BFF9861C4DE3F600353650 /* NetMediaViewController.m */,
 				046974911C48D5A100346B6B /* SpeakPartViewController.h */,
 				046974921C48D5A100346B6B /* SpeakPartViewController.m */,
 				0469747D1C4899D500346B6B /* SubjectViewController.h */,
@@ -885,6 +909,7 @@
 				0452CBD61C3B633100F6C456 /* vip_list6@2x.png in Resources */,
 				046974991C48EE2400346B6B /* shuo7_01@2x.png in Resources */,
 				0452CBD41C3B633100F6C456 /* vip_list4@2x.png in Resources */,
+				04BFF9891C4E04C300353650 /* bofang@2x.png in Resources */,
 				0452CBD11C3B633100F6C456 /* vip_list1@2x.png in Resources */,
 				0452CBC11C3B594300F6C456 /* vip_btn_up@2x.png in Resources */,
 				0452CBC61C3B594300F6C456 /* vip_star5@2x.png in Resources */,
@@ -975,6 +1000,7 @@
 				046876981C44B4E400E8B250 /* UIImage+MultiFormat.m in Sources */,
 				043D4F971C3A9E790045EA89 /* UserRegViewController.m in Sources */,
 				046876A01C44B53A00E8B250 /* PredictModel.m in Sources */,
+				04BFF9871C4DE3F600353650 /* NetMediaViewController.m in Sources */,
 				046876921C44B4E400E8B250 /* SDWebImageDownloader.m in Sources */,
 				04B6D78C1C3CA89D0087232E /* MASViewConstraint.m in Sources */,
 				046876991C44B4E400E8B250 /* UIImage+WebP.m in Sources */,
@@ -990,6 +1016,7 @@
 				046876651C44B40E00E8B250 /* DetailsViewController.m in Sources */,
 				04B6D7921C3CA89D0087232E /* sideBarTableViewCell.m in Sources */,
 				04B6D78A1C3CA89D0087232E /* MASLayoutConstraint.m in Sources */,
+				04BFF98F1C4E2DCB00353650 /* tmpViewController.m in Sources */,
 				04B6D7A41C3CB8140087232E /* DBImageRequest.m in Sources */,
 				04B6D7901C3CA89D0087232E /* ViewController+MASAdditions.m in Sources */,
 				04B6D7891C3CA89D0087232E /* MASConstraintMaker.m in Sources */,
@@ -998,6 +1025,7 @@
 				04C7239E1C3A484900A3D085 /* ViewController.m in Sources */,
 				0468768F1C44B4E400E8B250 /* SDImageCache.m in Sources */,
 				0452CBF91C3BBF8F00F6C456 /* PublicRegViewController.m in Sources */,
+				04BFF98C1C4E29C100353650 /* MyRecorder.m in Sources */,
 				04C7239B1C3A484900A3D085 /* AppDelegate.m in Sources */,
 				042F224C1C3E173F00B254C6 /* VipOneByOneViewController.m in Sources */,
 				0452CBDA1C3B6B8B00F6C456 /* VipPublicViewController.m in Sources */,
@@ -1162,6 +1190,10 @@
 				INFOPLIST_FILE = "雅思英语/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/mac/Downloads/lame,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1181,6 +1213,10 @@
 				INFOPLIST_FILE = "雅思英语/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/mac/Downloads/lame,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
