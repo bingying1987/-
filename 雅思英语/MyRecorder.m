@@ -97,7 +97,8 @@
     DBImageViewCache *pcache = [DBImageViewCache cache];
     NSString *dir = [pcache localDirectory];
     
-    dir = [dir stringByAppendingString:@"recordTest.caf"];
+//    dir = [dir stringByAppendingString:@"recordTest.caf"];
+    dir = [dir stringByAppendingString:@"recordTest.mp3"];//直接返回转好后的mp3
     return dir;
 }
 

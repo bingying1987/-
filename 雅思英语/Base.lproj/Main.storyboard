@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zN5-hO-MDY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7Pc-iV-8nM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -69,6 +69,15 @@
                                     <action selector="playsec:" destination="zN5-hO-MDY" eventType="touchUpInside" id="4TG-RR-cvk"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkI-JG-hQc">
+                                <rect key="frame" x="137" y="353" width="46" height="30"/>
+                                <state key="normal" title="文本">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="textclick:" destination="zN5-hO-MDY" eventType="touchUpInside" id="I4r-EC-RjN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -78,6 +87,130 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i9v-Vc-1HL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2526" y="1312"/>
+        </scene>
+        <!--听-->
+        <scene sceneID="WJE-Sj-J0H">
+            <objects>
+                <viewController storyboardIdentifier="listenView" title="听" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sYL-ZI-Nmz" customClass="ListenViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="N1h-Ke-Asa"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qj2-fd-T0P"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TR5-63-Pf2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ls_sidlline.png" translatesAutoresizingMaskIntoConstraints="NO" id="Aiy-14-azd">
+                                <rect key="frame" x="44" y="146" width="1" height="266"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="---------------- 科学重要保障 ----------------" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmr-eZ-6Fj">
+                                <rect key="frame" x="0.0" y="42" width="320" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghC-qI-2Dl">
+                                <rect key="frame" x="97" y="95" width="196" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
+                                <inset key="titleEdgeInsets" minX="-155" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="-40" minY="30" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="选择题" image="vip_star2.png" backgroundImage="vip_btn_down.png">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnclick:" destination="sYL-ZI-Nmz" eventType="touchUpInside" id="ryI-aE-svz"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="vip_public.png" translatesAutoresizingMaskIntoConstraints="NO" id="KFQ-Jt-jeV">
+                                <rect key="frame" x="24" y="100" width="40" height="40"/>
+                            </imageView>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tp9-uz-Epn">
+                                <rect key="frame" x="97" y="175" width="196" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
+                                <inset key="titleEdgeInsets" minX="-155" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="-40" minY="30" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="填空题" image="vip_star2.png" backgroundImage="vip_btn_up.png">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnclick:" destination="sYL-ZI-Nmz" eventType="touchUpInside" id="9zN-Sa-XZ1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oav-1W-Ipn">
+                                <rect key="frame" x="97" y="254" width="196" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
+                                <inset key="titleEdgeInsets" minX="-155" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="-40" minY="30" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="选择题" image="vip_star2.png" backgroundImage="vip_btn_up.png">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnclick:" destination="sYL-ZI-Nmz" eventType="touchUpInside" id="Ze7-h6-WDI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2oV-b6-n7F">
+                                <rect key="frame" x="97" y="333" width="196" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
+                                <inset key="titleEdgeInsets" minX="-155" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="-40" minY="30" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="搭配题" image="vip_star2.png" backgroundImage="vip_btn_up.png">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnclick:" destination="sYL-ZI-Nmz" eventType="touchUpInside" id="WuV-yD-FUA"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="vip_list2.png" translatesAutoresizingMaskIntoConstraints="NO" id="bkX-Np-Bwu">
+                                <rect key="frame" x="24" y="180" width="40" height="40"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="vip_list3.png" translatesAutoresizingMaskIntoConstraints="NO" id="lD2-z7-89n">
+                                <rect key="frame" x="24" y="259" width="40" height="40"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="vip_list4.png" translatesAutoresizingMaskIntoConstraints="NO" id="geZ-WM-yc7">
+                                <rect key="frame" x="24" y="338" width="40" height="40"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="vip_list5.png" translatesAutoresizingMaskIntoConstraints="NO" id="yzd-ih-8HI">
+                                <rect key="frame" x="24" y="415" width="40" height="40"/>
+                            </imageView>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ntm-cq-nEm">
+                                <rect key="frame" x="97" y="410" width="196" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
+                                <inset key="titleEdgeInsets" minX="-155" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="-40" minY="30" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="简答题" image="vip_star2.png" backgroundImage="vip_btn_up.png">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnclick:" destination="sYL-ZI-Nmz" eventType="touchUpInside" id="YnJ-9E-kX3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
+                    <connections>
+                        <outlet property="btn1" destination="ghC-qI-2Dl" id="4kp-rb-Ypo"/>
+                        <outlet property="img1" destination="KFQ-Jt-jeV" id="gb2-t5-QM1"/>
+                        <outlet property="img2" destination="bkX-Np-Bwu" id="ODF-vv-0Dz"/>
+                        <outlet property="img3" destination="lD2-z7-89n" id="Upl-xR-ngc"/>
+                        <outlet property="img4" destination="geZ-WM-yc7" id="14l-zP-xUN"/>
+                        <outlet property="img5" destination="yzd-ih-8HI" id="VGE-Jl-MQT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="45n-ES-qZY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2402" y="2228"/>
         </scene>
         <!--说Part-->
         <scene sceneID="qkH-xx-BsK">
@@ -170,37 +303,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hld-q9-ibW" userLabel="Viewjiangjie">
-                                <rect key="frame" x="0.0" y="121" width="320" height="447"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A5s-eU-oWR" userLabel="banner" customClass="DBImageView">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQb-aY-LpP">
-                                                <rect key="frame" x="133" y="13" width="54" height="54"/>
-                                                <state key="normal" backgroundImage="bofang.png">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="playmovie:" destination="Tkk-le-RsQ" eventType="touchUpInside" id="LBX-73-zpg"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V4b-ct-tab">
-                                        <rect key="frame" x="0.0" y="80" width="320" height="267"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IUR-Om-TO8" customClass="DBImageView">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="267"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </view>
-                                        </subviews>
-                                    </scrollView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="maJ-NM-hes" userLabel="ViewOther">
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="maJ-NM-hes" userLabel="ViewOther">
                                 <rect key="frame" x="0.0" y="121" width="320" height="447"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pT8-Nz-4HL">
@@ -220,6 +323,33 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hld-q9-ibW" userLabel="Viewjiangjie">
+                                <rect key="frame" x="0.0" y="121" width="320" height="447"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="banner_shipin.png" translatesAutoresizingMaskIntoConstraints="NO" id="f9q-c8-NFg">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0K-cd-UOg">
+                                        <rect key="frame" x="137" y="21" width="46" height="30"/>
+                                        <state key="normal" backgroundImage="bofang.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="PlayMedia:" destination="Tkk-le-RsQ" eventType="touchUpInside" id="CoI-n3-3YJ"/>
+                                        </connections>
+                                    </button>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V4b-ct-tab">
+                                        <rect key="frame" x="0.0" y="100" width="320" height="237"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IUR-Om-TO8" customClass="UIImageView">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="237"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                        </subviews>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1k-hK-3zE">
                                 <rect key="frame" x="129" y="535" width="63" height="30"/>
                                 <state key="normal" title="提交答案">
@@ -234,6 +364,9 @@
                                 <state key="normal" title="人工修改">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="humanFix:" destination="Tkk-le-RsQ" eventType="touchUpInside" id="RVD-Je-ayZ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LM4-3b-28z">
                                 <rect key="frame" x="227" y="535" width="70" height="30"/>
@@ -246,6 +379,10 @@
                                 <state key="normal" title="按住说话">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="beginspeak:" destination="Tkk-le-RsQ" eventType="touchDown" id="OB0-Fs-SfU"/>
+                                    <action selector="endspeak:" destination="Tkk-le-RsQ" eventType="touchUpInside" id="wBx-F9-2MF"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -258,9 +395,8 @@
                         <outlet property="btnspeak" destination="Wb2-WN-2Z4" id="UpG-lP-MGu"/>
                         <outlet property="btnxiugai" destination="TPD-D3-YYY" id="AEJ-Kc-wCZ"/>
                         <outlet property="imgmenu" destination="fJF-eY-cn8" id="30C-GV-fY0"/>
-                        <outlet property="jiangjieBanner" destination="A5s-eU-oWR" id="GMM-Dg-gX9"/>
                         <outlet property="jiangjieContent" destination="V4b-ct-tab" id="4VZ-D2-RVN"/>
-                        <outlet property="jiangjieimg" destination="IUR-Om-TO8" id="FqN-SX-PP2"/>
+                        <outlet property="jiangjieimg" destination="IUR-Om-TO8" id="ZIn-Gk-xt2"/>
                         <outlet property="otherimgContent" destination="sng-Iy-apq" id="hPz-yJ-n7m"/>
                         <outlet property="otherscroll" destination="pT8-Nz-4HL" id="B56-5q-P3U"/>
                         <outlet property="segmain" destination="mGK-ff-X7e" id="CXg-Ed-Bpl"/>
@@ -1264,11 +1400,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gkM-Zy-dIL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-289" y="-658"/>
         </scene>
         <!--Net Media View Controller-->
         <scene sceneID="NYK-YF-zJj">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ExO-hQ-kZ4" customClass="NetMediaViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mediaView" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ExO-hQ-kZ4" customClass="NetMediaViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BhA-yO-fm2"/>
                         <viewControllerLayoutGuide type="bottom" id="jkQ-ba-oP4"/>
@@ -1287,13 +1424,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0TN-i8-jwq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1090" y="948"/>
+            <point key="canvasLocation" x="-828" y="864"/>
         </scene>
     </scenes>
     <resources>
+        <image name="banner_shipin.png" width="320" height="100"/>
         <image name="bofang.png" width="54" height="54"/>
         <image name="btn_tijiao.png" width="170" height="30"/>
         <image name="login_bg.png" width="320" height="568"/>
+        <image name="ls_sidlline.png" width="1" height="266"/>
         <image name="shuo00.png" width="278" height="12"/>
         <image name="sideline.png" width="1" height="282"/>
         <image name="speak_bian.png" width="480" height="58"/>
@@ -1303,6 +1442,7 @@
         <image name="vip_list2.png" width="40" height="40"/>
         <image name="vip_list3.png" width="40" height="40"/>
         <image name="vip_list4.png" width="40" height="40"/>
+        <image name="vip_list5.png" width="40" height="40"/>
         <image name="vip_public.png" width="40" height="40"/>
         <image name="vip_star2.png" width="59" height="9"/>
         <image name="vip_star3.png" width="59" height="9"/>

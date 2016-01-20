@@ -10,6 +10,7 @@
 #import "UIViewController+Json.h"
 #import "YSFirstViewController.h"
 #import "AppDelegate.h"
+#import "DBImageView.h"
 @interface LoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *txt_PhoneNum;
@@ -22,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    [DBImageView clearCache];
     self.navigationItem.title = self.title;
     
     

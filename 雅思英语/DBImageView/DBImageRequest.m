@@ -8,7 +8,7 @@
 
 #import "DBImageRequest.h"
 #import "DBImageViewCache.h"
-
+#import <UIKit/UIKit.h>
 @interface DBImageRequest () <NSURLConnectionDelegate, NSURLConnectionDataDelegate>
 @property (nonatomic, copy) NSURLRequest *request;
 @property (nonatomic, strong) NSURLConnection *connection;

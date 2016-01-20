@@ -41,6 +41,7 @@ static NSString *const kDBImageViewShouldStartDownload = @"kDBImageViewShouldSta
 	}
 }
 
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -58,11 +59,6 @@ static NSString *const kDBImageViewShouldStartDownload = @"kDBImageViewShouldSta
                                                    object:nil];
     }
     return self;
-}
-
-- (CGSize)GetImageSize
-{
-    return _imageView.image.size;
 }
 
 - (void) dealloc

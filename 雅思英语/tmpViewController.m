@@ -43,6 +43,19 @@
     [recoder PlayRecordingMP3];
 }
 
+- (IBAction)textclick:(id)sender {
+    
+    AVSpeechSynthesisVoice *voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"zh-CN"];
+    AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc]initWithString:@"hello!,大兄弟word need you,need you,need you,need you,it's you 10个大兄弟"];  //需要转换的文本
+    utterance.voice = voice;
+    utterance.rate *= 0.1;
+    AVSpeechSynthesizer *av = [[AVSpeechSynthesizer alloc]init];
+    [av speakUtterance:utterance];
+//    sleep(1);
+//    [av stopSpeakingAtBoundary:AVSpeechBoundaryWord];
+}
+
+
 /*
 #pragma mark - Navigation
 

@@ -62,6 +62,7 @@
             
             DBImageView *imageView = [[DBImageView alloc] initWithFrame:(CGRect){ 0, 0, nWidth, nHeight }];
             [imageView setImageWithPath:Url];
+            
             [imageView setUserInteractionEnabled:NO];
             
             
@@ -130,7 +131,6 @@
             return;
         }
         
-        [DBImageView clearCache];
         
         NSString *preaddr = [dic objectForKey:@"basePath"];
         
