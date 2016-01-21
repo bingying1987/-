@@ -83,6 +83,15 @@
     NSLog(@"recording");
 }
 
+- (NSString*)GetRecordFilePathMP3
+{
+    DBImageViewCache *pcache = [DBImageViewCache cache];
+    NSString *dir = [pcache localDirectory];
+    
+    dir = [dir stringByAppendingString:@"recordTest.mp3"];
+    return dir;
+}
+
 - (void)StopRecording
 {
     NSLog(@"stopRecording");
@@ -97,8 +106,7 @@
     DBImageViewCache *pcache = [DBImageViewCache cache];
     NSString *dir = [pcache localDirectory];
     
-//    dir = [dir stringByAppendingString:@"recordTest.caf"];
-    dir = [dir stringByAppendingString:@"recordTest.mp3"];//直接返回转好后的mp3
+    dir = [dir stringByAppendingString:@"recordTest.caf"];
     return dir;
 }
 
@@ -159,7 +167,7 @@
     if ([audioPlayer prepareToPlay]) {
         NSLog(@"can play");
         [audioPlayer play];
-        sleep(3);
+//        sleep(3);
     }
     else
     {

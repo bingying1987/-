@@ -153,7 +153,7 @@
 		04BAFFBA1C4F2BD800E7D318 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BAFFB91C4F2BD800E7D318 /* SystemConfiguration.framework */; };
 		04BAFFBC1C4F2BE500E7D318 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BAFFBB1C4F2BE500E7D318 /* MobileCoreServices.framework */; };
 		04BAFFBE1C4F2BF000E7D318 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BAFFBD1C4F2BF000E7D318 /* CoreGraphics.framework */; };
-		04BFF9871C4DE3F600353650 /* NetMediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BFF9861C4DE3F600353650 /* NetMediaViewController.m */; };
+		04BD72711C50849E00E23117 /* MyMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BD72701C50849E00E23117 /* MyMovieViewController.m */; };
 		04BFF9891C4E04C300353650 /* bofang@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BFF9881C4E04C300353650 /* bofang@2x.png */; };
 		04BFF98C1C4E29C100353650 /* MyRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BFF98B1C4E29C100353650 /* MyRecorder.m */; };
 		04BFF98F1C4E2DCB00353650 /* tmpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BFF98E1C4E2DCB00353650 /* tmpViewController.m */; };
@@ -416,8 +416,8 @@
 		04BAFFF11C4F2E5600E7D318 /* ASIS3Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3Request.m; sourceTree = "<group>"; };
 		04BAFFF21C4F2E5600E7D318 /* ASIS3ServiceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIS3ServiceRequest.h; sourceTree = "<group>"; };
 		04BAFFF31C4F2E5600E7D318 /* ASIS3ServiceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3ServiceRequest.m; sourceTree = "<group>"; };
-		04BFF9851C4DE3F600353650 /* NetMediaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetMediaViewController.h; sourceTree = "<group>"; };
-		04BFF9861C4DE3F600353650 /* NetMediaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetMediaViewController.m; sourceTree = "<group>"; };
+		04BD726F1C50849E00E23117 /* MyMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMovieViewController.h; sourceTree = "<group>"; };
+		04BD72701C50849E00E23117 /* MyMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMovieViewController.m; sourceTree = "<group>"; };
 		04BFF9881C4E04C300353650 /* bofang@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bofang@2x.png"; sourceTree = "<group>"; };
 		04BFF98A1C4E29C100353650 /* MyRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRecorder.h; sourceTree = "<group>"; };
 		04BFF98B1C4E29C100353650 /* MyRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRecorder.m; sourceTree = "<group>"; };
@@ -912,6 +912,8 @@
 				04C7239C1C3A484900A3D085 /* ViewController.h */,
 				04C7239D1C3A484900A3D085 /* ViewController.m */,
 				04C7239F1C3A484900A3D085 /* Main.storyboard */,
+				04BD726F1C50849E00E23117 /* MyMovieViewController.h */,
+				04BD72701C50849E00E23117 /* MyMovieViewController.m */,
 				04BA00421C4F6D4600E7D318 /* ListenViewController.h */,
 				04BA00431C4F6D4600E7D318 /* ListenViewController.m */,
 				04BFF98D1C4E2DCB00353650 /* tmpViewController.h */,
@@ -919,8 +921,6 @@
 				04BFF9901C4E3D2F00353650 /* lame.h */,
 				04BFF98A1C4E29C100353650 /* MyRecorder.h */,
 				04BFF98B1C4E29C100353650 /* MyRecorder.m */,
-				04BFF9851C4DE3F600353650 /* NetMediaViewController.h */,
-				04BFF9861C4DE3F600353650 /* NetMediaViewController.m */,
 				046974911C48D5A100346B6B /* SpeakPartViewController.h */,
 				046974921C48D5A100346B6B /* SpeakPartViewController.m */,
 				0469747D1C4899D500346B6B /* SubjectViewController.h */,
@@ -1197,6 +1197,7 @@
 				043D4F9F1C3AAAD50045EA89 /* ResetPasswordViewController.m in Sources */,
 				046876941C44B4E400E8B250 /* SDWebImageManager.m in Sources */,
 				04BA00181C4F2E5600E7D318 /* ASIInputStream.m in Sources */,
+				04BD72711C50849E00E23117 /* MyMovieViewController.m in Sources */,
 				046974931C48D5A100346B6B /* SpeakPartViewController.m in Sources */,
 				0452CBB71C3B549900F6C456 /* VipViewController.m in Sources */,
 				04B6D7861C3CA89D0087232E /* YSFirstViewController.m in Sources */,
@@ -1208,7 +1209,6 @@
 				046876A01C44B53A00E8B250 /* PredictModel.m in Sources */,
 				04BA00171C4F2E5600E7D318 /* ASIHTTPRequest.m in Sources */,
 				04BA001C1C4F2E5600E7D318 /* ASICloudFilesContainer.m in Sources */,
-				04BFF9871C4DE3F600353650 /* NetMediaViewController.m in Sources */,
 				04BA001F1C4F2E5600E7D318 /* ASICloudFilesObject.m in Sources */,
 				046876921C44B4E400E8B250 /* SDWebImageDownloader.m in Sources */,
 				04B6D78C1C3CA89D0087232E /* MASViewConstraint.m in Sources */,

@@ -13,7 +13,10 @@
 #import <QuartzCore/QuartzCore.h>
 #import "MyRecorder.h"
 #import "ASIFormDataRequest.h"
-
+#import <MediaPlayer/MediaPlayer.h>
+#import "AppDelegate.h"
+#import "MyMovieViewController.h"
+#import "ASIFormDataRequest.h"
 @interface SpeakPartViewController ()
 {
     NSInteger _current6;
@@ -56,10 +59,14 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *jiangjieContent;
 @property (weak, nonatomic) IBOutlet UIImageView *jiangjieimg;
 
-@property (weak, nonatomic) IBOutlet DBImageView *otherimgContent;
+@property (weak, nonatomic) IBOutlet UIImageView *otherimgContent;
 @property (weak, nonatomic) IBOutlet UIScrollView *otherscroll;
 @property (weak, nonatomic) IBOutlet UITextView *textOther;
 
+@property (weak, nonatomic) IBOutlet UIButton *aw_A;
+@property (weak, nonatomic) IBOutlet UIButton *aw_B;
+@property (weak, nonatomic) IBOutlet UIButton *aw_C;
+@property (weak, nonatomic) IBOutlet UIButton *aw_D;
 
 
 
@@ -171,23 +178,97 @@
     [_jiangjieContent setContentSize:CGSizeMake(size.width / 2, size.height / 2)];
 }
 
-- (void)LoadOther:(NSDictionary *)pdic
+- (void)LoadOther:(NSDictionary *)pdic //排列
 {
     if (!pdic) {
         return;
     }
-    NSString *pstrimg = [pdic objectForKey:@"img内容"];
-    [_otherimgContent setImageWithPath:pstrimg];
-    CGSize size = _otherimgContent.image.size;
-    [_otherimgContent setFrame:CGRectMake(0, 0, size.width, size.height)];
-    [_otherscroll setContentSize:size];
     
+    NSString *bashURL = [pdic objectForKey:@"basePath"];
+    
+    pdic = [pdic objectForKey:@"talkSort"];
+    NSString *pstrImgContent = [pdic objectForKey:@"sentence"];
+    pstrImgContent = [bashURL stringByAppendingString:pstrImgContent];
+    
+    NSURL *url = [NSURL URLWithString:pstrImgContent];
+    NSData* data = [NSData dataWithContentsOfURL:url];
+    if (!data) {
+        return;
+    }
+    UIImage *img = [UIImage imageWithData:data];
+    
+    CGSize size = img.size;
+    if (size.width == 0) {
+        return;
+    }
+    _otherimgContent.image = img;
+    
+    
+    [_otherimgContent setFrame:CGRectMake(0, 0, size.width / 2, size.height / 2)];
+    [_otherscroll setContentSize:CGSizeMake(size.width / 2, size.height / 2)];
+}
+
+- (void)LoadMofang:(NSDictionary *)pdic //模仿
+{
+    if (!pdic) {
+        return;
+    }
+    
+    NSString *bashURL = [pdic objectForKey:@"basePath"];
+    
+    pdic = [pdic objectForKey:@"talkImitation"];
+    NSString *pstrImgContent = [pdic objectForKey:@"imitation_section"];
+    pstrImgContent = [bashURL stringByAppendingString:pstrImgContent];
+    
+    NSURL *url = [NSURL URLWithString:pstrImgContent];
+    NSData* data = [NSData dataWithContentsOfURL:url];
+    if (!data) {
+        return;
+    }
+    UIImage *img = [UIImage imageWithData:data];
+    
+    CGSize size = img.size;
+    if (size.width == 0) {
+        return;
+    }
+    _otherimgContent.image = img;
+    [_otherimgContent setFrame:CGRectMake(0, 0, size.width / 2, size.height / 2)];
+    [_otherscroll setContentSize:CGSizeMake(size.width / 2, size.height / 2)];
+}
+
+- (void)LoadZaoJu:(NSDictionary *)pdic //造句
+{
+    if (!pdic) {
+        return;
+    }
+    
+    NSString *bashURL = [pdic objectForKey:@"basePath"];
+    
+    pdic = [pdic objectForKey:@"talkSentenceMaking"];
+    NSString *pstrImgContent = [pdic objectForKey:@"sentence"];
+    pstrImgContent = [bashURL stringByAppendingString:pstrImgContent];
+    
+    NSURL *url = [NSURL URLWithString:pstrImgContent];
+    NSData* data = [NSData dataWithContentsOfURL:url];
+    if (!data) {
+        return;
+    }
+    UIImage *img = [UIImage imageWithData:data];
+    
+    CGSize size = img.size;
+    if (size.width == 0) {
+        return;
+    }
+    _otherimgContent.image = img;
+    [_otherimgContent setFrame:CGRectMake(0, 0, size.width / 2, size.height / 2)];
+    [_otherscroll setContentSize:CGSizeMake(size.width / 2, size.height / 2)];
 }
 
 
 - (void)hidenall
 {
-    [_btnAnser setHidden:YES];
+//    [_btnAnser setHidden:YES];
+    [self setAnserBtnsHidden:YES];
     [_btnpushguangchang setHidden:YES];
     [_btnspeak setHidden:YES];
     [_btnxiugai setHidden:YES];
@@ -196,6 +277,15 @@
     [_viewother setHidden:YES];
     [_textcontent6 setHidden:NO];
 }
+
+- (void)setAnserBtnsHidden:(BOOL)bflag
+{
+    [_aw_A setHidden:bflag];
+    [_aw_B setHidden:bflag];
+    [_aw_C setHidden:bflag];
+    [_aw_D setHidden:bflag];
+}
+
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -267,7 +357,9 @@
             if (!_dic6_2) {
                 NSString *ptmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneConceptionMapByRandom?conceptionMap.module_Name=说&conceptionMap.rank=6分&conceptionMap.stem_num=%ld",_id6];
                 _dic6_2 = [self GetJson:ptmp];
-                ptmp = [_dic6_2 objectForKey:@"Result"];
+                if (_dic6_2) {
+                    ptmp = [_dic6_2 objectForKey:@"Result"];
+                }
                 if ([ptmp isEqualToString:@"0"]) {
                     return;
                 }
@@ -280,51 +372,47 @@
         case 2://排列
         {
             if (!_dic6_3) {
-                NSString *ptmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneConceptionMapByRandom?conceptionMap.module_Name=说&conceptionMap.rank=6分&conceptionMap.stem_num=%ld",_id6];
+                NSString *ptmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneTalkSortByRandom?str=%ld",_id6];
                 _dic6_3 = [self GetJson:ptmp];
                 if (_dic6_3) {
-                    _dic6_3 = [_dic6_3 objectForKey:@"talkSubject"];
+                    ptmp = [_dic6_3 objectForKey:@"Result"];
                 }
-                ptmp = [_dic6_3 objectForKey:@"Result"];
                 if ([ptmp isEqualToString:@"0"]) {
                     return;
                 }
             }
             [self hidenall];
             [_viewother setHidden:NO];
+//            [_btnAnser setHidden:NO];
+            [self setAnserBtnsHidden:NO];
             [self LoadOther:_dic6_3];
         }
             break;
         case 3://模仿
         {
             if (!_dic6_4) {
-                NSString *ptmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneConceptionMapByRandom?conceptionMap.module_Name=说&conceptionMap.rank=6分&conceptionMap.stem_num=%ld",_id6];
+                NSString *ptmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneTalkImitationByRandom?str=%ld",_id6];
                 _dic6_4 = [self GetJson:ptmp];
                 if (_dic6_4) {
-                    _dic6_4 = [_dic6_4 objectForKey:@"talkSubject"];
+                    ptmp = [_dic6_4 objectForKey:@"Result"];
                 }
-                ptmp = [_dic6_4 objectForKey:@"Result"];
                 if ([ptmp isEqualToString:@"0"]) {
                     return;
                 }
             }
             [self hidenall];
             [_viewother setHidden:NO];
-            [self LoadOther:_dic6_4];
+            [_btnpushguangchang setHidden:NO];
+            [_btnspeak setHidden:NO];
+            [_btnxiugai setHidden:NO];
+            [self LoadMofang:_dic6_4];
         }
             break;
         case 4://造句
         {
             if (!_dic6_5) {
-                NSString *ptmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneConceptionMapByRandom?conceptionMap.module_Name=说&conceptionMap.rank=6分&conceptionMap.stem_num=%ld",_id6];
+                NSString *ptmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneTalkSentenceMakingByRandom?str=%ld&judge=6分",_id6];
                 _dic6_5 = [self GetJson:ptmp];
-                ptmp = [_dic6_5 objectForKey:@"Result"];
-                if ([ptmp isEqualToString:@"0"]) {
-                    return;
-                }
-                if (_dic6_5) {
-                    _dic6_5 = [_dic6_5 objectForKey:@"talkSubject"];
-                }
                 ptmp = [_dic6_5 objectForKey:@"Result"];
                 if ([ptmp isEqualToString:@"0"]) {
                     return;
@@ -332,7 +420,8 @@
             }
             [self hidenall];
             [_viewother setHidden:NO];
-            [self LoadOther:_dic6_5];
+            [self setAnserBtnsHidden:NO];
+            [self LoadZaoJu:_dic6_5];
         }
             break;
         default:
@@ -429,39 +518,7 @@
 }
 
 - (IBAction)btnanser:(id)sender {
-    if ([_textOther.text isEqualToString:@""]) {
-        return;
-    }
     
-    if (_segmain.selectedSegmentIndex == 0) {//6分
-        NSDictionary *pdic = nil;
-        switch (_current6) {
-            case 2://排列
-                pdic = _dic6_3;
-                break;
-            case 3:
-                pdic = _dic6_4;
-                break;
-            case 4:
-                pdic = _dic6_5;
-                break;
-            default:
-                break;
-        }
-        
-        NSString *strRight = [pdic objectForKey:@"anser"];
-        if ([_textOther.text isEqualToString:strRight]) {
-            //回答正确
-        }
-        else
-        {
-            //答案错误
-        }
-    }
-    else
-    {
-        
-    }
 }
 
 - (IBAction)nextquestion:(id)sender {
@@ -498,10 +555,12 @@
         
         if (_segmain.selectedSegmentIndex == 0) {
             bspeak6 = true;
+            bspeak7 = false;
         }
         else
         {
             bspeak7 = true;
+            bspeak6 = false;
         }
     }
     tick++;
@@ -515,6 +574,7 @@
     
     //开始录音
     bspeak6 = false;
+    bspeak7 = false;
     [recoder StartRecording];
     tick = 0;
     tSpeak = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerfire:) userInfo:nil repeats:YES];
@@ -528,13 +588,42 @@
     }
     
     bspeak6 = true;
+    bspeak7 = false;
     [recoder StopRecording];
 }
 
 - (IBAction)humanFix:(id)sender {
     if (bspeak6) {
         //上传
-        NSString *filePath = [recoder GetRecordFilePath];
+   //     [recoder PlayRecordingMP3];
+        if (!_dic6_4) {
+            return;
+        }
+        AppDelegate *papp = [[UIApplication sharedApplication] delegate];
+        NSString *pnum = papp.ph_num;
+        pnum = @"13886445784";
+        NSString *strFile = [recoder GetRecordFilePathMP3];
+        NSDictionary *pdic = [_dic6_4 objectForKey:@"talkImitation"];
+        NSNumber *titleNum = [pdic objectForKey:@"title_number"];
+        NSString *strtmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/saveOrUpdateOneVoiceSquare?str=%ld&str1=%@",titleNum.integerValue,pnum];
+        
+        //       NSString *strtmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/updatePhotoGraphByhql?userInfo.phone_Number=%@",pnum];
+        
+        NSURL *url = [NSURL URLWithString:strtmp];
+        ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+        [request setFile:strFile forKey:@"upload"];
+        [request startSynchronous];
+        if ([request complete]) {
+            
+            UIAlertView *msgView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"上传语音成功" delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles:nil];
+            [msgView   show];
+        }
+        else
+        {
+            UIAlertView *msgView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"上传语音失败" delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles:nil];
+            [msgView   show];
+        }
+
     }
 }
 
@@ -545,14 +634,225 @@
             NSDictionary *pdic = [_dic6_2 objectForKey:@"talkSubject"];
             NSString *MediaURL = [pdic objectForKey:@"video_Address"];
             MediaURL = [bashURL stringByAppendingString:MediaURL];
-            NetMediaViewController *pnet = [self.storyboard instantiateViewControllerWithIdentifier:@"mediaView"];
-            pnet.moviePath = MediaURL;
-            [self presentViewController:pnet animated:YES completion:nil];
-            
+            [self PlayMovie:MediaURL];
+            return;
         }
     }
 }
 
+
+- (void) moviePlayBackDidFinish:(NSNotification*)notification
+{
+    NSNumber *reason = [[notification userInfo] objectForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];
+    switch ([reason integerValue]) {
+        case MPMovieFinishReasonPlaybackEnded:
+            //自动播放下一个
+        {
+            AppDelegate *papp = [[UIApplication sharedApplication] delegate]; //让视屏支持旋转
+            papp._isMovieFullScreen = NO;
+            [self dismissMoviePlayerViewControllerAnimated];
+        }
+            break;
+        case MPMovieFinishReasonPlaybackError:
+            NSLog(@"error1");
+            break;
+        case MPMovieFinishReasonUserExited://点击done或完成出发这个事件
+        {
+            NSLog(@"movie exit");
+            AppDelegate *papp = [[UIApplication sharedApplication] delegate]; //让视屏支持旋转
+            papp._isMovieFullScreen = NO;
+            [self dismissMoviePlayerViewControllerAnimated];
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+
+
+- (void)PlayMovie:(NSString *)Url
+{
+    NSURL* url1 = [NSURL URLWithString:Url];
+    MyMovieViewController *pmov = [[MyMovieViewController alloc] initWithContentURL:url1];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(moviePlayBackDidFinish:)
+                                                 name:MPMoviePlayerPlaybackDidFinishNotification
+                                               object:pmov.moviePlayer];
+    
+    
+    [pmov.moviePlayer setMovieSourceType:MPMovieSourceTypeFile];
+    
+    pmov.moviePlayer.scalingMode = MPMovieScalingModeAspectFit;
+    pmov.moviePlayer.controlStyle = MPMovieControlStyleFullscreen;
+    pmov.moviePlayer.backgroundView.backgroundColor = [UIColor blackColor];
+    pmov.moviePlayer.repeatMode = MPMovieRepeatModeNone;
+//    AppDelegate *papp = [[UIApplication sharedApplication] delegate]; //让视屏支持旋转
+//    papp._isMovieFullScreen = YES;
+    [self presentViewController:pmov animated:YES completion:nil];
+    
+}
+
+- (BOOL)CheckAnswerZaoju:(NSInteger)selectid
+{
+    if (_dic6_5) {
+        NSDictionary *pdic = [_dic6_5 objectForKey:@"talkSentenceMaking"];
+        NSString *strRight = [pdic objectForKey:@"answer"];
+        NSString *strcurrent = nil;
+        switch (selectid) {
+            case 0:
+                strcurrent = @"A";
+                break;
+            case 1:
+                strcurrent = @"B";
+                break;
+            case 2:
+                strcurrent = @"C";
+                break;
+            case 3:
+                strcurrent = @"D";
+            default:
+                strcurrent = @"1";
+                break;
+        }
+        NSNumber *titleNum = [pdic objectForKey:@"title_number"];
+        if (![strRight isEqualToString:strcurrent]) {//回答错误,给出提示框
+            
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                            message:@"回答错误"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"确定"
+                                                  otherButtonTitles:nil, nil];
+            [alert show];
+            //传递错题接口
+            AppDelegate *papp = [[UIApplication sharedApplication] delegate];
+            NSString *strNum = papp.ph_num;
+            NSString *pstr = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English//saveOneWrongTopic?wrongTopic.moduleName=说&wrongTopic.subModuleName=造句&wrongTopic.titleNumber=%ld&str=%@",titleNum.integerValue,strNum];
+            [self GetJson:pstr];
+            return FALSE;
+        }
+        else
+        {
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+- (void)CheckAnswerPailie:(NSInteger)selectid
+{
+    if (_dic6_3) {
+        NSDictionary *pdic = [_dic6_3 objectForKey:@"talkSort"];
+        NSString *strRight = [pdic objectForKey:@"answer"];
+        NSString *strcurrent = nil;
+        switch (selectid) {
+            case 0:
+                strcurrent = @"A";
+                break;
+            case 1:
+                strcurrent = @"B";
+                break;
+            case 2:
+                strcurrent = @"C";
+                break;
+            case 3:
+                strcurrent = @"D";
+            default:
+                strcurrent = @"1";
+                break;
+        }
+        NSNumber *titleNum = [pdic objectForKey:@"title_number"];
+        if (![strRight isEqualToString:strcurrent]) {//回答错误,给出提示框
+            
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                            message:@"回答错误"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"确定"
+                                                  otherButtonTitles:nil, nil];
+            [alert show];
+            //传递错题接口
+            AppDelegate *papp = [[UIApplication sharedApplication] delegate];
+            NSString *strNum = papp.ph_num;
+            NSString *pstr = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English//saveOneWrongTopic?wrongTopic.moduleName=说&wrongTopic.subModuleName=排列&wrongTopic.titleNumber=%ld&str=%@",titleNum.integerValue,strNum];
+            [self GetJson:pstr];
+            return;
+        }
+        else
+        {
+            return;
+        }
+    }
+    return;
+}
+
+- (IBAction)selectAnswer:(UIButton *)sender {
+    if (_segmain.selectedSegmentIndex == 0) {
+        switch (_current6) {
+            case 2://排列
+            {
+                //无论正确与否都直接去当前下一题
+                [self CheckAnswerPailie:sender.tag];
+                _dic6_3 = nil; //从新获取新题
+                [self RestView6];
+            }
+                break;
+            case 4://造句
+            {
+                if ([self CheckAnswerZaoju:sender.tag]) {//正确获取当前下一题
+                    _dic6_5 = nil;
+                    [self RestView6];
+                }
+                else//错误获取当前相似题
+                {
+                    NSDictionary *pdic = [_dic6_5 objectForKey:@"talkSentenceMaking"];
+                    NSNumber *ptitle = [pdic objectForKey:@"title_number"];
+                    NSString* purl = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneTalkSentenceMakingBySimilarityRandom?str=%ld",ptitle.integerValue];
+                    _dic6_5 = [self GetJson:purl];
+                    [self RestView6];
+                }
+
+            }
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+- (IBAction)btn_pushtoGuangchang:(id)sender {
+    if (bspeak6) {
+        if (!_dic6_4) {
+            return;
+        }
+        AppDelegate *papp = [[UIApplication sharedApplication] delegate];
+        NSString *pnum = papp.ph_num;
+        pnum = @"13886445784";
+        NSString *strFile = [recoder GetRecordFilePathMP3];
+        NSDictionary *pdic = [_dic6_4 objectForKey:@"talkImitation"];
+        NSNumber *titleNum = [pdic objectForKey:@"title_number"];
+        NSString *strtmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/saveOrUpdateOneVoiceSquare?str=%ld&str1=%@",titleNum.integerValue,pnum];
+        
+ //       NSString *strtmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/updatePhotoGraphByhql?userInfo.phone_Number=%@",pnum];
+        
+        NSURL *url = [NSURL URLWithString:strtmp];
+        ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+        [request setFile:strFile forKey:@"upload"];
+        [request startSynchronous];
+        if ([request complete]) {
+            
+            UIAlertView *msgView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"上传语音成功" delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles:nil];
+            [msgView   show];
+        }
+        else
+        {
+            UIAlertView *msgView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"上传语音失败" delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles:nil];
+            [msgView   show];
+        }
+        
+    }
+    
+}
 
 /*
 #pragma mark - Navigation

@@ -32,4 +32,5 @@
 - (void)PlayRecordingMP3;//播放mp3
 - (void)StopPlaying;
 - (NSString*)GetRecordFilePath;
+- (NSString*)GetRecordFilePathMP3;
 @end

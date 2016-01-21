@@ -1015,13 +1015,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "&#x96c5;&#x601d;&#x82f1;&#x8bed;/SpeakPartViewController.m"
-            timestampString = "474975462.423851"
+            filePath = "&#x96c5;&#x601d;&#x82f1;&#x8bed;/NetMediaViewController.m"
+            timestampString = "475037417.73275"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
-            landmarkName = "-LoadJieShuo:"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "-moviePlayBackDidFinish:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1032,12 +1032,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x96c5;&#x601d;&#x82f1;&#x8bed;/SpeakPartViewController.m"
-            timestampString = "474975548.144254"
+            timestampString = "475065563.145181"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
-            landmarkName = "-LoadJieShuo:"
+            startingLineNumber = "790"
+            endingLineNumber = "790"
+            landmarkName = "-selectAnswer:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1048,12 +1048,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x96c5;&#x601d;&#x82f1;&#x8bed;/SpeakPartViewController.m"
-            timestampString = "474976959.429171"
+            timestampString = "475065563.145181"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "549"
-            endingLineNumber = "549"
-            landmarkName = "-PlayMedia:"
+            startingLineNumber = "775"
+            endingLineNumber = "775"
+            landmarkName = "-CheckAnswerPailie:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1064,12 +1064,92 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x96c5;&#x601d;&#x82f1;&#x8bed;/SpeakPartViewController.m"
-            timestampString = "474977278.212113"
+            timestampString = "475065563.145181"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "550"
-            endingLineNumber = "550"
-            landmarkName = "-PlayMedia:"
+            startingLineNumber = "797"
+            endingLineNumber = "797"
+            landmarkName = "-selectAnswer:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x96c5;&#x601d;&#x82f1;&#x8bed;/SpeakPartViewController.m"
+            timestampString = "475064022.554418"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "393"
+            endingLineNumber = "393"
+            landmarkName = "-RestView6"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x96c5;&#x601d;&#x82f1;&#x8bed;/SpeakPartViewController.m"
+            timestampString = "475064022.554418"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "578"
+            endingLineNumber = "578"
+            landmarkName = "-beginspeak:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x96c5;&#x601d;&#x82f1;&#x8bed;/MyRecorder.m"
+            timestampString = "475055464.977957"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "-StopRecording"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x96c5;&#x601d;&#x82f1;&#x8bed;/MyRecorder.m"
+            timestampString = "475058994.502532"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
+            landmarkName = "-PlayRecordingMP3"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x96c5;&#x601d;&#x82f1;&#x8bed;/SpeakPartViewController.m"
+            timestampString = "475065550.121622"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "802"
+            endingLineNumber = "802"
+            landmarkName = "-selectAnswer:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

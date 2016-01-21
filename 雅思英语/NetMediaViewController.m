@@ -8,6 +8,7 @@
 
 #import "NetMediaViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import "AppDelegate.h"
 @interface NetMediaViewController ()
 {
     BOOL bflag;
@@ -39,16 +40,24 @@
         case MPMovieFinishReasonPlaybackEnded:
             //自动播放下一个
         {
-  //          [_moviePlayerController pause];
-            
+       //     AppDelegate *papp = [[UIApplication sharedApplication] delegate]; //让视屏支持旋转
+       //     papp._isMovieFullScreen = NO;
+            [_moviePlayerController pause];
+            [self dismissMoviePlayerViewControllerAnimated];
             [self dismissViewControllerAnimated:YES completion:nil];
         }
             break;
         case MPMovieFinishReasonPlaybackError:
             NSLog(@"error1");
             break;
-        case MPMovieFinishReasonUserExited:
-            NSLog(@"error2");
+        case MPMovieFinishReasonUserExited://点击done或完成出发这个事件
+        {
+            NSLog(@"movie exit");
+            //     AppDelegate *papp = [[UIApplication sharedApplication] delegate]; //让视屏支持旋转
+            //     papp._isMovieFullScreen = NO;
+//            [self dismissMoviePlayerViewControllerAnimated];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
             break;
         default:
             break;
@@ -75,13 +84,17 @@
     
     [_moviePlayerController setMovieSourceType:MPMovieSourceTypeFile];
     
-    _moviePlayerController.scalingMode = MPMovieScalingModeFill;
-    _moviePlayerController.controlStyle = MPMovieControlStyleEmbedded;
+    _moviePlayerController.scalingMode = MPMovieScalingModeAspectFit;
+    _moviePlayerController.controlStyle = MPMovieControlStyleFullscreen;
     _moviePlayerController.backgroundView.backgroundColor = [UIColor blackColor];
     _moviePlayerController.repeatMode = MPMovieRepeatModeNone;
     CGRect rc = [self.view bounds];
     [_moviePlayerController.view setFrame:rc];
     [self.view addSubview:[_moviePlayerController view]];
+    
+    
+ //   AppDelegate *papp = [[UIApplication sharedApplication] delegate];
+ //   papp._isMovieFullScreen = YES;
     if (_moviePath) {
         NSURL* url = [NSURL URLWithString:_moviePath];
         [_moviePlayerController setContentURL:url];
@@ -105,6 +118,19 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
+
+
+
+/*
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+{
+    return UIInterfaceOrientationMaskLandscapeRight|UIInterfaceOrientationLandscapeLeft|UIInterfaceOrientationPortrait|UIInterfaceOrientationMaskPortraitUpsideDown;;
+}
+*/
+
 
 /*
 #pragma mark - Navigation

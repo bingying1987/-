@@ -13,6 +13,6 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic,strong) NSString *ph_num;
 @property (nonatomic,strong) NSString *ph_pw;
-
+@property (nonatomic) BOOL _isMovieFullScreen;
 @end
 

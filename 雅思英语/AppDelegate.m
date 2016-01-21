@@ -9,13 +9,15 @@
 #import "AppDelegate.h"
 #import "SMS_SDK/SMSSDK.h"
 #import <AVFoundation/AVFoundation.h>
-@interface AppDelegate ()
+#import <MediaPlayer/MediaPlayer.h>
 
+@interface AppDelegate ()
 @end
 
 @implementation AppDelegate
 @synthesize ph_num;
 @synthesize ph_pw;
+@synthesize _isMovieFullScreen;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -23,8 +25,41 @@
     [NSThread sleepForTimeInterval:3.0f];
     
      [SMSSDK registerApp:@"e3c7de0c0318" withSecret:@"899d7c1632db04a532e3850a6d4275b7"];
+    
+    /*
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willEnterFullScreen:) name:MPMoviePlayerWillEnterFullscreenNotification
+                                                     object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willExitFullScreen:) name:MPMoviePlayerWillExitFullscreenNotification
+                            object:nil];
+    */
     return YES;
 }
+
+- (void)willEnterFullScreen:(NSNotification *)notification
+{
+    NSLog(@"screen full");
+    _isMovieFullScreen = YES;
+}
+
+- (void)willExitFullScreen:(NSNotification *)notification
+{
+    NSLog(@"screen no full");
+    _isMovieFullScreen = NO;
+}
+
+/*
+- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+    if (_isMovieFullScreen) {
+        return UIInterfaceOrientationMaskAll;
+    }
+    else
+    {
+        return UIInterfaceOrientationMaskPortrait;
+    }
+    
+}
+*/
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

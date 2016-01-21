@@ -77,9 +77,6 @@
     [view3 addSubview:label3];
     _textOnlineTeach.leftView = view3;
     _textOnlineTeach.leftViewMode = UITextFieldViewModeAlways;
-    
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
