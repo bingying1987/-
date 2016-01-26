@@ -57,9 +57,9 @@
 @property (weak, nonatomic) IBOutlet UIView *viewjiangjie;
 @property (weak, nonatomic) IBOutlet DBImageView *jiangjieBanner;
 @property (weak, nonatomic) IBOutlet UIScrollView *jiangjieContent;
-@property (weak, nonatomic) IBOutlet UIImageView *jiangjieimg;
+@property (retain, nonatomic) IBOutlet UIImageView *jiangjieimg;
 
-@property (weak, nonatomic) IBOutlet UIImageView *otherimgContent;
+@property (retain,nonatomic) IBOutlet UIImageView *otherimgContent;
 @property (weak, nonatomic) IBOutlet UIScrollView *otherscroll;
 @property (weak, nonatomic) IBOutlet UITextView *textOther;
 
@@ -83,7 +83,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _id6 = -1;
-    _subID = 0;
+    _id7 = -1;
     _current6 = 0;
     _current7 = 0;
     tick = 0;
@@ -171,11 +171,111 @@
     if (size.width == 0) {
         return;
     }
+    
+    UIView *pview = [_jiangjieContent viewWithTag:-1];
+    if (pview) {
+        [pview removeFromSuperview];
+    }
+    
+    if (!_jiangjieimg) {
+        _jiangjieimg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width / 2, size.height / 2)];
+    }
+    else
+    {
+        [_jiangjieimg setFrame:CGRectMake(0, 0, size.width / 2, size.height / 2)];
+    }
+    _jiangjieimg.tag = -1;
     _jiangjieimg.image = img;
-    
-    
-    [_jiangjieimg setFrame:CGRectMake(0, 0, size.width / 2, size.height / 2)];
     [_jiangjieContent setContentSize:CGSizeMake(size.width / 2, size.height / 2)];
+    [_jiangjieContent addSubview:_jiangjieimg];
+    [_jiangjieContent setContentOffset:CGPointMake(0, 0)];
+}
+
+- (void)LoadZuDuan:(NSDictionary *)pdic//组段
+{
+    if (!pdic) {
+        return;
+    }
+    
+    NSString *bashURL = [pdic objectForKey:@"basePath"];
+    
+    pdic = [pdic objectForKey:@"talkGroup"];
+    NSString *pstrImgContent = [pdic objectForKey:@"sentence"];
+    pstrImgContent = [bashURL stringByAppendingString:pstrImgContent];
+    
+    NSURL *url = [NSURL URLWithString:pstrImgContent];
+    NSData* data = [NSData dataWithContentsOfURL:url];
+    if (!data) {
+        return;
+    }
+    UIImage *img = [UIImage imageWithData:data];
+    
+    CGSize size = img.size;
+    if (size.width == 0) {
+        return;
+    }
+    
+    UIView *pview = [_otherscroll viewWithTag:-1];
+    if (pview) {
+        [pview removeFromSuperview];
+    }
+    
+    if (!_otherimgContent) {
+        _otherimgContent = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width / 2, size.height / 2)];
+    }
+    else
+    {
+        [_otherimgContent setFrame:CGRectMake(0, 0, size.width / 2, size.height / 2)];
+    }
+    _otherimgContent.tag = -1;
+    _otherimgContent.image = img;
+    [_otherscroll setContentSize:CGSizeMake(size.width / 2, size.height / 2)];
+    [_otherscroll addSubview:_otherimgContent];
+    [_otherscroll setContentOffset:CGPointMake(0, 0)];
+}
+
+
+- (void)LoadLianJu:(NSDictionary *)pdic//联句
+{
+    if (!pdic) {
+        return;
+    }
+    
+    NSString *bashURL = [pdic objectForKey:@"basePath"];
+    
+    pdic = [pdic objectForKey:@"talkCouplet"];
+    NSString *pstrImgContent = [pdic objectForKey:@"sentence"];
+    pstrImgContent = [bashURL stringByAppendingString:pstrImgContent];
+    
+    NSURL *url = [NSURL URLWithString:pstrImgContent];
+    NSData* data = [NSData dataWithContentsOfURL:url];
+    if (!data) {
+        return;
+    }
+    UIImage *img = [UIImage imageWithData:data];
+    
+    CGSize size = img.size;
+    if (size.width == 0) {
+        return;
+    }
+    
+    UIView *pview = [_otherscroll viewWithTag:-1];
+    if (pview) {
+        [pview removeFromSuperview];
+    }
+    
+    if (!_otherimgContent) {
+        _otherimgContent = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width / 2, size.height / 2)];
+    }
+    else
+    {
+        [_otherimgContent setFrame:CGRectMake(0, 0, size.width / 2, size.height / 2)];
+    }
+    _otherimgContent.tag = -1;
+    _otherimgContent.image = img;
+    [_otherscroll setContentSize:CGSizeMake(size.width / 2, size.height / 2)];
+    [_otherscroll addSubview:_otherimgContent];
+    [_otherscroll setContentOffset:CGPointMake(0, 0)];
 }
 
 - (void)LoadOther:(NSDictionary *)pdic //排列
@@ -201,11 +301,24 @@
     if (size.width == 0) {
         return;
     }
+    
+    UIView *pview = [_otherscroll viewWithTag:-1];
+    if (pview) {
+        [pview removeFromSuperview];
+    }
+    
+    if (!_otherimgContent) {
+        _otherimgContent = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width / 2, size.height / 2)];
+    }
+    else
+    {
+        [_otherimgContent setFrame:CGRectMake(0, 0, size.width / 2, size.height / 2)];
+    }
+    _otherimgContent.tag = -1;
     _otherimgContent.image = img;
-    
-    
-    [_otherimgContent setFrame:CGRectMake(0, 0, size.width / 2, size.height / 2)];
     [_otherscroll setContentSize:CGSizeMake(size.width / 2, size.height / 2)];
+    [_otherscroll addSubview:_otherimgContent];
+    [_otherscroll setContentOffset:CGPointMake(0, 0)];
 }
 
 - (void)LoadMofang:(NSDictionary *)pdic //模仿
@@ -231,9 +344,24 @@
     if (size.width == 0) {
         return;
     }
+    UIView *pview = [_otherscroll viewWithTag:-1];
+    if (pview) {
+        [pview removeFromSuperview];
+    }
+    
+    if (!_otherimgContent) {
+        _otherimgContent = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width / 2, size.height / 2)];
+    }
+    else
+    {
+        [_otherimgContent setFrame:CGRectMake(0, 0, size.width / 2, size.height / 2)];
+    }
+    _otherimgContent.tag = -1;
     _otherimgContent.image = img;
-    [_otherimgContent setFrame:CGRectMake(0, 0, size.width / 2, size.height / 2)];
     [_otherscroll setContentSize:CGSizeMake(size.width / 2, size.height / 2)];
+    [_otherscroll addSubview:_otherimgContent];
+    [_otherscroll setContentOffset:CGPointMake(0, 0)];
+
 }
 
 - (void)LoadZaoJu:(NSDictionary *)pdic //造句
@@ -259,9 +387,24 @@
     if (size.width == 0) {
         return;
     }
+    
+    UIView *pview = [_otherscroll viewWithTag:-1];
+    if (pview) {
+        [pview removeFromSuperview];
+    }
+    
+    if (!_otherimgContent) {
+        _otherimgContent = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width / 2, size.height / 2)];
+    }
+    else
+    {
+        [_otherimgContent setFrame:CGRectMake(0, 0, size.width / 2, size.height / 2)];
+    }
+    _otherimgContent.tag = -1;
     _otherimgContent.image = img;
-    [_otherimgContent setFrame:CGRectMake(0, 0, size.width / 2, size.height / 2)];
     [_otherscroll setContentSize:CGSizeMake(size.width / 2, size.height / 2)];
+    [_otherscroll addSubview:_otherimgContent];
+    [_otherscroll setContentOffset:CGPointMake(0, 0)];
 }
 
 
@@ -330,7 +473,7 @@
         case 0://题目
         {
             if (!_dic6_1) {
-                NSString *ptmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneTalkSubjectByRandom?str=%ld",_subID];
+                NSString *ptmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneTalkSubjectByRandom?str=%ld&judge=6分",_subID];
                 _dic6_1 = [self GetJson:ptmp];
                 ptmp = [_dic6_1 objectForKey:@"Result"];
                 if ([ptmp isEqualToString:@"0"]) {
@@ -345,7 +488,7 @@
                     return;
                 }
             }
-            NSNumber *pint = [_dic6_1 objectForKey:@"id"];
+            NSNumber *pint = [_dic6_1 objectForKey:@"stem_num"];
             _id6 = pint.integerValue;
             [self hidenall];
             [_textview setHidden:NO];
@@ -436,14 +579,24 @@
         case 0://题目
         {
             if (!_dic7_1) {
-                NSString *ptmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneTalkSubjectByRandom?str=%ld",_subID];
+                NSString *ptmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneTalkSubjectByRandom?str=%ld&judge=7分",_subID];
                 _dic7_1 = [self GetJson:ptmp];
+                ptmp = [_dic7_1 objectForKey:@"Result"];
+                if ([ptmp isEqualToString:@"0"]) {
+                    return;
+                }
+                
                 if (_dic7_1) {
                     _dic7_1 = [_dic7_1 objectForKey:@"talkSubject"];
                 }
+                ptmp = [_dic7_1 objectForKey:@"Result"];
+                if ([ptmp isEqualToString:@"0"]) {
+                    return;
+                }
             }
-            NSNumber *pint = [_dic7_1 objectForKey:@"id"];
+            NSNumber *pint = [_dic7_1 objectForKey:@"stem_num"];
             _id7 = pint.integerValue;
+            [self hidenall];
             [_textview setHidden:NO];
             [self LoadTitle:_dic7_1];
         }
@@ -451,51 +604,61 @@
         case 1://讲解
         {
             if (!_dic7_2) {
-                NSString *ptmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneConceptionMapByRandom?conceptionMap.module_Name=说&conceptionMap.rank=6分&conceptionMap.stem_num=%ld",_id7];
+                NSString *ptmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneConceptionMapByRandom?conceptionMap.module_Name=说&conceptionMap.rank=7分&conceptionMap.stem_num=%ld",_id7];
                 _dic7_2 = [self GetJson:ptmp];
                 if (_dic7_2) {
-                    _dic7_2 = [_dic7_2 objectForKey:@"talkSubject"];
+                    ptmp = [_dic7_2 objectForKey:@"Result"];
+                }
+                if ([ptmp isEqualToString:@"0"]) {
+                    return;
                 }
             }
+            [self hidenall];
             [_viewjiangjie setHidden:NO];
             [self LoadJieShuo:_dic7_2];
         }
             break;
         case 2://造句
             if (!_dic7_3) {
-                NSString *ptmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneConceptionMapByRandom?conceptionMap.module_Name=说&conceptionMap.rank=6分&conceptionMap.stem_num=%ld",_id7];
+                NSString *ptmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneTalkSentenceMakingByRandom?str=%ld&judge=7分",_id7];
                 _dic7_3 = [self GetJson:ptmp];
-                if (_dic7_3) {
-                    _dic7_3 = [_dic7_3 objectForKey:@"talkSubject"];
+                ptmp = [_dic7_3 objectForKey:@"Result"];
+                if ([ptmp isEqualToString:@"0"]) {
+                    return;
                 }
             }
+            [self hidenall];
             [_viewother setHidden:NO];
-            [self LoadOther:_dic7_3];
+            [self setAnserBtnsHidden:NO];
+            [self LoadZaoJu:_dic7_3];
             break;
         case 3://联句
         {
             if (!_dic7_4) {
-                NSString *ptmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneConceptionMapByRandom?conceptionMap.module_Name=说&conceptionMap.rank=6分&conceptionMap.stem_num=%ld",_id7];
+                NSString *ptmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneTalkCoupletByRandomForAPP?str=%ld&judge=7分",_id7];
                 _dic7_4 = [self GetJson:ptmp];
-                if (_dic7_4) {
-                    _dic7_4 = [_dic7_4 objectForKey:@"talkSubject"];
+                ptmp = [_dic7_4 objectForKey:@"Result"];
+                if ([ptmp isEqualToString:@"0"]) {
+                    return;
                 }
             }
             [_viewother setHidden:NO];
-            [self LoadOther:_dic7_4];
+            [self setAnserBtnsHidden:NO];
+            [self LoadLianJu:_dic7_4];
         }
             break;
         case 4://组段
         {
             if (!_dic7_5) {
-                NSString *ptmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneConceptionMapByRandom?conceptionMap.module_Name=说&conceptionMap.rank=6分&conceptionMap.stem_num=%ld",_id7];
+                NSString *ptmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneTalkGroupByRandomForAPP?str=%ld",_id7];
                 _dic7_5 = [self GetJson:ptmp];
-                if (_dic7_5) {
-                    _dic7_5 = [_dic7_5 objectForKey:@"talkSubject"];
+                ptmp = [_dic7_5 objectForKey:@"Result"];
+                if ([ptmp isEqualToString:@"0"]) {
+                    return;
                 }
             }
             [_viewother setHidden:NO];
-            [self LoadOther:_dic7_5];
+            [self LoadZuDuan:_dic7_5];
         }
             break;
         default:
@@ -531,7 +694,7 @@
         
         _current6 = 0;
         _imgmenu.image = [UIImage imageNamed:@"shuo00.png"];
-        NSString *ptmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneTalkSubjectByRandom?str=%ld",_subID];
+        NSString *ptmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneTalkSubjectByRandom?str=%ld&judge=6分",_subID];
         _dic6_1 = [self GetJson:ptmp];
         if (_dic6_1) {
             _dic6_1 = [_dic6_1 objectForKey:@"talkSubject"];
@@ -540,7 +703,20 @@
     }
     else
     {
+        _dic7_1 = nil;
+        _dic7_2 = nil;
+        _dic7_3 = nil;
+        _dic7_4 = nil;
+        _dic7_5 = nil;
         
+        _current6 = 0;
+        _imgmenu.image = [UIImage imageNamed:@"shuo7_00.png"];
+        NSString *ptmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneTalkSubjectByRandom?str=%ld&judge=7分",_subID];
+        _dic7_1 = [self GetJson:ptmp];
+        if (_dic7_1) {
+            _dic7_1 = [_dic7_1 objectForKey:@"talkSubject"];
+        }
+        [self RestView7];
     }
 }
 
@@ -604,12 +780,13 @@
         pnum = @"13886445784";
         NSString *strFile = [recoder GetRecordFilePathMP3];
         NSDictionary *pdic = [_dic6_4 objectForKey:@"talkImitation"];
+        NSString *purl = [pdic objectForKey:@"imitation_section"];
         NSNumber *titleNum = [pdic objectForKey:@"title_number"];
-        NSString *strtmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/saveOrUpdateOneVoiceSquare?str=%ld&str1=%@",titleNum.integerValue,pnum];
+        NSString *strtmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/saveOneCounterProblem?str=%@&problem.stemNumber=%ld&problem.title=说6分题第%ld题&problem.quizContent=%@",pnum,titleNum.integerValue,titleNum.integerValue,purl];
         
         //       NSString *strtmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/updatePhotoGraphByhql?userInfo.phone_Number=%@",pnum];
-        
-        NSURL *url = [NSURL URLWithString:strtmp];
+        NSString *ptmp = [strtmp stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSURL *url = [NSURL URLWithString:ptmp];
         ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
         [request setFile:strFile forKey:@"upload"];
         [request startSynchronous];
@@ -692,6 +869,148 @@
 //    papp._isMovieFullScreen = YES;
     [self presentViewController:pmov animated:YES completion:nil];
     
+}
+
+- (BOOL)CheckAnswerZuDuan:(NSInteger)selectid
+{
+    if (_dic7_5) {
+        NSDictionary *pdic = [_dic7_5 objectForKey:@"talkGroup"];
+        NSString *strRight = [pdic objectForKey:@"answer"];
+        NSString *strcurrent = nil;
+        switch (selectid) {
+            case 0:
+                strcurrent = @"A";
+                break;
+            case 1:
+                strcurrent = @"B";
+                break;
+            case 2:
+                strcurrent = @"C";
+                break;
+            case 3:
+                strcurrent = @"D";
+            default:
+                strcurrent = @"1";
+                break;
+        }
+        NSNumber *titleNum = [pdic objectForKey:@"title_number"];
+        if (![strRight isEqualToString:strcurrent]) {//回答错误,给出提示框
+            
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                            message:@"回答错误"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"确定"
+                                                  otherButtonTitles:nil, nil];
+            [alert show];
+            //传递错题接口
+            AppDelegate *papp = [[UIApplication sharedApplication] delegate];
+            NSString *strNum = papp.ph_num;
+            NSString *pstr = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English//saveOneWrongTopic?wrongTopic.moduleName=说&wrongTopic.subModuleName=组段&wrongTopic.titleNumber=%ld&str=%@",titleNum.integerValue,strNum];
+            [self GetJson:pstr];
+            return FALSE;
+        }
+        else
+        {
+            return TRUE;
+        }
+    }
+    return FALSE;
+    
+}
+
+- (BOOL)CheckAnswerLianJu:(NSInteger)selectid
+{
+    if (_dic7_4) {
+        NSDictionary *pdic = [_dic7_4 objectForKey:@"talkCouplet"];
+        NSString *strRight = [pdic objectForKey:@"answer"];
+        NSString *strcurrent = nil;
+        switch (selectid) {
+            case 0:
+                strcurrent = @"A";
+                break;
+            case 1:
+                strcurrent = @"B";
+                break;
+            case 2:
+                strcurrent = @"C";
+                break;
+            case 3:
+                strcurrent = @"D";
+            default:
+                strcurrent = @"1";
+                break;
+        }
+        NSNumber *titleNum = [pdic objectForKey:@"title_number"];
+        if (![strRight isEqualToString:strcurrent]) {//回答错误,给出提示框
+            
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                            message:@"回答错误"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"确定"
+                                                  otherButtonTitles:nil, nil];
+            [alert show];
+            //传递错题接口
+            AppDelegate *papp = [[UIApplication sharedApplication] delegate];
+            NSString *strNum = papp.ph_num;
+            NSString *pstr = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English//saveOneWrongTopic?wrongTopic.moduleName=说&wrongTopic.subModuleName=联句&wrongTopic.titleNumber=%ld&str=%@",titleNum.integerValue,strNum];
+            [self GetJson:pstr];
+            return FALSE;
+        }
+        else
+        {
+            return TRUE;
+        }
+    }
+    return FALSE;
+    
+}
+
+
+- (BOOL)CheckAnswerZaoju7:(NSInteger)selectid
+{
+    if (_dic7_3) {
+        NSDictionary *pdic = [_dic7_3 objectForKey:@"talkSentenceMaking"];
+        NSString *strRight = [pdic objectForKey:@"answer"];
+        NSString *strcurrent = nil;
+        switch (selectid) {
+            case 0:
+                strcurrent = @"A";
+                break;
+            case 1:
+                strcurrent = @"B";
+                break;
+            case 2:
+                strcurrent = @"C";
+                break;
+            case 3:
+                strcurrent = @"D";
+            default:
+                strcurrent = @"1";
+                break;
+        }
+        NSNumber *titleNum = [pdic objectForKey:@"title_number"];
+        if (![strRight isEqualToString:strcurrent]) {//回答错误,给出提示框
+            
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                            message:@"回答错误"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"确定"
+                                                  otherButtonTitles:nil, nil];
+            [alert show];
+            //传递错题接口
+            AppDelegate *papp = [[UIApplication sharedApplication] delegate];
+            NSString *strNum = papp.ph_num;
+            NSString *pstr = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English//saveOneWrongTopic?wrongTopic.moduleName=说&wrongTopic.subModuleName=造句&wrongTopic.titleNumber=%ld&str=%@",titleNum.integerValue,strNum];
+            [self GetJson:pstr];
+            return FALSE;
+        }
+        else
+        {
+            return TRUE;
+        }
+    }
+    return FALSE;
+
 }
 
 - (BOOL)CheckAnswerZaoju:(NSInteger)selectid
@@ -787,7 +1106,7 @@
 }
 
 - (IBAction)selectAnswer:(UIButton *)sender {
-    if (_segmain.selectedSegmentIndex == 0) {
+    if (_segmain.selectedSegmentIndex == 0) {//6分
         switch (_current6) {
             case 2://排列
             {
@@ -818,6 +1137,52 @@
                 break;
         }
     }
+    else
+    {
+        switch (_current7) {
+            case 2://造句
+            {
+                if ([self CheckAnswerZaoju:sender.tag]) {//正确获取当前下一题
+                    _dic7_3 = nil;
+                    [self RestView7];
+                }
+                else//错误获取当前相似题
+                {
+                    NSDictionary *pdic = [_dic7_3 objectForKey:@"talkSentenceMaking"];
+                    NSNumber *ptitle = [pdic objectForKey:@"title_number"];
+                    NSString* purl = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneTalkSentenceMakingBySimilarityRandom?str=%ld",ptitle.integerValue];
+                    _dic7_3 = [self GetJson:purl];
+                    [self RestView7];
+                }
+            }
+                break;
+            case 3://联句
+            {
+                if ([self CheckAnswerLianJu:sender.tag]) {//正确获取当前下一题
+                    _dic7_4 = nil;
+                    [self RestView7];
+                }
+                else//错误获取当前相似题
+                {
+                    NSDictionary *pdic = [_dic7_4 objectForKey:@"talkCouplet"];
+                    NSNumber *ptitle = [pdic objectForKey:@"title_number"];
+                    NSString* purl = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectOneTalkCoupletByRandomAndSimilarForAPP?str=%ld",ptitle.integerValue];
+                    _dic7_3 = [self GetJson:purl];
+                    [self RestView7];
+                }
+            }
+                break;
+            case 4://组段
+            {
+                [self CheckAnswerZuDuan:sender.tag];
+                _dic7_5 = nil; //从新获取新题
+                [self RestView7];
+            }
+                break;
+            default:
+                break;
+        }
+    }
 }
 
 - (IBAction)btn_pushtoGuangchang:(id)sender {
@@ -835,7 +1200,8 @@
         
  //       NSString *strtmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/updatePhotoGraphByhql?userInfo.phone_Number=%@",pnum];
         
-        NSURL *url = [NSURL URLWithString:strtmp];
+        NSString *ptmp = [strtmp stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSURL *url = [NSURL URLWithString:ptmp];
         ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
         [request setFile:strFile forKey:@"upload"];
         [request startSynchronous];
