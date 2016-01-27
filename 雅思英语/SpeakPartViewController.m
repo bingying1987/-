@@ -728,7 +728,7 @@
         [tSpeak invalidate];
         tSpeak = nil;
         //停止录音
-        [recoder StartRecording];
+        [recoder StopRecording];
         
         if (_segmain.selectedSegmentIndex == 0) {
             bspeak6 = true;

@@ -11,6 +11,9 @@
 		042F224E1C3E33DD00B254C6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 042F224D1C3E33DD00B254C6 /* Default-568h@2x.png */; };
 		042F22511C3E508300B254C6 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F22501C3E508300B254C6 /* WebViewController.m */; };
 		042F4FFC1C586CC9004B0058 /* YuyinGroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F4FFB1C586CC9004B0058 /* YuyinGroundViewController.m */; };
+		042F4FFF1C589041004B0058 /* DisCoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F4FFE1C589041004B0058 /* DisCoverViewController.m */; };
+		042F50021C589B04004B0058 /* SubjectLDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F50001C589B04004B0058 /* SubjectLDViewController.m */; };
+		042F50051C58AAA2004B0058 /* LiangDianViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F50041C58AAA2004B0058 /* LiangDianViewController.m */; };
 		043D4F971C3A9E790045EA89 /* UserRegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043D4F961C3A9E790045EA89 /* UserRegViewController.m */; };
 		043D4F9A1C3AA4330045EA89 /* username@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 043D4F991C3AA4330045EA89 /* username@2x.png */; };
 		043D4F9C1C3AA43D0045EA89 /* code@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 043D4F9B1C3AA43D0045EA89 /* code@2x.png */; };
@@ -192,6 +195,12 @@
 		042F22501C3E508300B254C6 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		042F4FFA1C586CC9004B0058 /* YuyinGroundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuyinGroundViewController.h; sourceTree = "<group>"; };
 		042F4FFB1C586CC9004B0058 /* YuyinGroundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuyinGroundViewController.m; sourceTree = "<group>"; };
+		042F4FFD1C589041004B0058 /* DisCoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisCoverViewController.h; sourceTree = "<group>"; };
+		042F4FFE1C589041004B0058 /* DisCoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisCoverViewController.m; sourceTree = "<group>"; };
+		042F50001C589B04004B0058 /* SubjectLDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectLDViewController.m; sourceTree = "<group>"; };
+		042F50011C589B04004B0058 /* SubjectLDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectLDViewController.h; sourceTree = "<group>"; };
+		042F50031C58AAA2004B0058 /* LiangDianViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiangDianViewController.h; sourceTree = "<group>"; };
+		042F50041C58AAA2004B0058 /* LiangDianViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiangDianViewController.m; sourceTree = "<group>"; };
 		043D4F951C3A9E790045EA89 /* UserRegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRegViewController.h; sourceTree = "<group>"; };
 		043D4F961C3A9E790045EA89 /* UserRegViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserRegViewController.m; sourceTree = "<group>"; };
 		043D4F991C3AA4330045EA89 /* username@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "username@2x.png"; sourceTree = "<group>"; };
@@ -915,6 +924,12 @@
 				04C7239C1C3A484900A3D085 /* ViewController.h */,
 				04C7239D1C3A484900A3D085 /* ViewController.m */,
 				04C7239F1C3A484900A3D085 /* Main.storyboard */,
+				042F50031C58AAA2004B0058 /* LiangDianViewController.h */,
+				042F50041C58AAA2004B0058 /* LiangDianViewController.m */,
+				042F50001C589B04004B0058 /* SubjectLDViewController.m */,
+				042F50011C589B04004B0058 /* SubjectLDViewController.h */,
+				042F4FFD1C589041004B0058 /* DisCoverViewController.h */,
+				042F4FFE1C589041004B0058 /* DisCoverViewController.m */,
 				042F4FFA1C586CC9004B0058 /* YuyinGroundViewController.h */,
 				042F4FFB1C586CC9004B0058 /* YuyinGroundViewController.m */,
 				04BD726F1C50849E00E23117 /* MyMovieViewController.h */,
@@ -1216,6 +1231,7 @@
 				04BA001C1C4F2E5600E7D318 /* ASICloudFilesContainer.m in Sources */,
 				04BA001F1C4F2E5600E7D318 /* ASICloudFilesObject.m in Sources */,
 				046876921C44B4E400E8B250 /* SDWebImageDownloader.m in Sources */,
+				042F50021C589B04004B0058 /* SubjectLDViewController.m in Sources */,
 				04B6D78C1C3CA89D0087232E /* MASViewConstraint.m in Sources */,
 				046876991C44B4E400E8B250 /* UIImage+WebP.m in Sources */,
 				0452CBC91C3B5EDE00F6C456 /* UIViewController+Json.m in Sources */,
@@ -1237,6 +1253,7 @@
 				04B6D7921C3CA89D0087232E /* sideBarTableViewCell.m in Sources */,
 				04B6D78A1C3CA89D0087232E /* MASLayoutConstraint.m in Sources */,
 				04BFF98F1C4E2DCB00353650 /* tmpViewController.m in Sources */,
+				042F4FFF1C589041004B0058 /* DisCoverViewController.m in Sources */,
 				04BA001A1C4F2E5600E7D318 /* ASIWebPageRequest.m in Sources */,
 				04BA00141C4F2E5600E7D318 /* ASIDataDecompressor.m in Sources */,
 				04BA001E1C4F2E5600E7D318 /* ASICloudFilesContainerXMLParserDelegate.m in Sources */,
@@ -1249,6 +1266,7 @@
 				04BA00161C4F2E5600E7D318 /* ASIFormDataRequest.m in Sources */,
 				0468768F1C44B4E400E8B250 /* SDImageCache.m in Sources */,
 				0452CBF91C3BBF8F00F6C456 /* PublicRegViewController.m in Sources */,
+				042F50051C58AAA2004B0058 /* LiangDianViewController.m in Sources */,
 				04BA00211C4F2E5600E7D318 /* ASICloudFilesRequest.m in Sources */,
 				04BFF98C1C4E29C100353650 /* MyRecorder.m in Sources */,
 				042F4FFC1C586CC9004B0058 /* YuyinGroundViewController.m in Sources */,
