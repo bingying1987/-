@@ -11,6 +11,18 @@
 #import "lame.h"
 @implementation MyRecorder
 
++ (instancetype) recorder
+{
+    static MyRecorder *recorderInstance = nil;
+    static dispatch_once_t pred = 0;
+    
+    dispatch_once(&pred, ^{
+        recorderInstance = [[MyRecorder alloc] init];
+    });
+    
+    return recorderInstance;
+}
+
 - (void)StartRecording
 {
     recordingEncoding = ENC_PCM;//默认使用这种格式
@@ -176,6 +188,25 @@
 
 }
 
+- (void)PlayFile:(NSString *)filePath
+{
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [[AVAudioSession sharedInstance] setActive:YES error:nil];
+    NSURL *url = [NSURL URLWithString:filePath];
+    NSError *error;
+    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    audioPlayer.volume = 1.0;
+    audioPlayer.numberOfLoops = 0;
+    if ([audioPlayer prepareToPlay]) {
+        NSLog(@"can play");
+        [audioPlayer play];
+    }
+    else
+    {
+        NSLog(@"can't play");
+    }
+}
 
 -(void)StopPlaying
 {

@@ -10,6 +10,7 @@
 		042F224C1C3E173F00B254C6 /* VipOneByOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F224A1C3E173F00B254C6 /* VipOneByOneViewController.m */; };
 		042F224E1C3E33DD00B254C6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 042F224D1C3E33DD00B254C6 /* Default-568h@2x.png */; };
 		042F22511C3E508300B254C6 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F22501C3E508300B254C6 /* WebViewController.m */; };
+		042F4FFC1C586CC9004B0058 /* YuyinGroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F4FFB1C586CC9004B0058 /* YuyinGroundViewController.m */; };
 		043D4F971C3A9E790045EA89 /* UserRegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043D4F961C3A9E790045EA89 /* UserRegViewController.m */; };
 		043D4F9A1C3AA4330045EA89 /* username@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 043D4F991C3AA4330045EA89 /* username@2x.png */; };
 		043D4F9C1C3AA43D0045EA89 /* code@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 043D4F9B1C3AA43D0045EA89 /* code@2x.png */; };
@@ -189,6 +190,8 @@
 		042F224D1C3E33DD00B254C6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "DBImageView/Default-568h@2x.png"; sourceTree = "<group>"; };
 		042F224F1C3E508300B254C6 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		042F22501C3E508300B254C6 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		042F4FFA1C586CC9004B0058 /* YuyinGroundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuyinGroundViewController.h; sourceTree = "<group>"; };
+		042F4FFB1C586CC9004B0058 /* YuyinGroundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuyinGroundViewController.m; sourceTree = "<group>"; };
 		043D4F951C3A9E790045EA89 /* UserRegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRegViewController.h; sourceTree = "<group>"; };
 		043D4F961C3A9E790045EA89 /* UserRegViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserRegViewController.m; sourceTree = "<group>"; };
 		043D4F991C3AA4330045EA89 /* username@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "username@2x.png"; sourceTree = "<group>"; };
@@ -912,6 +915,8 @@
 				04C7239C1C3A484900A3D085 /* ViewController.h */,
 				04C7239D1C3A484900A3D085 /* ViewController.m */,
 				04C7239F1C3A484900A3D085 /* Main.storyboard */,
+				042F4FFA1C586CC9004B0058 /* YuyinGroundViewController.h */,
+				042F4FFB1C586CC9004B0058 /* YuyinGroundViewController.m */,
 				04BD726F1C50849E00E23117 /* MyMovieViewController.h */,
 				04BD72701C50849E00E23117 /* MyMovieViewController.m */,
 				04BA00421C4F6D4600E7D318 /* ListenViewController.h */,
@@ -1246,6 +1251,7 @@
 				0452CBF91C3BBF8F00F6C456 /* PublicRegViewController.m in Sources */,
 				04BA00211C4F2E5600E7D318 /* ASICloudFilesRequest.m in Sources */,
 				04BFF98C1C4E29C100353650 /* MyRecorder.m in Sources */,
+				042F4FFC1C586CC9004B0058 /* YuyinGroundViewController.m in Sources */,
 				04C7239B1C3A484900A3D085 /* AppDelegate.m in Sources */,
 				04BA00251C4F2E5600E7D318 /* ASIS3ObjectRequest.m in Sources */,
 				04BA00221C4F2E5600E7D318 /* ASIS3Bucket.m in Sources */,

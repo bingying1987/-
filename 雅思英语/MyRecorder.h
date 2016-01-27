@@ -25,11 +25,12 @@
     }encodingTypes;
     //------
 }
-
++ (instancetype) recorder;
 - (void)StartRecording;//录音并使用lame转成mp3
 - (void)StopRecording;
 - (void)PlayRecording;//播放的是转换前的pcm格式
 - (void)PlayRecordingMP3;//播放mp3
+- (void)PlayFile:(NSString *)filePath;
 - (void)StopPlaying;
 - (NSString*)GetRecordFilePath;
 - (NSString*)GetRecordFilePathMP3;

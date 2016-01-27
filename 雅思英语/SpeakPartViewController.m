@@ -87,7 +87,8 @@
     _current6 = 0;
     _current7 = 0;
     tick = 0;
-    recoder = [[MyRecorder alloc] init];
+ //   recoder = [[MyRecorder alloc] init];
+    recoder = [MyRecorder recorder];
     [_textOther.layer setBorderWidth:3.0f];
     _textOther.layer.borderColor = [UIColor grayColor].CGColor;
     _textOther.layer.cornerRadius = 5.0f;
