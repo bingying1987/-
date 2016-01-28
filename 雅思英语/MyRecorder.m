@@ -188,6 +188,26 @@
 
 }
 
+- (void)PlayNetFile:(NSString*)filePath
+{
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [[AVAudioSession sharedInstance] setActive:YES error:nil];
+    NSURL *url = [NSURL URLWithString:filePath];
+    NSError *error;
+    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    audioPlayer.volume = 1.0;
+    audioPlayer.numberOfLoops = 0;
+    if ([audioPlayer prepareToPlay]) {
+        NSLog(@"can play");
+        [audioPlayer play];
+    }
+    else
+    {
+        NSLog(@"can't play");
+    }
+}
+
 - (void)PlayFile:(NSString *)filePath
 {
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];

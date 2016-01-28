@@ -10,13 +10,13 @@
 #import "UIViewController+Json.h"
 #import "LiangDianViewController.h"
 
-@interface RowSub : NSObject
+@interface RowSub2 : NSObject
 @property (nonatomic) NSString *Title;
 @property (nonatomic) NSString *SubMain;
 @property (nonatomic) NSInteger nID;//仅评价时使用
 @end
 
-@implementation RowSub
+@implementation RowSub2
 @end
 
 
@@ -164,7 +164,6 @@
     }
     
     if (dic1) {
-        dic1 = [dic1 objectForKey:@"Data"];
         LiangDianViewController *pspeak = [self.storyboard instantiateViewControllerWithIdentifier:@"liangdianView"];
         pspeak.dic = dic1;
         pspeak.subID = pid.integerValue;

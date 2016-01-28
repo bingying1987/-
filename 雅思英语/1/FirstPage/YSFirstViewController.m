@@ -236,11 +236,11 @@
 -(void)gotoView:(UIControl *)sender
 {
     NSLog(@"1");
-    [self.navigationController setNavigationBarHidden:NO];
     switch (sender.tag - CONTROL_TAG) {
         case 0:
         {
             NSLog(@"考前预测");
+            [self.navigationController setNavigationBarHidden:NO];
             PredictViewController *ptmp = [[PredictViewController alloc] init];
             [self.navigationController pushViewController:ptmp animated:YES];
             break;
@@ -248,11 +248,15 @@
           case 1:
         {
             NSLog(@"发现之旅");
+            [self.navigationController setNavigationBarHidden:NO];
+            UIViewController *ptmp = [self.navigationController.storyboard instantiateViewControllerWithIdentifier:@"discoverView"];
+            [self.navigationController pushViewController:ptmp animated:YES];
             break;
         }
             case 2:
         {
             NSLog(@"VIP");
+            [self.navigationController setNavigationBarHidden:NO];
             UIViewController *ptmp = [self.navigationController.storyboard instantiateViewControllerWithIdentifier:@"vipView"];
             [self.navigationController pushViewController:ptmp animated:YES];
             
@@ -368,6 +372,10 @@
         }
         case 6:
         {
+            NSLog(@"语音广场");
+//            [self.navigationController setNavigationBarHidden:NO];
+            UIViewController *ptmp = [self.navigationController.storyboard instantiateViewControllerWithIdentifier:@"yuyinView"];
+            [self.navigationController pushViewController:ptmp animated:YES];
             break;
         }
         case 7:

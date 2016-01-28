@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041A959D1C59E98E007883BC /* SubjectLDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041A959C1C59E98E007883BC /* SubjectLDViewController.m */; };
+		041A959F1C5A175E007883BC /* mp3play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 041A959E1C5A175E007883BC /* mp3play@2x.png */; };
+		041A95A11C5A1A7D007883BC /* speak_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 041A95A01C5A1A7D007883BC /* speak_btn@2x.png */; };
+		041A95A31C5A1E4F007883BC /* speak_tijiao@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 041A95A21C5A1E4F007883BC /* speak_tijiao@2x.png */; };
+		041A95A51C5A1F2A007883BC /* speak_other@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 041A95A41C5A1F2A007883BC /* speak_other@2x.png */; };
 		042F224C1C3E173F00B254C6 /* VipOneByOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F224A1C3E173F00B254C6 /* VipOneByOneViewController.m */; };
 		042F224E1C3E33DD00B254C6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 042F224D1C3E33DD00B254C6 /* Default-568h@2x.png */; };
 		042F22511C3E508300B254C6 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F22501C3E508300B254C6 /* WebViewController.m */; };
 		042F4FFC1C586CC9004B0058 /* YuyinGroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F4FFB1C586CC9004B0058 /* YuyinGroundViewController.m */; };
 		042F4FFF1C589041004B0058 /* DisCoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F4FFE1C589041004B0058 /* DisCoverViewController.m */; };
-		042F50021C589B04004B0058 /* SubjectLDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F50001C589B04004B0058 /* SubjectLDViewController.m */; };
 		042F50051C58AAA2004B0058 /* LiangDianViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F50041C58AAA2004B0058 /* LiangDianViewController.m */; };
 		043D4F971C3A9E790045EA89 /* UserRegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043D4F961C3A9E790045EA89 /* UserRegViewController.m */; };
 		043D4F9A1C3AA4330045EA89 /* username@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 043D4F991C3AA4330045EA89 /* username@2x.png */; };
@@ -188,6 +192,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		041A959B1C59E98E007883BC /* SubjectLDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectLDViewController.h; sourceTree = "<group>"; };
+		041A959C1C59E98E007883BC /* SubjectLDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectLDViewController.m; sourceTree = "<group>"; };
+		041A959E1C5A175E007883BC /* mp3play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mp3play@2x.png"; sourceTree = "<group>"; };
+		041A95A01C5A1A7D007883BC /* speak_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "speak_btn@2x.png"; sourceTree = "<group>"; };
+		041A95A21C5A1E4F007883BC /* speak_tijiao@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "speak_tijiao@2x.png"; sourceTree = "<group>"; };
+		041A95A41C5A1F2A007883BC /* speak_other@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "speak_other@2x.png"; sourceTree = "<group>"; };
 		042F224A1C3E173F00B254C6 /* VipOneByOneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VipOneByOneViewController.m; sourceTree = "<group>"; };
 		042F224B1C3E173F00B254C6 /* VipOneByOneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VipOneByOneViewController.h; sourceTree = "<group>"; };
 		042F224D1C3E33DD00B254C6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "DBImageView/Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -197,8 +207,6 @@
 		042F4FFB1C586CC9004B0058 /* YuyinGroundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuyinGroundViewController.m; sourceTree = "<group>"; };
 		042F4FFD1C589041004B0058 /* DisCoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisCoverViewController.h; sourceTree = "<group>"; };
 		042F4FFE1C589041004B0058 /* DisCoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisCoverViewController.m; sourceTree = "<group>"; };
-		042F50001C589B04004B0058 /* SubjectLDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectLDViewController.m; sourceTree = "<group>"; };
-		042F50011C589B04004B0058 /* SubjectLDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectLDViewController.h; sourceTree = "<group>"; };
 		042F50031C58AAA2004B0058 /* LiangDianViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiangDianViewController.h; sourceTree = "<group>"; };
 		042F50041C58AAA2004B0058 /* LiangDianViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiangDianViewController.m; sourceTree = "<group>"; };
 		043D4F951C3A9E790045EA89 /* UserRegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRegViewController.h; sourceTree = "<group>"; };
@@ -632,6 +640,10 @@
 		046D646F1C463AE300F1BB31 /* Speak */ = {
 			isa = PBXGroup;
 			children = (
+				041A95A41C5A1F2A007883BC /* speak_other@2x.png */,
+				041A95A21C5A1E4F007883BC /* speak_tijiao@2x.png */,
+				041A95A01C5A1A7D007883BC /* speak_btn@2x.png */,
+				041A959E1C5A175E007883BC /* mp3play@2x.png */,
 				04BFF9881C4E04C300353650 /* bofang@2x.png */,
 				046D64701C463AFB00F1BB31 /* sideline@2x.png */,
 				046974711C488F2D00346B6B /* speak_bian@2x.png */,
@@ -924,10 +936,10 @@
 				04C7239C1C3A484900A3D085 /* ViewController.h */,
 				04C7239D1C3A484900A3D085 /* ViewController.m */,
 				04C7239F1C3A484900A3D085 /* Main.storyboard */,
+				041A959B1C59E98E007883BC /* SubjectLDViewController.h */,
+				041A959C1C59E98E007883BC /* SubjectLDViewController.m */,
 				042F50031C58AAA2004B0058 /* LiangDianViewController.h */,
 				042F50041C58AAA2004B0058 /* LiangDianViewController.m */,
-				042F50001C589B04004B0058 /* SubjectLDViewController.m */,
-				042F50011C589B04004B0058 /* SubjectLDViewController.h */,
 				042F4FFD1C589041004B0058 /* DisCoverViewController.h */,
 				042F4FFE1C589041004B0058 /* DisCoverViewController.m */,
 				042F4FFA1C586CC9004B0058 /* YuyinGroundViewController.h */,
@@ -1146,6 +1158,7 @@
 				0452CBD21C3B633100F6C456 /* vip_list2@2x.png in Resources */,
 				04B6D7831C3CA89D0087232E /* tab_kaoqianyuce@2x.png in Resources */,
 				0452CBC31C3B594300F6C456 /* vip_star2@2x.png in Resources */,
+				041A959F1C5A175E007883BC /* mp3play@2x.png in Resources */,
 				0452CBD71C3B633100F6C456 /* vip_list7@2x.png in Resources */,
 				046974741C48904D00346B6B /* shuo04@2x.png in Resources */,
 				04BA00461C4F719E00E7D318 /* banner_shipin@2x.png in Resources */,
@@ -1161,6 +1174,7 @@
 				04B6D7841C3CA89D0087232E /* tab_people@2x.png in Resources */,
 				0469747C1C48912900346B6B /* shuo03@2x.png in Resources */,
 				04B6D7801C3CA89D0087232E /* contents_speaking@2x (2).png in Resources */,
+				041A95A51C5A1F2A007883BC /* speak_other@2x.png in Resources */,
 				0469749C1C48EE2400346B6B /* shuo7_02@2x.png in Resources */,
 				04B6D77F1C3CA89D0087232E /* contents_shanxing@2x.png in Resources */,
 				0452CBD31C3B633100F6C456 /* vip_list3@2x.png in Resources */,
@@ -1184,6 +1198,7 @@
 				0468765D1C44B3F700E8B250 /* bg_6@2x.png in Resources */,
 				04B6D7821C3CA89D0087232E /* tab_faxian@2x.png in Resources */,
 				04C723C81C3A6BC000A3D085 /* phone_num@2x.png in Resources */,
+				041A95A31C5A1E4F007883BC /* speak_tijiao@2x.png in Resources */,
 				0469749B1C48EE2400346B6B /* shuo7_00@2x.png in Resources */,
 				0452CBF41C3B773E00F6C456 /* bg_4@2x.png in Resources */,
 				04C723A61C3A484900A3D085 /* LaunchScreen.xib in Resources */,
@@ -1192,6 +1207,7 @@
 				0452CBF61C3B9BE100F6C456 /* bg_1@2x.png in Resources */,
 				04B6D7941C3CA89D0087232E /* list_gerenziliao@2x.png in Resources */,
 				04B6D7811C3CA89D0087232E /* contents_write@2x (2).png in Resources */,
+				041A95A11C5A1A7D007883BC /* speak_btn@2x.png in Resources */,
 				046974761C48908600346B6B /* shuo00@2x.png in Resources */,
 				04C723A31C3A484900A3D085 /* Images.xcassets in Resources */,
 				04C723C41C3A6B9600A3D085 /* btn_tijiao@2x.png in Resources */,
@@ -1231,7 +1247,6 @@
 				04BA001C1C4F2E5600E7D318 /* ASICloudFilesContainer.m in Sources */,
 				04BA001F1C4F2E5600E7D318 /* ASICloudFilesObject.m in Sources */,
 				046876921C44B4E400E8B250 /* SDWebImageDownloader.m in Sources */,
-				042F50021C589B04004B0058 /* SubjectLDViewController.m in Sources */,
 				04B6D78C1C3CA89D0087232E /* MASViewConstraint.m in Sources */,
 				046876991C44B4E400E8B250 /* UIImage+WebP.m in Sources */,
 				0452CBC91C3B5EDE00F6C456 /* UIViewController+Json.m in Sources */,
@@ -1281,6 +1296,7 @@
 				04B6D78D1C3CA89D0087232E /* NSArray+MASAdditions.m in Sources */,
 				046876901C44B4E400E8B250 /* SDWebImageCompat.m in Sources */,
 				04BA00191C4F2E5600E7D318 /* ASINetworkQueue.m in Sources */,
+				041A959D1C59E98E007883BC /* SubjectLDViewController.m in Sources */,
 				0468768E1C44B4E400E8B250 /* NSData+ImageContentType.m in Sources */,
 				04B6D78B1C3CA89D0087232E /* MASViewAttribute.m in Sources */,
 				046876961C44B4E400E8B250 /* UIButton+WebCache.m in Sources */,

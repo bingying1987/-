@@ -11,7 +11,11 @@
 #import "ASIHTTPRequest.h"
 #import "DBImageViewCache.h"
 #import "MyRecorder.h"
+#import "MyMovieViewController.h"
 @interface YuyinGroundViewController ()
+{
+    MyMovieViewController* mp3Player;
+}
 @property (nonatomic)NSDictionary *dic;
 @property (weak, nonatomic) IBOutlet UITableView *_tableView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollContent;
@@ -20,6 +24,8 @@
 @implementation YuyinGroundViewController
 @synthesize dic;
 - (void)viewDidLoad {
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    mp3Player = [[MyMovieViewController alloc] init];
     [super viewDidLoad];
     NSString *url = @"http://192.168.1.231:8080/YaSi_English/selectSomeVoiceSquareByIOS";
     dic = [self GetJson:url];
@@ -41,7 +47,8 @@
     
     NSString *bashURL = [pdic objectForKey:@"basePath"];
     
-    pdic = [pdic objectForKey:@"talkSubject"];
+    NSArray *arr = [pdic objectForKey:@"voiceSquares"];
+    pdic = [arr objectAtIndex:0];
     
     /*
      NSString *pstrBanner = [pdic objectForKey:@"image_Text"];
@@ -49,7 +56,7 @@
      [_jiangjieBanner setImageWithPath:pstrBanner];
      */
     
-    NSString *pstrImgContent = [pdic objectForKey:@"题目"];
+    NSString *pstrImgContent = [pdic objectForKey:@"imitation_section"];
     pstrImgContent = [bashURL stringByAppendingString:pstrImgContent];
     
     NSURL *url = [NSURL URLWithString:pstrImgContent];
@@ -110,9 +117,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (!dic) {
-        return nil;
-    }
+
     static BOOL bflag = false;
     UITableViewCell *cell = nil;
     if(!bflag) {
@@ -122,6 +127,10 @@
     else
     {
         cell = [tableView dequeueReusableCellWithIdentifier:@"NoDetail" forIndexPath:indexPath];
+    }
+    
+    if (!dic) {
+        return nil;
     }
     
     NSString *basePath = [dic objectForKey:@"basePath"];
@@ -142,48 +151,55 @@
     UIImage *img = [UIImage imageWithData:data];
     cell.imageView.image = img;
     
-    UIButton *lb = (UIButton*)[cell viewWithTag:-1];
+    
+    
+    
+    UIImageView *lb = (UIImageView*)[cell viewWithTag:-1];
     if (lb) {
-        [lb setUserInteractionEnabled:NO];
-        lb.tag = indexPath.row;
+        return cell;
     }
     else
     {
-        CGRect rc = [cell.imageView frame];
-        rc.origin.x = rc.origin.x + 200;
-        rc.origin.y += 10;
-        rc.size.height -= 20;
-        rc.size.width += 30;
-        
-        lb = [UIButton buttonWithType:UIButtonTypeCustom];
+        lb = [[UIImageView alloc] init];
+        UIImage *img = [UIImage imageNamed:@"mp3play.png"];
+        lb.image = img;
+        CGRect rc = CGRectMake(200, 5, 100, 30);
         [lb setFrame:rc];
-        [lb setBackgroundImage:[UIImage imageNamed:@"语音.png"] forState:UIControlStateNormal];
         lb.tag = -1;
-        [lb setUserInteractionEnabled:NO];
-        
-        [lb addTarget:self action:@selector(playvoice:) forControlEvents:UIControlEventTouchUpInside];
-        lb.tag = indexPath.row;
-        [cell.contentView addSubview:lb];
+        [cell addSubview:lb];
     }
     
+    
+    /*
     NSString *mp3path = [dictmp objectForKey:@"imitation_voice"];
-    NSString *mp3url = [mp3path stringByAppendingString:basePath];
+    NSString *mp3url = [basePath stringByAppendingString:mp3path];
     NSURL *urlmp3 = [NSURL URLWithString:mp3url];
     DBImageViewCache *pcache = [DBImageViewCache cache];
     NSString *dir = [pcache localDirectory];
     
+    mp3path = [mp3path lastPathComponent];
     dir = [dir stringByAppendingString:mp3path];
     
     
     ASIHTTPRequest *quest = [[ASIHTTPRequest alloc] initWithURL:urlmp3];
     [quest setDownloadDestinationPath:dir];
     [quest setDidFinishSelector:@selector(requestFinished1:)];
+    [quest setDidFailSelector:@selector(requestFailed1:)];
+    [quest startAsynchronous];
     quest.tag = indexPath.row;
+     */
     return cell;
 }
 
-- (void)playvoice:(UIButton*)sender
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self playvoice:indexPath.row];
+}
+
+
+- (void)playvoice:(NSInteger)row
+{
+ /*
     NSArray *parr = [dic objectForKey:@"voiceSquares"];
     NSDictionary *dictmp = [parr objectAtIndex:sender.tag];
     NSString *mp3path = [dictmp objectForKey:@"imitation_voice"];
@@ -193,6 +209,30 @@
     MyRecorder *recorder = [MyRecorder recorder];
     [recorder StopPlaying];
     [recorder PlayFile:dir];
+  */
+    NSString *basePath = [dic objectForKey:@"basePath"];
+    NSArray *parr = [dic objectForKey:@"voiceSquares"];
+    NSDictionary *dictmp = [parr objectAtIndex:row];
+    NSString *mp3path = [dictmp objectForKey:@"imitation_voice"];
+    mp3path = [basePath stringByAppendingString:mp3path];
+    
+    NSURL* url1 = [NSURL URLWithString:mp3path];
+    [mp3Player.moviePlayer setContentURL:url1];
+    [mp3Player.moviePlayer setMovieSourceType:MPMovieSourceTypeFile];
+    mp3Player.moviePlayer.repeatMode = MPMovieRepeatModeNone;
+    [mp3Player.moviePlayer prepareToPlay];
+    [mp3Player.moviePlayer play];
+    
+    /*
+    MyRecorder *recorder = [MyRecorder recorder];
+    [recorder StopPlaying];
+    [recorder PlayFile:mp3path];
+     */
+}
+
+- (void)requestFailed1:(ASIHTTPRequest*)request
+{
+    NSLog(@"Failed");
 }
 
 - (void)requestFinished1:(ASIHTTPRequest *)request
@@ -219,6 +259,17 @@
     [self LoadTitle:dic];
     [__tableView reloadData];
 }
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
+- (IBAction)goback:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 /*
 #pragma mark - Navigation

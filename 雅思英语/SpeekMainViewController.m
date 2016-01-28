@@ -9,7 +9,7 @@
 #import "SpeekMainViewController.h"
 #import "UIViewController+Json.h"
 #import "SubjectViewController.h"
-
+#import "SubjectLDViewController.h"
 @interface SpeekMainViewController ()
 {
     UIButton *lastBtn;
@@ -60,6 +60,23 @@
     NSInteger id1 = sender.tag + 1;
     NSString *ptmp = nil;
     if (id1 > 3) {
+        //
+        ptmp = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English/selectSomeHighlightExpressionClassifyByPaging?str=说&commonInt1=0&commonInt2=20"];
+        NSDictionary *dic = [self GetJson:ptmp];
+        NSString *Result = nil;
+        if (dic) {
+            Result = [dic objectForKey:@"Result"];
+            if ([Result isEqualToString:@"0"]) {
+                return;
+            }
+        }
+        
+        if (dic) {
+            SubjectLDViewController *ptmp1 = [self.storyboard instantiateViewControllerWithIdentifier:@"subldView"];
+            [ptmp1 setDic:dic];
+            ptmp1.itype = sender.tag;
+            [self.navigationController pushViewController:ptmp1 animated:YES];
+        }
         return;
     }
     else

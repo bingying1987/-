@@ -10,6 +10,9 @@
 #import "MyRecorder.h"
 #import "AppDelegate.h"
 #import "ASIFormDataRequest.h"
+
+
+
 @interface DisCoverViewController ()
 {
     NSTimer *tSpeak;
@@ -33,6 +36,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 - (void)timerfire:(NSTimer*)timer
 {
@@ -76,6 +81,10 @@
 
 
 - (IBAction)subjectQuestion:(id)sender {
+    if ([_title1.text isEqualToString:@""] || [_textContent.text isEqualToString:@""]) {
+        return;
+    }
+    
     if (bspeak6) {
         //上传
         //     [recoder PlayRecordingMP3];
@@ -105,6 +114,12 @@
         
     }
 }
+
+- (IBAction)bkclick:(id)sender {
+    [_title1 resignFirstResponder];
+    [_textContent resignFirstResponder];
+}
+
 
 
 /*

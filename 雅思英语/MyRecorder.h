@@ -30,7 +30,8 @@
 - (void)StopRecording;
 - (void)PlayRecording;//播放的是转换前的pcm格式
 - (void)PlayRecordingMP3;//播放mp3
-- (void)PlayFile:(NSString *)filePath;
+- (void)PlayFile:(NSString *)filePath;//播放本地音乐
+- (void)PlayNetFile:(NSString*)filePath;//播放网络音乐
 - (void)StopPlaying;
 - (NSString*)GetRecordFilePath;
 - (NSString*)GetRecordFilePathMP3;

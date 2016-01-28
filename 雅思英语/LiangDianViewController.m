@@ -9,6 +9,7 @@
 #import "LiangDianViewController.h"
 #import "UIViewController+Json.h"
 #import "AppDelegate.h"
+
 @interface LiangDianViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *tableView;
 @property (retain,nonatomic) UIImageView *otherimgContent;
@@ -116,7 +117,7 @@
             //传递错题接口
             AppDelegate *papp = [[UIApplication sharedApplication] delegate];
             NSString *strNum = papp.ph_num;
-            NSString *pstr = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English//saveOneWrongTopic?wrongTopic.moduleName=说&wrongTopic.subModuleName=组段&wrongTopic.titleNumber=%ld&str=%@",titleNum.integerValue,strNum];
+            NSString *pstr = [NSString stringWithFormat:@"http://192.168.1.231:8080/YaSi_English//saveOneWrongTopic?wrongTopic.moduleName=说&wrongTopic.subModuleName=亮点词句&wrongTopic.titleNumber=%ld&str=%@",titleNum.integerValue,strNum];
             [self GetJson:pstr];
             return FALSE;
         }
